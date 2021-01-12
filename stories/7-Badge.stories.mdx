@@ -1,0 +1,50 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Badge } from '../src/components/primitives'
+
+<Meta title="Badge" component={Badge} />
+
+# Badge
+Badge documentation.
+
+## Examples
+<br />
+
+### Default Badge
+<Preview>
+  <Story name="Default Badge">
+    <Badge value="99+" />
+  </Story>
+</Preview>
+
+### All Badge Intents
+<Preview>
+  <Story name="All Badge Intents">
+    <>
+      <div className="flex">
+        <Badge className="mr-2" value="99+" intent="blue" />
+        <Badge className="mr-2" value="99+" intent="green" />
+        <Badge className="mr-2" value="99+" intent="indigo" />
+        <Badge className="mr-2" value="99+" intent="orange" />
+        <Badge className="mr-2" value="99+" intent="pink" />
+        <Badge className="mr-2" value="99+" intent="purple" />
+        <Badge className="mr-2" value="99+" intent="red" />
+        <Badge className="mr-2" value="99+" intent="teal" />
+        <Badge className="mr-2" value="99+" intent="yellow" />
+      </div>
+      <div className="flex mt-2">
+        <Badge className="mr-2" value="99+" intent="blue" outline/>
+        <Badge className="mr-2" value="99+" intent="green" outline/>
+        <Badge className="mr-2" value="99+" intent="indigo" outline/>
+        <Badge className="mr-2" value="99+" intent="orange" outline/>
+        <Badge className="mr-2" value="99+" intent="pink" outline/>
+        <Badge className="mr-2" value="99+" intent="purple" outline/>
+        <Badge className="mr-2" value="99+" intent="red" outline/>
+        <Badge className="mr-2" value="99+" intent="teal" outline/>
+        <Badge className="mr-2" value="99+" intent="yellow" outline/>
+      </div>
+    </>
+  </Story>
+</Preview>
+
+## Props
+<Props of={Badge} />

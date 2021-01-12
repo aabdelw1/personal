@@ -1,0 +1,46 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { DefaultExampleContent, SampleHero } from './Layout.example'
+import { Layout } from '../src/Layout'
+
+<Meta title="Layout" component={Layout} />
+
+# Layout
+Layout documentation.
+
+## Examples
+<br />
+
+### Default Layout
+<Preview>
+  <Story name="Default Layout">
+    <Layout
+    title="Default Layout"
+    content={<DefaultExampleContent/>}
+     />
+  </Story>
+</Preview>
+
+### Layout with Hero
+<Preview>
+  <Story name="Layout with Hero">
+    <Layout
+    title="Layout with Hero"
+    hero={<SampleHero/>}
+    content={<DefaultExampleContent/>}
+     />
+  </Story>
+</Preview>
+
+### Layout Loading
+<Preview>
+  <Story name="Layout Loading">
+    <Layout
+    title="Layout Loading"
+    isLoading={true}
+    content={<DefaultExampleContent/>}
+     />
+  </Story>
+</Preview>
+
+## Props
+<Props of={Layout} />

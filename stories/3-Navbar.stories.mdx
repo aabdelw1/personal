@@ -1,0 +1,22 @@
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks'
+import { Navbar } from '../src/Layout'
+
+<Meta title="Navbar" component={Navbar} />
+
+# Navbar
+Navbar documentation.
+
+## Examples
+<br />
+
+### Default Navbar
+<Preview>
+  <Story name="Default Navbar">
+    <div className="h-16">
+      <Navbar page="Deployments" user={{ attuid: 'jp789v', full_name: 'Jacob Paisley' }} notifications={[]} />
+    </div>
+  </Story>
+</Preview>
+
+## Props
+<Props of={Navbar} />
