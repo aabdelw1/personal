@@ -73,7 +73,7 @@ export const Home = () => {
 			<StarterDescription weight="light">
 					An opinionated <p>gatsby starter</p> with <p>apollo graphql</p> integration. Happy coding! 
 				<div>
-					<Author>created by <Link href="https://topedaramola.com">toped</Link></Author>
+					<Author>created by <Link href="https://topedaramola.com">Ammar </Link></Author>
 				</div>
 			</StarterDescription>
 			<Icons>
