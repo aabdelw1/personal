@@ -6,7 +6,7 @@ const AmmarPage = () => {
 
 	return (
 		<Layout
-			title="Example API"
+			title="Ammar"
 			content={<AboutPage/>}
 
 		/>
