@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 This is a readME
 =======
+=======
+>>>>>>> Initial commit from gatsby: (https://github.com/toped/gatsby-apollo-starter.git)
 
 # Gatsby Starter with Apollo Client Integration
 Starter repository for a Gatsby site communicating with a GraphQL backend. This project uses Apollo Client to request and cache your data, as well as update your UI. 
@@ -58,4 +61,7 @@ Zeit: [https://gatsby-apollo-starter.now.sh](https://gatsby-apollo-starter.now.s
     ```sh
     gatsby develop
     ```
+<<<<<<< HEAD
+>>>>>>> Initial commit from gatsby: (https://github.com/toped/gatsby-apollo-starter.git)
+=======
 >>>>>>> Initial commit from gatsby: (https://github.com/toped/gatsby-apollo-starter.git)
