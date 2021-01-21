@@ -4,7 +4,7 @@
 /* Document
    ========================================================================== */
 
-
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /**
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -129,7 +129,8 @@ strong {
 code,
 kbd,
 samp {
-    font-family: monospace, monospace;
+    /* font-family: monospace, monospace; */
+    font-family: 'Raleway', sans-serif; 
     /* 1 */
     font-size: 1em;
     /* 2 */
