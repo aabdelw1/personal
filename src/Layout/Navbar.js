@@ -9,6 +9,7 @@ import { ThemeProvider } from '../Layout'
 
 const Container = styled(Navbar)`
 	&& {
+		/* mpadding:14rem; */
 		box-shadow: ${({ boxshadow }) => boxshadow};
 		background: ${({theme}) => theme.grey_6};
 	}

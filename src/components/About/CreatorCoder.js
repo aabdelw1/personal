@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   max-height: 65vh;
   height:65vh;
-  margin-top: 7rem;
+  margin-top: 3rem;
   padding:6rem;
   box-shadow: 0 2px 3px #dddddd;
 `

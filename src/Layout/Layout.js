@@ -9,7 +9,8 @@ import Footer from './Footer'
 import { LoadingMessages } from '../../utils/models'
 
 const Container = styled.div`
-	background: ${({theme}) => theme.grey_6};
+	/* background: ${({theme}) => theme.grey_6}; */
+	background: white;
 `
 
 const Hero = styled.div`

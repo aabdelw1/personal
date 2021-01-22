@@ -10,34 +10,32 @@ const Container = styled.div`
   display: flex;
   max-height: 65vh;
   height:65vh;
-  /* padding: 3rem 4rem 0px; */
-  /* align-items:center; */
   box-shadow: 0 2px 3px #dddddd;
 `
 
 const Column = styled.div`
   display:flex;
-  :last-of-type {
-    width: 40%;
-    align-items: center;
-    margin-left: 4rem;
-  }
   :first-of-type {
     width: 60%;
     justify-content: flex-end;
     align-items: flex-end;
   }
+  :last-of-type {
+    width: 40%;
+    align-items: center;
+    margin-left: 4rem;
+  }
+
 `
 
 const ImgBox = styled.div`
-      max-width:80vh;
+  max-width:80vh;
 
 `
 
 const Header = styled(Typography)`
   color: #000;
   font-size: 30px;
-  font-family: 'Raleway', sans-serif;
   margin: 25px 0;
 `
 
@@ -63,11 +61,12 @@ const RandomFacts = () => {
 			<Column>
 				<Pane display="flex" flexDirection="column">
 					<Header weight="normal">Random Facts</Header>
-					<Description>Front-end development</Description>
-					<Description>HTML / CSS / JS</Description>
-					<Description>Python / Machine Learning</Description>
-					<Description>Backend design</Description>
-					<Description>That 💡 moment</Description>
+					<Description>I play alot of piano</Description>
+					<Description>I like to draw</Description>
+					<Description>I make the best cookies </Description>
+					<Description>I&quot;m a neat freak</Description>
+					<Description>I love sci fi movies</Description>
+					<Description>I&quot;m addicted to Chick-fil-A</Description>
 				</Pane>
 			</Column> 
 		</Container> 
