@@ -7,23 +7,32 @@ import Ghidorah from '../../assets/img/ghidorah.png'
 
 
 const Container = styled.div`
-  display: flex;
-  max-height: 65vh;
-  height:65vh;
-  box-shadow: 0 2px 3px #dddddd;
+  max-height: 35rem;
+  height:35rem;
+	box-shadow: 0 2px 3px #dddddd;
+`
+
+const MiddleConsole = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width:65rem;
+	max-width: 80rem;
+	display:flex;
+	justify-content:center;
+	height:100%;
 `
 
 const Column = styled.div`
   display:flex;
   :first-of-type {
-    width: 60%;
+    width: 68%;
     justify-content: flex-end;
-    align-items: flex-end;
+		align-items: flex-end;
   }
   :last-of-type {
-    width: 40%;
-    align-items: center;
-    margin-left: 4rem;
+    width: 32%;
+		align-items: center;
+		justify-content: center;
   }
 
 `
@@ -53,22 +62,25 @@ const RandomFacts = () => {
   
 	return (
 		<Container>
-			<Column>
-				<ImgBox>
-					<img src={Ghidorah}/>
-				</ImgBox>
-			</Column>
-			<Column>
-				<Pane display="flex" flexDirection="column">
-					<Header weight="normal">Random Facts</Header>
-					<Description>I play alot of piano</Description>
-					<Description>I like to draw</Description>
-					<Description>I make the best cookies </Description>
-					<Description>I&quot;m a neat freak</Description>
-					<Description>I love sci fi movies</Description>
-					<Description>I&quot;m addicted to Chick-fil-A</Description>
-				</Pane>
-			</Column> 
+			<MiddleConsole>
+				<Column>
+					<ImgBox>
+						<img src={Ghidorah}/>
+					</ImgBox>
+				</Column>
+				<Column>
+					<Pane display="flex" flexDirection="column">
+						<Header weight="normal">Random Facts</Header>
+						<Description>I play alot of piano</Description>
+						<Description>I like to draw</Description>
+						<Description>I make the best cookies </Description>
+						<Description>I&quot;m a neat freak</Description>
+						<Description>I love snowbording</Description>
+						<Description>I love sci fi movies</Description>
+						<Description>I&quot;m addicted to Chick-fil-A</Description>
+					</Pane>
+				</Column> 
+			</MiddleConsole>
 		</Container> 
 	)
 }

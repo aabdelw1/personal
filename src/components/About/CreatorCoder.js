@@ -7,32 +7,38 @@ import CreatorCoderImg from '../../assets/img/creator_coder.png'
 
 
 const Container = styled.div`
-  display: flex;
-  max-height: 65vh;
-  height:65vh;
-  margin-top: 3rem;
-  padding:6rem;
-  box-shadow: 0 2px 3px #dddddd;
+  max-height: 35rem;
+  height:35rem;
+	box-shadow: 0 2px 3px #dddddd,  0 -2px 3px #dddddd;
+	background-color: #fafafa;
+`
+
+const MiddleConsole = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width:65rem;
+	max-width: 80rem;
+	display:flex;
+	justify-content:center;
+	height:100%;
 `
 
 const Column = styled.div`
-  display:flex;
-  flex: 1; 
-  margin-right: 1rem;
-  justify-content:center;
+	display:flex;
+	flex:1;
+  
+	justify-content:center;
 	align-items:center;
   :last-of-type {
-    margin-right: 7rem;
-  }
+		justify-content: flex-end;
+	}
   :first-of-type {
-    margin-left: 7rem;
+		justify-content: flex-start;
   }
-
-  justify-content:center;
 `
 
 const ImgBox = styled.div`
-  max-width:35vh;
+  /* max-width:35vh; */
 `
 
 const Header = styled(Typography)`
@@ -56,31 +62,33 @@ const CreatorCoder = () => {
   
 	return (
 		<Container>
-			<Column>
-				<Pane display="flex" flexDirection="column">
-					<Header weight="normal">Part Creator</Header>
-					<Description>UI/UX design</Description>
-					<Description>&quot;Borrowing&quot; ideas</Description>
-					<Description>Drawing attention</Description>
-					<Description>Free hand sketching</Description>
-					<Description>Musician</Description>
-				</Pane> 
-			</Column> 
-			<Column>
-				<ImgBox>
-					<img src={CreatorCoderImg}/>
-				</ImgBox>
-			</Column>
-			<Column>
-				<Pane display="flex" flexDirection="column">
-					<Header weight="normal">Part Coder</Header>
-					<Description>Front-end development</Description>
-					<Description>HTML / CSS / JS</Description>
-					<Description>Python / Machine Learning</Description>
-					<Description>Backend design</Description>
-					<Description>That 💡 moment</Description>
-				</Pane>
-			</Column> 
+			<MiddleConsole>
+				<Column>
+					<Pane display="flex" flexDirection="column">
+						<Header weight="normal">Part Creator</Header>
+						<Description>UI/UX design</Description>
+						<Description>&quot;Borrowing&quot; ideas</Description>
+						<Description>Drawing attention</Description>
+						<Description>Free hand sketching</Description>
+						<Description>Musician</Description>
+					</Pane> 
+				</Column> 
+				<Column>
+					<ImgBox>
+						<img src={CreatorCoderImg}/>
+					</ImgBox>
+				</Column>
+				<Column>
+					<Pane display="flex" flexDirection="column">
+						<Header weight="normal">Part Coder</Header>
+						<Description>Front-end development</Description>
+						<Description>HTML / CSS / JS</Description>
+						<Description>Python / ML</Description>
+						<Description>Backend design</Description>
+						<Description>That 💡 moment</Description>
+					</Pane>
+				</Column> 
+			</MiddleConsole>
 		</Container> 
 	)
 }

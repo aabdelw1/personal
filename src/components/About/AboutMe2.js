@@ -4,7 +4,6 @@ import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
-import art from '../../assets/img/about_slide/art.png'
 
 
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
@@ -12,11 +11,12 @@ const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
 
 const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
-  max-height: 45rem;
+  max-height: 44.9rem;
   height:44.9rem;
+  /* border-bottom: 1px solid #dddddd; */
 
 `
-const RowContainer = styled.div`
+const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:65rem;
@@ -78,20 +78,19 @@ const AboutMe2 = () => {
   
 	return (
 		<AboutMeContainer>
-			<RowContainer>
+			<MiddleConsole>
 				<Column>
-       		<Pane display="flex" flexDirection="column" marginRight="4rem">
+       		<Pane display="flex" flexDirection="column">
 						<AboutBlock weight="bold">About Me </AboutBlock>
-						<SubText>I&quot;m a software engineer based in cowboy country Dallas, Texas</SubText>
-						<Description weight="thin">In the beginning, the world was shrouded in fog and nothing ever really happened, it was ruled by the everlasting dragons neither alive nor dead they just
-were. This was the age of ancients. </Description>
+						<SubText>I&quot;m a software engineer based in cowboy country Dallas, Texas.</SubText>
+						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&quot;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
 					</Pane>
 				</Column>
 				<Column>
 					<img src={AmmarAbout}/>
 				</Column>
-			</RowContainer>
-			<RowContainer>
+			</MiddleConsole>
+			<MiddleConsole>
 				<Pane display="flex" marginTop="2rem" justifyContent="center">
 					{
 						aboutMeImgs.map((name, index) => {
@@ -118,7 +117,7 @@ were. This was the age of ancients. </Description>
 						})
 					}
 				</Pane>
-			</RowContainer>
+			</MiddleConsole>
 		</AboutMeContainer>
 	)
 }
