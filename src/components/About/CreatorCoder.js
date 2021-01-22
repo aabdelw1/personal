@@ -7,8 +7,8 @@ import CreatorCoderImg from '../../assets/img/creator_coder.png'
 
 
 const Container = styled.div`
-  max-height: 35rem;
-  height:35rem;
+  max-height: 38rem;
+  height:38rem;
 	box-shadow: 0 2px 3px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
 `

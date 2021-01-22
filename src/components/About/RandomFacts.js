@@ -7,9 +7,9 @@ import Ghidorah from '../../assets/img/ghidorah.png'
 
 
 const Container = styled.div`
-  max-height: 35rem;
-  height:35rem;
-	box-shadow: 0 2px 3px #dddddd;
+  max-height: 38rem;
+  height:38rem;
+	box-shadow: 0 4px 6px #dddddd;
 `
 
 const MiddleConsole = styled.div`
