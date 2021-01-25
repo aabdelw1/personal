@@ -132,7 +132,7 @@ const BarInfo = styled(Typography)`
 
 `
 
-const Skills = () => {
+const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
@@ -206,4 +206,4 @@ const Skills = () => {
 	)
 }
 
-export default Skills
+export default LatestWork

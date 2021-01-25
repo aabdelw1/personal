@@ -9,6 +9,7 @@ import AmmarAbout from '../../assets/img/ammar_about.png'
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
 
 
+
 const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 44.9rem;
@@ -31,7 +32,24 @@ const MiddleConsole = styled.div`
     justify-content: center;
     
   }
-
+`
+const Pictures = styled.div`
+		@keyframes slideInFromBottom {
+			0% {
+				transform: translateY(80%);
+				opacity: 0;
+			}
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+		:nth-child(1){animation: slideInFromBottom 0.2s 0.1s ease-in-out;}
+    :nth-child(2){animation: slideInFromBottom 0.2s 0.3s ease-in-out; } 
+    :nth-child(3){animation: slideInFromBottom 0.2s 0.6s ease-in-out;}
+    :nth-child(4){animation: slideInFromBottom 0.2s 0.9s ease-in-out;}
+    :nth-child(5){animation: slideInFromBottom 0.2s 1.2s ease-in-out; }
+		:nth-child(6){animation: slideInFromBottom 0.2s 1.5s ease-in-out; }
 `
 const Column = styled.div`
   display:flex;
@@ -74,6 +92,7 @@ const Description = styled(Typography)`
 const AboutMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
+
   
   
 	return (
@@ -95,24 +114,25 @@ const AboutMe = () => {
 					{
 						aboutMeImgs.map((name, index) => {
 							return (
-								<Pane
-									key={index}
-									elevation={2}
-									float="left"
-									borderRadius=".2rem"
-									width={150}
-									height={85}
-									border="default"
-									marginLeft={index == 0 ? 0 : 28}
-									display="flex"
-									justifyContent="center"
-									alignItems="center"
-									flexDirection="column"
-								>
-									<Pane padding={5}>
+								<Pictures key={index}>
+									<Pane
+										elevation={2}
+										float="left"
+										borderRadius=".2rem"
+										width={150}
+										height={85}
+										border="default"
+										marginLeft={index == 0 ? 0 : 28}
+										display="flex"
+										justifyContent="center"
+										alignItems="center"
+										flexDirection="column"
+										padding = {5}
+									>
 										<img src={require(`../../assets/img/about_slide/${name}.png`)}/>
 									</Pane>
-								</Pane>
+								</Pictures>
+
 							)
 						})
 					}
