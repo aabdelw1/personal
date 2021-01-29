@@ -14,6 +14,7 @@ const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 44.9rem;
   height:44.9rem;
+	/* background-color: ${props => props.theme.blue}; */
   /* border-bottom: 1px solid #dddddd; */
 
 `

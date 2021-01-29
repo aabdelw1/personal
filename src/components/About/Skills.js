@@ -64,10 +64,6 @@ const SkillRows = styled.div`
     margin-top:-3px;
   }
 `
-const Graph = styled.div`
-  /* z-index: -1; */
-  /* position: absolute; */
-`
 
 const BarsContainer = styled.div`
     /* display:block; */
