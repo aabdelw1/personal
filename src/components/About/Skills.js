@@ -107,25 +107,22 @@ const Bars = styled.div`
 `
 
 const BarInfo = styled(Typography)`
+  color: white;
+  text-shadow: 0 -1px 1px #a3a3a3;
   :first-of-type{
     display:flex;
     align-items:center;
-    color: white;
     opacity: 0.4;
 	  font-size: 60px;
     margin-bottom:0.5rem;
-    text-shadow: 0 -1px 1px #a3a3a3;
-    p:first-of-type{
+    p {
       font-size: 30px
     }
   }
   :last-of-type{
-    color: white;
 	  font-size: 15px;
     margin-bottom:2rem;
-    text-shadow: 0 -1px 1px #a3a3a3
   }
-
 `
 
 const Skills = () => {
@@ -136,30 +133,24 @@ const Skills = () => {
 		{
 			skill: 'Coffee Drinking',
 			color: '#fcd0a1',
-			height: '95%',
-			numeric: '95'
+			height: '95%'
 		},{
 			skill: 'React',
 			color: '#b1b695',
-			height: '90%',
-			numeric: '90'
+			height: '90%'
 		},{
 			skill: 'Sketch',
 			color: '#a690a4',
-			height: '95%',
-			numeric: '95'
+			height: '95%'
 		},{
 			skill: 'Procreate',
 			color: '#5e4b56',
-			height: '75%',
-			numeric: '75'
+			height: '75%'
 		},{
 			skill: 'Yoga',
 			color: '#afd2e9',
-			height: '40%',
-			numeric: '40'
+			height: '40%'
 		}
-
 	]
   
 	return (
@@ -182,7 +173,7 @@ const Skills = () => {
 								return (
 									<Bars color={item.color} height={item.height} key={1}>
 										<BarInfo color={item.color}>
-											{item.numeric}<p>%</p>
+											{item.height.split('%')[0]}<p>%</p>
 										</BarInfo>
 										<BarInfo>{item.skill}</BarInfo>
 									</Bars>)
@@ -194,9 +185,7 @@ const Skills = () => {
 							return (<Rows key={index}></Rows>)
 						})
 					}
-
 				</Column>
-
 			</MiddleConsole>
 		</Container> 
 	)

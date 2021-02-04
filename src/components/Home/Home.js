@@ -88,7 +88,7 @@ const ImageColumn = styled.div`
 		width:50%;
 		/* width:${props => props.width}; */
 		img {
-			transition: object-position .5s ease;
+			transition: object-position 0.8s ease-out;
 
 			height: 40rem;
 			object-fit:cover;
@@ -103,7 +103,7 @@ const ImageColumn = styled.div`
 
 		/* width : ${props => props.width}; */
 		img {
-			transition: object-position 0.5s ease;
+			transition: object-position 0.8s ease-out;
 
 			height: 40rem;
 			object-fit:cover;
@@ -143,7 +143,7 @@ const Home = () => {
 
 		const shiftEnd = midpoint*0.1
 		const shiftRange = (midpoint - shiftEnd)
-		const shiftAspect = 1 / (shiftRange / 0.1 )
+		const shiftAspect = 100 / (shiftRange)
 
 		// if ( shiftEnd < mouse.x && mouse.x < (width - shiftEnd)){
 		// 	if(positionSide == 'Left'){
@@ -154,8 +154,8 @@ const Home = () => {
 		// 		setImgWidths([100 - RightWidth, +RightWidth])
 		// 	}
 		// }
-		const postionAspectL = 1 / (shiftRange / 12 )
-		const postionAspectR = 1 / (shiftRange / -12 )
+		const postionAspectL = 13 / (shiftRange)
+		const postionAspectR = -13 / (shiftRange)
 
 		if (0 < mouse.x && mouse.x < width){
 			const opacity =  (1 - ((midpoint - mouse.x) * (2/shiftRange))).toFixed(1)

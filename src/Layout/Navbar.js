@@ -30,7 +30,8 @@ const ThemedLink = styled(Link)`
 const NavbarLinks = [
 	{ name: 'Gatsby', link: '/' },
 	{ name: 'Home', link: '/home' },
-	{ name: 'About', link: '/ammar' }
+	{ name: 'About', link: '/ammar' },
+	{ name: 'Portfolio', link: '/portfolio'}
 ]
 
 const _ = ({

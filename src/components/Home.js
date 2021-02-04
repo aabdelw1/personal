@@ -53,7 +53,7 @@ const Author = styled(Typography)`
 	a {
 		font-size: 24px !important;
 		color: inherit !important;
-		text-decoration: none;
+		/* text-decoration: none; */
 	}
 `
 const Plus = styled(Typography)`
