@@ -1,9 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import CreatorCoderImg from '../../assets/img/creator_coder.png'
+import useOnScreen from '../primitives/UseOnScreen'
+
 
 
 const Container = styled.div`
@@ -24,7 +26,8 @@ const MiddleConsole = styled.div`
 `
 
 const Column = styled.div`
-	display:flex;
+		display:flex;
+
 	flex:1;
   
 	justify-content:center;
@@ -35,6 +38,17 @@ const Column = styled.div`
   :first-of-type {
 		justify-content: flex-start;
   }
+`
+
+const AnimationBox = styled.div`
+	display:flex;
+
+	margin-top: ${props => props.pos};
+	opacity: ${props => props.opac};
+	transition: margin-top, opacity;
+	transition-duration: 0.6s;
+	transition-delay: 1s;
+	transition-timing-function: ease-in-out; 
 `
 
 const ImgBox = styled.div`
@@ -59,35 +73,52 @@ const Description = styled(Typography)`
 const CreatorCoder = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
+	const [containerOffset, setContainerOffset] = useState('10rem')
+	const [opac, setOpac] = useState('0')
+
+	const ref = useRef()
+	const isVisible = useOnScreen(ref)
+
+
+	useEffect(() => {
+		if(isVisible){
+			setContainerOffset('0rem') 
+			setOpac('1')
+		}
+	}, [isVisible])
+
+
   
 	return (
-		<Container>
+		<Container ref={ref}>
 			<MiddleConsole>
-				<Column>
-					<Pane display="flex" flexDirection="column">
-						<Header weight="normal">Part Creator</Header>
-						<Description>UI/UX design</Description>
-						<Description>&quot;Borrowing&quot; ideas</Description>
-						<Description>Drawing attention</Description>
-						<Description>Free hand sketching</Description>
-						<Description>Musician</Description>
-					</Pane> 
-				</Column> 
-				<Column>
-					<ImgBox>
-						<img src={CreatorCoderImg}/>
-					</ImgBox>
-				</Column>
-				<Column>
-					<Pane display="flex" flexDirection="column">
-						<Header weight="normal">Part Coder</Header>
-						<Description>Front-end development</Description>
-						<Description>HTML / CSS / JS</Description>
-						<Description>Python / ML</Description>
-						<Description>Backend design</Description>
-						<Description>That 💡 moment</Description>
-					</Pane>
-				</Column> 
+				<AnimationBox pos={containerOffset} opac={opac}>
+					<Column>
+						<Pane display="flex" flexDirection="column">
+							<Header weight="normal">Part Creator</Header>
+							<Description>UI/UX design</Description>
+							<Description>&quot;Borrowing&quot; ideas</Description>
+							<Description>Drawing attention</Description>
+							<Description>Free hand sketching</Description>
+							<Description>Musician</Description>
+						</Pane> 
+					</Column> 
+					<Column>
+						<ImgBox>
+							<img src={CreatorCoderImg}/>
+						</ImgBox>
+					</Column>
+					<Column>
+						<Pane display="flex" flexDirection="column">
+							<Header weight="normal">Part Coder</Header>
+							<Description>Front-end development</Description>
+							<Description>HTML / CSS / JS</Description>
+							<Description>Python / ML</Description>
+							<Description>Backend design</Description>
+							<Description>That 💡 moment</Description>
+						</Pane>
+					</Column> 
+				</AnimationBox>
 			</MiddleConsole>
 		</Container> 
 	)

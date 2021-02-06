@@ -80,12 +80,12 @@ const LatestWork = () => {
 			</MiddleConsole>
 			<MiddleConsole>
 				<Pane marginTop="2rem" display="flex">
-				{
-          cardInfo.map((project, index) => {
+					{
+						cardInfo.map((project, index) => {
 					 return(	<Card project={project} key={index} />)
-          })
-        }
-</Pane>
+						})
+					}
+				</Pane>
 			</MiddleConsole>
 		</Container> 
 	)
