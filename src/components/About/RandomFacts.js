@@ -1,9 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import Ghidorah from '../../assets/img/ghidorah.png'
+import useOnScreen from '../primitives/UseOnScreen'
 
 
 const Container = styled.div`
@@ -24,12 +25,19 @@ const MiddleConsole = styled.div`
 
 const Column = styled.div`
   display:flex;
+	transition: margin-left, opacity;
+	transition-duration: 0.8s;
+	transition-delay: 0.8s;
+	transition-timing-function: ease-in-out; 
   :first-of-type {
+		margin-left: ${props => props.pos};
+		opacity: ${props => props.opac};
     width: 68%;
     justify-content: flex-end;
 		align-items: flex-end;
   }
   :last-of-type {
+		margin-left: ${props => props.pos};
     width: 32%;
 		align-items: center;
 		justify-content: center;
@@ -59,16 +67,30 @@ const Description = styled(Typography)`
 const RandomFacts = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
+
+	const [containerOffset, setContainerOffset] = useState('20rem')
+	const [opac, setOpac] = useState('0')
+
+	const ref = useRef()
+	const isVisible = useOnScreen(ref)
+
+
+	useEffect(() => {
+		if(isVisible){
+			setContainerOffset('0rem') 
+			setOpac('1')
+		}
+	}, [isVisible]) 
   
 	return (
-		<Container>
+		<Container >
 			<MiddleConsole>
-				<Column>
+				<Column pos={'-' + containerOffset} opac={opac} ref={ref}>
 					<ImgBox>
 						<img src={Ghidorah}/>
 					</ImgBox>
 				</Column>
-				<Column>
+				<Column pos={containerOffset}>
 					<Pane display="flex" flexDirection="column">
 						<Header weight="normal">Random Facts</Header>
 						<Description>I play alot of piano</Description>

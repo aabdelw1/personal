@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
+import useOnScreen from '../primitives/UseOnScreen'
+
 
 
 const Container = styled.div`
@@ -77,7 +79,11 @@ const BarsContainer = styled.div`
 
 `
 const Bars = styled.div`
-  /* background-color: ${props => props.color}; */
+	transition: height, opacity;
+	transition-duration: 0.6s;
+	transition-delay: ${props => props.time};
+	transition-timing-function: ease-out; 
+
   height: ${props => props.height};
   background: linear-gradient(white, 1%, ${props => props.color});
   width:100%;
@@ -89,25 +95,16 @@ const Bars = styled.div`
   display:flex;
   flex-direction:column;
 
-  		@keyframes expand {
-			0% {
-				height: 0%;
-			}
-			100% {
-				hieght:100%;
-			}
-		}
-
-    :nth-child(1){animation: expand 1s -.6s ease-in-out;}
-    :nth-child(2){animation: expand 1s -.3s ease-in-out; } 
-    :nth-child(3){animation: expand 1s 0s ease-in-out;}
-    :nth-child(4){animation: expand 1s  .3s ease-in-out;}
-    :nth-child(5){animation: expand 1s  .6s ease-in-out; }
-
 `
 
 const BarInfo = styled(Typography)`
+
+  transition: opacity;
+	transition-duration: 0.6s;
+	transition-delay: 2s;
+	transition-timing-function: ease-in-out; 
   color: white;
+  opacity: ${props => props.opac};
   text-shadow: 0 -1px 1px #a3a3a3;
   :first-of-type{
     display:flex;
@@ -128,7 +125,12 @@ const BarInfo = styled(Typography)`
 const Skills = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
+  const [pos, setPos] = useState(['0%', '0%','0%', '0%','0%'])
+  const [opac, setOpac] = useState('0')
+	const ref = useRef()
+	const isVisible = useOnScreen(ref)
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
+
 	const skills = [
 		{
 			skill: 'Coffee Drinking',
@@ -153,6 +155,19 @@ const Skills = () => {
 		}
 	]
   
+	useEffect(() => {
+		if(isVisible){
+			const arr = []
+			for(var i=0; i < skills.length; i++){
+				const item = skills[i].height
+				arr.push(item)
+			}
+      setPos(arr)
+      setOpac('1')
+		}
+	}, [isVisible])
+  
+  
 	return (
 		<Container>
 			<MiddleConsole weight="normal">
@@ -166,13 +181,14 @@ const Skills = () => {
 						})
 					}
 				</Column>
-				<Column>
+				<Column ref={ref}> 
 					<BarsContainer>
 						{
 							skills.map((item, index) => {
+								const time = ((index + 1) * 0.30).toString() + 's'
 								return (
-									<Bars color={item.color} height={item.height} key={1}>
-										<BarInfo color={item.color}>
+									<Bars color={item.color} height={pos[index]} time={time} key={index}>
+										<BarInfo color={item.color} opac={opac}>
 											{item.height.split('%')[0]}<p>%</p>
 										</BarInfo>
 										<BarInfo>{item.skill}</BarInfo>

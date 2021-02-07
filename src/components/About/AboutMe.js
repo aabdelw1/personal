@@ -28,7 +28,7 @@ const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:65rem;
-  max-width: 80rem;
+  /* max-width: 80rem; */
   display:flex;
 	transition: margin-top 1s 3s ease-in-out;
 
@@ -43,44 +43,28 @@ const MiddleConsole = styled.div`
   }
 `
 const Pictures = styled.div`
-		margin-top: ${props => props.pos};
-		opacity: ${props => props.opac};
-		transition: margin-top, opacity;
-		transition-duration: 0.2s;
-		transition-delay: ${props => props.time};
-		transition-timing-function: ease-in-out; 
-
-
-
-
-		/* margin-right: ${props => props.visible ? '0rem' :  '14rem'};
-		transition: opacity 3s 1.5s ease-in-out; */
-		/* opacity: ${props => props.visible ? '0' :  '1'}; */
-		 /* @keyframes slideInFromBottom {
-			0% {
-				transform: translateY(80%);
-				opacity: 0;
-			}
-			100% {
-				transform: translateY(0);
-				opacity: 1;
-			}
-		}  */
-		/* :nth-child(1){animation: slideInFromBottom 0.2s 0.1s ease-in-out;}
-    :nth-child(2){animation: slideInFromBottom 0.2s 0.3s ease-in-out; } 
-    :nth-child(3){animation: slideInFromBottom 0.2s 0.6s ease-in-out;}
-    :nth-child(4){animation: slideInFromBottom 0.2s 0.9s ease-in-out;}
-    :nth-child(5){animation: slideInFromBottom 0.2s 1.2s ease-in-out; }
-		:nth-child(6){animation: slideInFromBottom 0.2s 1.5s ease-in-out; }  */
+	margin-top: ${props => props.pos};
+	opacity: ${props => props.opac};
+	transition: margin-top, opacity;
+	transition-duration: 0.2s;
+	transition-delay: ${props => props.time};
+	transition-timing-function: ease-in-out; 
 `
 const Column = styled.div`
+	transition: margin-left, opacity;
+	transition-duration: 0.6s;
+	transition-delay: 0s;
+	transition-timing-function: ease-in-out; 
   display:flex;
   :first-of-type {
+		margin-left:${props => props.pos};
+		opacity: ${props => props.opac};
     width: 40%;
     justify-content: flex-end;
     align-items: center;
   }
   :last-of-type {
+		margin-left: ${props => props.pos};
     width: 60%;
     max-width:90vh;
     justify-content: flex-end;
@@ -93,13 +77,13 @@ const AboutBlock = styled(Typography)`
   font-size: 70px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
-	animation: fade 0.6s east-in;
+	/* animation: fade 0.6s east-in;
 
 	@keyframes fade {
 		0% {
 			opacity: 0;
 		}
-	}
+	} */
  
   p:first-of-type {
     display: inline;
@@ -120,6 +104,7 @@ const Description = styled(Typography)`
 
 const AboutMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [aboutPos, setAboutPos] = useState('25rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [theme] = themeCtx
@@ -129,6 +114,7 @@ const AboutMe = () => {
 	useEffect(() => {
 		if(isVisible){
 			setPicturePos('0rem') 
+			setAboutPos('0rem')
 			setOpac('1')
 		}
 	}, [isVisible])
@@ -137,14 +123,14 @@ const AboutMe = () => {
 	return (
 		<AboutMeContainer ref={ref}>
 			<MiddleConsole>
-				<Column>
+				<Column pos={'-' + aboutPos} opac={opac}>
        		<Pane display="flex" flexDirection="column">
 						<AboutBlock weight="bold">About Me </AboutBlock>
 						<SubText>I&quot;m a software engineer based in cowboy country Dallas, Texas.</SubText>
 						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&quot;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
 					</Pane>
 				</Column>
-				<Column>
+				<Column pos={aboutPos}>
 					<img src={AmmarAbout}/>
 				</Column>
 			</MiddleConsole>
@@ -152,12 +138,13 @@ const AboutMe = () => {
 				<Pane display="flex" marginTop="2rem" justifyContent="center">
 					{
 						isVisible && aboutMeImgs.map((name, index) => {
-							const time = (index * 0.25).toString() + 's'
+							const time = ((index + 1.8) * 0.25).toString() + 's'
 							return (
 								<Pictures key={index} pos={picturePos} opac={opac} time={time}>
 									<Pane
-										elevation={2}
+										elevation={1}
 										float="left"
+										hoverElevation={2}
 										borderRadius=".2rem"
 										width={150}
 										height={85}
