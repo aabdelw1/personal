@@ -1,10 +1,11 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import Ghidorah from '../../assets/img/ghidorah.png'
 import useOnScreen from '../primitives/UseOnScreen'
+import { useInView } from 'react-intersection-observer'
 
 
 const Container = styled.div`
@@ -26,9 +27,9 @@ const MiddleConsole = styled.div`
 const Column = styled.div`
   display:flex;
 	transition: margin-left, opacity;
-	transition-duration: 0.8s;
-	transition-delay: 0.8s;
-	transition-timing-function: ease-in-out; 
+	transition-duration: 0.6s;
+	transition-delay: 0.5s;
+	transition-timing-function: ease-out; 
   :first-of-type {
 		margin-left: ${props => props.pos};
 		opacity: ${props => props.opac};
@@ -42,7 +43,6 @@ const Column = styled.div`
 		align-items: center;
 		justify-content: center;
   }
-
 `
 
 const ImgBox = styled.div`
@@ -66,26 +66,27 @@ const Description = styled(Typography)`
 
 const RandomFacts = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [ref, inView] = useInView()
 	const [theme] = themeCtx
 
 	const [containerOffset, setContainerOffset] = useState('20rem')
 	const [opac, setOpac] = useState('0')
 
-	const ref = useRef()
-	const isVisible = useOnScreen(ref)
+	// const ref = useRef()
+	// const isVisible = useOnScreen(ref)
 
 
 	useEffect(() => {
-		if(isVisible){
+		if(inView){
 			setContainerOffset('0rem') 
 			setOpac('1')
 		}
-	}, [isVisible]) 
+	}, [inView]) 
   
 	return (
-		<Container >
+		<Container>
 			<MiddleConsole>
-				<Column pos={'-' + containerOffset} opac={opac} ref={ref}>
+				<Column pos={'-' + containerOffset} opac={opac} >
 					<ImgBox>
 						<img src={Ghidorah}/>
 					</ImgBox>
@@ -93,13 +94,13 @@ const RandomFacts = () => {
 				<Column pos={containerOffset}>
 					<Pane display="flex" flexDirection="column">
 						<Header weight="normal">Random Facts</Header>
-						<Description>I play alot of piano</Description>
+						<Description>I play a lot of piano</Description>
 						<Description>I like to draw</Description>
-						<Description>I make the best cookies </Description>
-						<Description>I&quot;m a neat freak</Description>
+						<Description><span ref={ref}>I make the best cookies</span></Description>
+						<Description>I&#39;m a neat freak</Description>
 						<Description>I love snowbording</Description>
 						<Description>I love sci fi movies</Description>
-						<Description>I&quot;m addicted to Chick-fil-A</Description>
+						<Description>I&#39;m addicted to Chick-fil-A</Description>
 					</Pane>
 				</Column> 
 			</MiddleConsole>

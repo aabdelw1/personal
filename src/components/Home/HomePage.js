@@ -1,8 +1,5 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
-import { toaster, Heading, Pane, Text, HomeIcon } from 'evergreen-ui'
-import { Typography } from '../../components/primitives'
-import { ThemeProvider } from '../../Layout'
+import React from 'react'
+import { Pane } from 'evergreen-ui'
 import Home from './Home'
 import LatestWork from './LatestWork'
 

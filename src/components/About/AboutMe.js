@@ -5,7 +5,6 @@ import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
 import useOnScreen from '../primitives/UseOnScreen'
-import { isAbstractType } from 'graphql'
 
 
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
@@ -20,8 +19,6 @@ const AboutMeContainer = styled.div`
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-	/* background-color: ${props => props.theme.blue}; */
-  /* border-bottom: 1px solid #dddddd; */
 
 `
 const MiddleConsole = styled.div`
@@ -51,10 +48,10 @@ const Pictures = styled.div`
 	transition-timing-function: ease-in-out; 
 `
 const Column = styled.div`
-	transition: margin-left, opacity;
-	transition-duration: 0.6s;
+	transition: margin-left, opacity, left;
+	transition-duration: 0.7s;
 	transition-delay: 0s;
-	transition-timing-function: ease-in-out; 
+	transition-timing-function: ease-out; 
   display:flex;
   :first-of-type {
 		margin-left:${props => props.pos};
@@ -64,11 +61,21 @@ const Column = styled.div`
     align-items: center;
   }
   :last-of-type {
+		/* transition: left;
+		transition-duration: 0.6s;
+		transition-delay: 0s; */
 		margin-left: ${props => props.pos};
     width: 60%;
+		opacity: ${props => props.opac};
+		left: ${props => props.pos};
+		position: relative;
     max-width:90vh;
     justify-content: flex-end;
     align-items: flex-end;
+		img {
+			max-width:66.5vh;
+		}
+
   }
 `
 
@@ -89,7 +96,6 @@ const AboutBlock = styled(Typography)`
     display: inline;
     font-size: 1rem !important;
   }
-
 `
 const SubText = styled(Typography)`
   font-size: 24px;
@@ -104,7 +110,7 @@ const Description = styled(Typography)`
 
 const AboutMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const [aboutPos, setAboutPos] = useState('25rem')
+	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [theme] = themeCtx
@@ -126,11 +132,11 @@ const AboutMe = () => {
 				<Column pos={'-' + aboutPos} opac={opac}>
        		<Pane display="flex" flexDirection="column">
 						<AboutBlock weight="bold">About Me </AboutBlock>
-						<SubText>I&quot;m a software engineer based in cowboy country Dallas, Texas.</SubText>
+						<SubText>I&#39;m a software engineer based in cowboy country Dallas, Texas.</SubText>
 						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&quot;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
 					</Pane>
 				</Column>
-				<Column pos={aboutPos}>
+				<Column pos={aboutPos} opac={opac}>
 					<img src={AmmarAbout}/>
 				</Column>
 			</MiddleConsole>

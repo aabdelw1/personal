@@ -79,7 +79,7 @@ const BarsContainer = styled.div`
 
 `
 const Bars = styled.div`
-	transition: height, opacity;
+	transition: height;
 	transition-duration: 0.6s;
 	transition-delay: ${props => props.time};
 	transition-timing-function: ease-out; 
@@ -98,18 +98,16 @@ const Bars = styled.div`
 `
 
 const BarInfo = styled(Typography)`
-
   transition: opacity;
 	transition-duration: 0.6s;
-	transition-delay: 2s;
+	transition-delay: ${props => props.time};
 	transition-timing-function: ease-in-out; 
   color: white;
-  opacity: ${props => props.opac};
   text-shadow: 0 -1px 1px #a3a3a3;
   :first-of-type{
     display:flex;
     align-items:center;
-    opacity: 0.4;
+		opacity: ${props => props.opac};
 	  font-size: 60px;
     margin-bottom:0.5rem;
     p {
@@ -118,6 +116,8 @@ const BarInfo = styled(Typography)`
   }
   :last-of-type{
 	  font-size: 15px;
+		opacity: ${props => props.opac};
+
     margin-bottom:2rem;
   }
 `
@@ -125,8 +125,8 @@ const BarInfo = styled(Typography)`
 const Skills = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
-  const [pos, setPos] = useState(['0%', '0%','0%', '0%','0%'])
-  const [opac, setOpac] = useState('0')
+	const [pos, setPos] = useState(['0%', '0%','0%', '0%','0%'])
+	const [opac, setOpac] = useState(['0', '0'])
 	const ref = useRef()
 	const isVisible = useOnScreen(ref)
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
@@ -162,8 +162,8 @@ const Skills = () => {
 				const item = skills[i].height
 				arr.push(item)
 			}
-      setPos(arr)
-      setOpac('1')
+			setPos(arr)
+			setOpac(['0.6', '1'])
 		}
 	}, [isVisible])
   
@@ -188,10 +188,10 @@ const Skills = () => {
 								const time = ((index + 1) * 0.30).toString() + 's'
 								return (
 									<Bars color={item.color} height={pos[index]} time={time} key={index}>
-										<BarInfo color={item.color} opac={opac}>
+										<BarInfo color={item.color} opac={opac[0]} time={time}>
 											{item.height.split('%')[0]}<p>%</p>
 										</BarInfo>
-										<BarInfo>{item.skill}</BarInfo>
+										<BarInfo opac={opac[1]} time={time}>{item.skill}</BarInfo>
 									</Bars>)
 							})
 						}

@@ -83,7 +83,8 @@ const ImageColumn = styled.div`
 	display:flex;
 	justify-content:center;
 
-	:first-of-type {
+	:first-of-type,
+	:last-of-type {
 
 		width:50%;
 		/* width:${props => props.width}; */
@@ -95,21 +96,6 @@ const ImageColumn = styled.div`
 			object-position: ${props => props.postion};
 			/* object-position:-410% 0; */
 			/* object-position:20rem 0; */
-
-		}
-	}
-	:last-of-type {
-		width:50%;
-
-		/* width : ${props => props.width}; */
-		img {
-			transition: object-position 0.8s ease-out;
-
-			height: 40rem;
-			object-fit:cover;
-			object-position: ${props => props.postion};
-			/* object-position: -25rem 0; */
-			/* object-position: 540% 0; */
 
 		}
 	}
@@ -154,8 +140,8 @@ const Home = () => {
 		// 		setImgWidths([100 - RightWidth, +RightWidth])
 		// 	}
 		// }
-		const postionAspectL = 13 / (shiftRange)
-		const postionAspectR = -13 / (shiftRange)
+		const postionAspectL = 15 / (shiftRange)
+		const postionAspectR = -15 / (shiftRange)
 
 		if (0 < mouse.x && mouse.x < width){
 			const opacity =  (1 - ((midpoint - mouse.x) * (2/shiftRange))).toFixed(1)

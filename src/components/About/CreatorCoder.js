@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import CreatorCoderImg from '../../assets/img/creator_coder.png'
@@ -47,7 +47,7 @@ const AnimationBox = styled.div`
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.6s;
-	transition-delay: .6s;
+	transition-delay: 0s;
 	transition-timing-function: ease-in-out; 
 `
 
@@ -90,15 +90,15 @@ const CreatorCoder = () => {
 
   
 	return (
-		<Container ref={ref}>
+		<Container >
 			<MiddleConsole>
 				<AnimationBox pos={containerOffset} opac={opac}>
 					<Column>
 						<Pane display="flex" flexDirection="column">
-							<Header weight="normal">Part Creator</Header>
+							<Header weight="normal"><span ref={ref}>Part Creator</span></Header>
 							<Description>UI/UX design</Description>
 							<Description>&quot;Borrowing&quot; ideas</Description>
-							<Description>Drawing attention</Description>
+							<Description>Drawing attention </Description>
 							<Description>Free hand sketching</Description>
 							<Description>Musician</Description>
 						</Pane> 
