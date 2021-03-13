@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
-import useOnScreen from '../primitives/UseOnScreen'
+import { useInView } from 'react-intersection-observer'
+
 
 
 
@@ -52,8 +53,8 @@ const Rows = styled.div`
   height:25%;
   border-top: 1px dotted #dddddd;
   border-left: 1px solid #dddddd;
-}
 `
+
 const SkillRows = styled.div`
   height:25%;
   display:flex;
@@ -125,10 +126,12 @@ const BarInfo = styled(Typography)`
 const Skills = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
-	const [pos, setPos] = useState(['0%', '0%','0%', '0%','0%'])
-	const [opac, setOpac] = useState(['0', '0'])
-	const ref = useRef()
-	const isVisible = useOnScreen(ref)
+	const [pos, setPos] = useState(['0%','0%','0%','0%','0%'])
+	const [opac, setOpac] = useState(['0','0'])
+	const [ref, inView] = useInView()
+
+	// const ref = useRef()
+	// const isVisible = useOnScreen(ref)
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
 
 	const skills = [
@@ -156,7 +159,7 @@ const Skills = () => {
 	]
   
 	useEffect(() => {
-		if(isVisible){
+		if(inView){
 			const arr = []
 			for(var i=0; i < skills.length; i++){
 				const item = skills[i].height
@@ -165,7 +168,7 @@ const Skills = () => {
 			setPos(arr)
 			setOpac(['0.6', '1'])
 		}
-	}, [isVisible])
+	}, [inView])
   
   
 	return (

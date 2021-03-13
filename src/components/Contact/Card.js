@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Avatar, Heading, Text, Pane, Position, Tooltip } from 'evergreen-ui'
+import PropTypes from 'prop-types'
+import { Avatar, Pane, Link} from 'evergreen-ui'
 import { Typography } from '../primitives'
 
 
@@ -12,37 +13,46 @@ const CardContainer = styled.div`
   -moz-user-select: none; 
   -ms-user-select: none; 
   user-select: none;
-  /* margin: 1rem 1rem; */
   background-color: transparent;
   border-radius: 0.8rem;
+	transition: opacity 0.3s;
+	a {
+		text-decoration: none;
+
+	}
+	:hover{
+		cursor: pointer;
+		opacity: 0.6;
+	}
 `
 const Description = styled(Typography)`
   font-size: 18px;
   line-height:30px;
-  color:#000;
+  color:${props => props.color};
 `
 
 const Card = (props) => {
 	const { method } = props
-	const { platform, color, text } = method
+	const { platform, color, text, link } = method
 
 	return (
-		<CardContainer>
+		<CardContainer><Link href={link}>
 			<Pane  display="flex" flexDirection="row" justifyContent="space-between" background="white">
 				<Pane display="flex" flexDirection="row" marginY="0.5rem" >
 					<Avatar src={require(`../../assets/img/contact/${platform}.png`)} name={platform} size={50} marginRight={'1rem'}/>
 					<Pane marginY="auto">
 						<Pane>
-							<Description>{text}</Description>
+							<Description color={color}>{text}</Description>
 						</Pane>
-						{/* <Pane><Text size={300} marginLeft=".5rem">{text}</Text></Pane> */}
 					</Pane>
 				</Pane>
-       
 			</Pane>
+		</Link>
 		</CardContainer>
 	)
 }
-
+Card.propTypes = {
+	method: PropTypes.object
+}
 
 export default Card

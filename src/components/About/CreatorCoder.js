@@ -1,10 +1,11 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import CreatorCoderImg from '../../assets/img/creator_coder.png'
-import useOnScreen from '../primitives/UseOnScreen'
+import { useInView } from 'react-intersection-observer'
+
 
 
 
@@ -75,17 +76,14 @@ const CreatorCoder = () => {
 	const [theme] = themeCtx
 	const [containerOffset, setContainerOffset] = useState('10rem')
 	const [opac, setOpac] = useState('0')
-
-	const ref = useRef()
-	const isVisible = useOnScreen(ref)
-
+	const [ref, inView] = useInView()
 
 	useEffect(() => {
-		if(isVisible){
+		if(inView){
 			setContainerOffset('0rem') 
 			setOpac('1')
 		}
-	}, [isVisible])
+	}, [inView])
 
 
   

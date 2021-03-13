@@ -4,7 +4,8 @@ import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
-import useOnScreen from '../primitives/UseOnScreen'
+import { useInView } from 'react-intersection-observer'
+
 
 
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
@@ -113,17 +114,17 @@ const AboutMe = () => {
 	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
+	const [ref, inView] = useInView()
+
 	const [theme] = themeCtx
-	const ref = useRef()
-	const isVisible = useOnScreen(ref)
 
 	useEffect(() => {
-		if(isVisible){
+		if(inView){
 			setPicturePos('0rem') 
 			setAboutPos('0rem')
 			setOpac('1')
 		}
-	}, [isVisible])
+	}, [inView])
 
   
 	return (
@@ -143,7 +144,7 @@ const AboutMe = () => {
 			<MiddleConsole>
 				<Pane display="flex" marginTop="2rem" justifyContent="center">
 					{
-						isVisible && aboutMeImgs.map((name, index) => {
+						aboutMeImgs.map((name, index) => {
 							const time = ((index + 1.8) * 0.25).toString() + 's'
 							return (
 								<Pictures key={index} pos={picturePos} opac={opac} time={time}>

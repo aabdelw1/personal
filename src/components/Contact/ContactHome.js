@@ -4,7 +4,6 @@ import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
-import useOnScreen from '../primitives/UseOnScreen'
 import Card from './Card'
 
 
@@ -65,29 +64,33 @@ const ContactHome = () => {
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [theme] = themeCtx
-	const ref = useRef()
-	const isVisible = useOnScreen(ref)
+
 
 	const methods = [
 		{
 			platform: 'facebook',
-			color: 'orange',
-			text: 'Like me on Facebook'
+			color: '#325291',
+			text: 'Like me on Facebook',
+			link: 'https://www.facebook.com/ammar.s.nasr'
 		},
 		{
 			platform: 'instagram',
-			color: 'orange',
-			text: 'Follow me on Instagram'
+			color: '#C33F95',
+			text: 'Follow me on Instagram',
+			link: 'https://www.instagram.com/_ammarian/'
 		},
 		{
 			platform: 'cssbattles',
-			color: 'orange',
-			text: 'Friend me on CSSbattles'
+			color: '#F35552',
+			// color: '#D95988'
+			text: 'Friend me on CSSbattles',
+			link: 'https://cssbattle.dev/player/ammar'
 		},
 		{
 			platform: 'linkedinO',
-			color: 'orange',
-			text: 'Connect on LinkedIn'
+			color: '#2F75AF',
+			text: 'Connect on LinkedIn',
+			link: 'https://www.linkedin.com/in/ammar-abdelwahed-b7148998/'
 
 		}
 	]
@@ -95,35 +98,31 @@ const ContactHome = () => {
 
 
 	useEffect(() => {
-		if(isVisible){
+		if(true){
 			setPicturePos('0rem') 
 			setAboutPos('0rem')
 			setOpac('1')
 		}
-	}, [isVisible])
+	}, [])
 
   
 	return (
-		<Container ref={ref}>
+		<Container>
 			<MiddleConsole>
 				<Column>
 					<Pane display="flex" flexDirection="column">
-						<AboutBlock weight="bold">contact me</AboutBlock>
+						<AboutBlock weight="bold">Contact me</AboutBlock>
 						<SubText>Let&#39;s talk about things</SubText>
 						{
 							methods.map((method, index) => {
-								return (<Card index={index} method={method}></Card>)
+								return (<Card index={index} key={index} method={method}></Card>)
 							})
 						}
-
-						{/* <Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&quot;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description> */}
 					</Pane>
 				</Column>
 				<Column>
 				</Column>
 			</MiddleConsole>
-
-  
 		</Container>
 	)
 }

@@ -1,10 +1,10 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import Ghidorah from '../../assets/img/ghidorah.png'
-import useOnScreen from '../primitives/UseOnScreen'
+// import useOnScreen from '../primitives/UseOnScreen'
 import { useInView } from 'react-intersection-observer'
 
 
@@ -28,7 +28,7 @@ const Column = styled.div`
   display:flex;
 	transition: margin-left, opacity;
 	transition-duration: 0.6s;
-	transition-delay: 0.5s;
+	transition-delay: 0s;
 	transition-timing-function: ease-out; 
   :first-of-type {
 		margin-left: ${props => props.pos};
