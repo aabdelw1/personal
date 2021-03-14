@@ -69,14 +69,12 @@ const SkillRows = styled.div`
 `
 
 const BarsContainer = styled.div`
-    /* display:block; */
-    /* background-color: green; */
-    position: absolute;
-    top: 0;
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items: flex-end;
+	position: absolute;
+	top: 0;
+	width:100%;
+	height:100%;
+	display:flex;
+	align-items: flex-end;
 
 `
 const Bars = styled.div`

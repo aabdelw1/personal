@@ -1,13 +1,13 @@
 import React from 'react'
 import { Layout } from '../Layout'
-import ContactMe from '../components/Contact/ContactMe.js'
+import ContactHome from '../components/Contact/ContactHome.js'
 
 const AmmarPage = () => {
 
 	return (
 		<Layout
 			title="Contact"
-			content={<ContactMe/>}
+			content={<ContactHome/>}
 
 		/>
 	)
