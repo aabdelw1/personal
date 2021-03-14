@@ -59,10 +59,10 @@ const ContactMe = () => {
 
 	const methods = [
 		{
-			platform: 'facebook',
-			color: '#325291',
-			text: 'Like me on Facebook',
-			link: 'https://www.facebook.com/ammar.s.nasr'
+			platform: 'github',
+			color: '#132535',
+			text: 'Check out my Github',
+			link: 'https://github.com/aabdelw1'
 		},
 		{
 			platform: 'instagram',
@@ -85,8 +85,6 @@ const ContactMe = () => {
 
 		}
 	]
-
-
 
 	useEffect(() => {
 		if(true){

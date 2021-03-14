@@ -62,7 +62,6 @@ const Portfolio = () => {
 			link: 'https://github.com/aabdelw1/MartaSimulation'
 		}
 	]
-	console.log(cardInfo)
 
 	return (
 		<AboutMeContainer>

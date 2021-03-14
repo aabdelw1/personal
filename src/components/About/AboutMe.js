@@ -26,7 +26,6 @@ const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:65rem;
-  /* max-width: 80rem; */
   display:flex;
 	transition: margin-top 1s 3s ease-in-out;
 
@@ -62,9 +61,6 @@ const Column = styled.div`
     align-items: center;
   }
   :last-of-type {
-		/* transition: left;
-		transition-duration: 0.6s;
-		transition-delay: 0s; */
 		margin-left: ${props => props.pos};
     width: 60%;
 		opacity: ${props => props.opac};
@@ -85,13 +81,6 @@ const AboutBlock = styled(Typography)`
   font-size: 70px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
-	/* animation: fade 0.6s east-in;
-
-	@keyframes fade {
-		0% {
-			opacity: 0;
-		}
-	} */
  
   p:first-of-type {
     display: inline;

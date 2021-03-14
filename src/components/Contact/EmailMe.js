@@ -23,22 +23,45 @@ const MiddleConsole = styled.div`
 `
 
 const Column = styled.div`
-  display:flex;
+  /* display:flex; */
 	flex:1;
+	/* margin-right: 2.5rem; */
+
   :first-of-type {
 		margin-right: 2.5rem;
-    align-items: center;
+    /* align-items: center; */
 
   }
-  :last-of-type {
+  /* :last-of-type {
 		align-items: center;
 		justify-content: center;
-  }
+  } */
 `
 
-const Rows = styled.div`
+const Row = styled.div`
+	display: flex;
+	flex: 1;
+	:first-of-type{
+		align-items: flex-end;
+		height:25%;
+	}
+	:last-of-type{
+		height:75%;
+	}
+`
 
-
+const Row2 = styled.div`
+	display: flex;
+	flex: 1;
+	:first-of-type{
+		background-color: orange;
+		align-items: flex-end;
+		height:60%;
+	}
+	:last-of-type{
+		background-color: blue;
+		height:40%;
+	}
 `
 
 const NameEmailInput = styled.input`
@@ -58,7 +81,19 @@ const NameEmailInput = styled.input`
 const Fields = styled(Typography)`
 	font-size: 22px;
   color:#000;
+`
 
+const Header = styled(Typography)`
+  color: #000;
+  font-size: 30px;
+  font-family: 'Raleway', sans-serif;
+  /* margin: 25px 0; */
+`
+
+const Message = styled.textarea`
+	  width: 100%;
+    height: 100%; 
+    box-sizing: border-box;
 `
 
 
@@ -82,18 +117,23 @@ const EmailMe = () => {
 		<Container>
 			<MiddleConsole>
 				<Column>
-					<Pane display="flex" flexDirection="column" width="100%">
-						<Pane>
-							<Fields weight="thin">Your name:</Fields>
-							<NameEmailInput/>
-						</Pane>
-						<Pane marginTop="1rem">
-							<Fields weight="thin">Your email:</Fields>
-							<NameEmailInput/>
-						</Pane>
-				 </Pane>
+					<Row><Header weight="normal">Send me an email</Header></Row>
+					<Row>
+						<Pane display="flex" flexDirection="column" width="100%" marginTop="1.5rem">
+							<Pane>
+								<Fields weight="thin">Your name:</Fields>
+								<NameEmailInput/>
+							</Pane>
+							<Pane marginTop="0.5rem">
+								<Fields weight="thin">Your email:</Fields>
+								<NameEmailInput/>
+							</Pane>
+				 		</Pane>
+				 </Row>
 				</Column>
 				<Column>
+				<Row2><Message/></Row2>
+				<Row2></Row2>
 				</Column>
 			</MiddleConsole>
 		</Container>
