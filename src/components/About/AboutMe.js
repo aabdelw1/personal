@@ -74,7 +74,7 @@ const Column = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
 		img {
-			max-width:66.5vh;
+			max-width:40rem;
 		}
 
   }
