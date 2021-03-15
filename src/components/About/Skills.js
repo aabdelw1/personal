@@ -1,12 +1,8 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
-
-
-
 
 const Container = styled.div`
   max-height: 38rem;
@@ -128,8 +124,6 @@ const Skills = () => {
 	const [opac, setOpac] = useState(['0','0'])
 	const [ref, inView] = useInView()
 
-	// const ref = useRef()
-	// const isVisible = useOnScreen(ref)
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
 
 	const skills = [

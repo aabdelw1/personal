@@ -1,13 +1,9 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
-import AmmarAbout from '../../assets/img/ammar_about.png'
 import Card from './Card'
-
-
-const methods = ['facebook', 'instagram', 'cssbattles', 'linkedin']
 
 const Container = styled.div`
   max-height: 38rem;
@@ -51,7 +47,7 @@ const SubText = styled(Typography)`
 
 const ContactMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const [aboutPos, setAboutPos] = useState('30rem')
+	const [contactPos, setContactPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [theme] = themeCtx
@@ -73,7 +69,6 @@ const ContactMe = () => {
 		{
 			platform: 'cssbattles',
 			color: '#F35552',
-			// color: '#D95988'
 			text: 'Friend me on CSSbattles',
 			link: 'https://cssbattle.dev/player/ammar'
 		},
@@ -86,13 +81,13 @@ const ContactMe = () => {
 		}
 	]
 
-	useEffect(() => {
-		if(true){
-			setPicturePos('0rem') 
-			setAboutPos('0rem')
-			setOpac('1')
-		}
-	}, [])
+	// useEffect(() => {
+	// 	if(true){
+	// 		setPicturePos('0rem') 
+	// 		setAboutPos('0rem')
+	// 		setOpac('1')
+	// 	}
+	// }, [])
 
   
 	return (

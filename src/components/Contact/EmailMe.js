@@ -1,6 +1,6 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import {  Pane, toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 
@@ -23,19 +23,10 @@ const MiddleConsole = styled.div`
 `
 
 const Column = styled.div`
-  /* display:flex; */
 	flex:1;
-	/* margin-right: 2.5rem; */
-
   :first-of-type {
 		margin-right: 2.5rem;
-    /* align-items: center; */
-
   }
-  /* :last-of-type {
-		align-items: center;
-		justify-content: center;
-  } */
 `
 
 const Row = styled.div`
@@ -52,21 +43,21 @@ const Row = styled.div`
 
 const Row2 = styled.div`
 	display: flex;
-	flex: 1;
 	:first-of-type{
-		background-color: orange;
 		align-items: flex-end;
-		height:60%;
+		height:30%;
 	}
-	:last-of-type{
-		background-color: blue;
-		height:40%;
+	:nth-of-type(2){
+		height:30%;
 	}
+	:nth-of-type(3){
+		justify-content:flex-end;
+	}
+	
 `
 
 const NameEmailInput = styled.input`
 	width:100%;
-	resize: none;
 	font-size: 20px;
 	justify-content: center;
 	padding: 7px 10px;
@@ -87,31 +78,53 @@ const Header = styled(Typography)`
   color: #000;
   font-size: 30px;
   font-family: 'Raleway', sans-serif;
-  /* margin: 25px 0; */
 `
 
-const Message = styled.textarea`
+const MessageBox = styled.textarea`
 	  width: 100%;
     height: 100%; 
+		resize: none;
+		font-size: 20px;
+		justify-content: center;
+		padding: 7px 10px;
     box-sizing: border-box;
+		border-radius: .2rem;
+		box-shadow: inset 0px 1px 1px 0px #dddddd;
+		border: 0.5px solid #dddddd;
+`
+
+const Send = styled.button`
+	transition: background-color color;
+	transition-duration: 0.2s;
+	border-radius: .2rem;
+	background-color: #1C1C1E;
+	border: 0.5px solid #dddddd;
+	padding:.8rem;
+	font-size: 20px;
+	font-weight: 250; 
+	color: #fafafa;
+	margin-top: 2rem;
+	:hover{
+		cursor: pointer;
+		background-color: #fafafa;
+		color: #1C1C1E;
+	}
+
 `
 
 
 const EmailMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const [aboutPos, setAboutPos] = useState('30rem')
-	const [picturePos, setPicturePos] = useState('4rem')
-	const [opac, setOpac] = useState('0')
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+	const [message, seMessage] = useState('')
 	const [theme] = themeCtx
 
-	useEffect(() => {
-		if(true){
-			setPicturePos('0rem') 
-			setAboutPos('0rem')
-			setOpac('1')
+	const sendEmail = () => {
+		if(name == '' || email == '' || message == ''){
+			toaster.warning('Missing Field')
 		}
-	}, [])
-
+	}
   
 	return (
 		<Container>
@@ -122,18 +135,19 @@ const EmailMe = () => {
 						<Pane display="flex" flexDirection="column" width="100%" marginTop="1.5rem">
 							<Pane>
 								<Fields weight="thin">Your name:</Fields>
-								<NameEmailInput/>
+								<NameEmailInput onChange={e => setName(e.target.value)}/>
 							</Pane>
 							<Pane marginTop="0.5rem">
 								<Fields weight="thin">Your email:</Fields>
-								<NameEmailInput/>
+								<NameEmailInput onChange={e => setEmail(e.target.value)}/>
 							</Pane>
 				 		</Pane>
 				 </Row>
 				</Column>
 				<Column>
-				<Row2><Message/></Row2>
-				<Row2></Row2>
+					<Row2></Row2>
+					<Row2><MessageBox onChange={e => seMessage(e.target.value)}/></Row2>
+					<Row2><Send onClick={() => sendEmail()}>Send Email</Send></Row2>
 				</Column>
 			</MiddleConsole>
 		</Container>

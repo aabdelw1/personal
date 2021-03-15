@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Link } from 'evergreen-ui'
-// import Link from 'next/link'
+import PropTypes from 'prop-types'
 
-import { toaster, Heading, Pane, Text, ProjectsIcon } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 
@@ -13,7 +13,6 @@ const CardContainer = styled.div`
 	padding: 0.8rem;
 	a {
 		text-decoration: none;
-
 	}
 
 `
@@ -36,8 +35,6 @@ const SubText = styled(Typography)`
   font-size: 17px;
 	color:#000;
 
-
-
 `
 
 const Description = styled(Typography)`
@@ -45,11 +42,10 @@ const Description = styled(Typography)`
   color:#000;
 	margin-top: 0.1rem;
 	text-decoration: none;
-
 `
 
 const Card = (props) => {
-	const { project, index } = props
+	const { project } = props
 	const { name, category, image, link } = project
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
@@ -78,6 +74,10 @@ const Card = (props) => {
 			</Link>
 		</CardContainer> 
 	)
+}
+
+Card.propTypes = {
+	project: PropTypes.object
 }
 
 export default Card

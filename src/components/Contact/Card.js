@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Avatar, Pane, Link} from 'evergreen-ui'
 import { Typography } from '../primitives'
-
-
 
 const CardContainer = styled.div`
   -webkit-touch-callout: none;
@@ -15,7 +13,7 @@ const CardContainer = styled.div`
   user-select: none;
   background-color: transparent;
   border-radius: 0.8rem;
-	transition: opacity 0.3s;
+	transition: opacity 0.2s;
 	a {
 		text-decoration: none;
 
@@ -36,18 +34,19 @@ const Card = (props) => {
 	const { platform, color, text, link } = method
 
 	return (
-		<CardContainer><Link href={link}>
-			<Pane  display="flex" flexDirection="row" justifyContent="space-between" background="white">
-				<Pane display="flex" flexDirection="row" marginY="0.5rem" >
-					<Avatar src={require(`../../assets/img/contact/${platform}.png`)} name={platform} size={50} marginRight={'1rem'}/>
-					<Pane marginY="auto">
-						<Pane>
-							<Description color={color}>{text}</Description>
+		<CardContainer>
+			<Link href={link}>
+				<Pane display="flex" flexDirection="row">
+					<Pane display="flex" marginY="0.5rem">
+						<Avatar src={require(`../../assets/img/contact/${platform}.png`)} name={platform} size={50} marginRight={'1rem'}/>
+						<Pane marginY="auto">
+							<Pane>
+								<Description color={color}>{text}</Description>
+							</Pane>
 						</Pane>
 					</Pane>
 				</Pane>
-			</Pane>
-		</Link>
+			</Link>
 		</CardContainer>
 	)
 }
