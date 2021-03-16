@@ -64,7 +64,7 @@ const Card = (props) => {
 					<Item>
 						<Pane display="flex" justifyContent="center">
 							<img src={require(`../../assets/img/portfolio/${image}.png`)}/>
-			  		</Pane>
+						</Pane>
 						<Pane marginLeft={'1rem'}  display="flex" flexDirection="column">
 							<SubText weight="light">{name}</SubText>
 							<Description weight="thin">	{category}</Description>

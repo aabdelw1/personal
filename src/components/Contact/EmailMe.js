@@ -45,10 +45,11 @@ const Row2 = styled.div`
 	display: flex;
 	:first-of-type{
 		align-items: flex-end;
-		height:30%;
+		height:33.33%;
 	}
 	:nth-of-type(2){
-		height:30%;
+		margin-top:0.65rem;
+		height:25.667%;
 	}
 	:nth-of-type(3){
 		justify-content:flex-end;
@@ -141,11 +142,11 @@ const EmailMe = () => {
 								<Fields weight="thin">Your email:</Fields>
 								<NameEmailInput onChange={e => setEmail(e.target.value)}/>
 							</Pane>
-				 		</Pane>
-				 </Row>
+						</Pane>
+					</Row>
 				</Column>
 				<Column>
-					<Row2></Row2>
+					<Row2><Pane marginTop="-1rem"><Fields weight="thin">Your message:</Fields></Pane></Row2>
 					<Row2><MessageBox onChange={e => seMessage(e.target.value)}/></Row2>
 					<Row2><Send onClick={() => sendEmail()}>Send Email</Send></Row2>
 				</Column>
