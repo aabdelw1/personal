@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, ChevronRightIcon } from 'evergreen-ui'
 import PropTypes from 'prop-types'
-
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider, CardContext } from '../../Layout'
@@ -32,18 +31,24 @@ const Item = styled.div`
 		cursor: pointer;
 	}
 `
-
 const SubText = styled(Typography)`
   font-size: 17px;
 	color:#000;
 
 `
-
 const Description = styled(Typography)`
   font-size: 14px;
   color:#000;
 	margin-top: 0.1rem;
 	text-decoration: none;
+`
+const Chevy = styled.div`
+	margin: auto;
+	transition: opacity, margin-right;
+	transition-timing-function: ease-out;
+	transition-duration: .4s;
+	opacity: ${props => props.opac};
+	margin-right: ${props => props.marginR};
 `
 
 const Card = (props) => {
@@ -52,9 +57,23 @@ const Card = (props) => {
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+	const [opac, setOpac] = useState('0')
+	const [marginR, setMarginR] = useState('0.5rem')
 	const [theme] = themeCtx
 
 	const activate = activeCard === index || activeCard === null
+	const chevronAnim = activate && activeCard !== null 
+
+
+	useEffect(() => {
+		if(chevronAnim){
+			setMarginR('1.5rem') 
+			setOpac('1')
+		} else {	
+			setMarginR('0.5rem') 
+			setOpac('0')
+		}
+	}, [chevronAnim]) 
 
 	console.log(activeCard)
 
@@ -71,9 +90,9 @@ const Card = (props) => {
 								<SubText weight="light">{name}</SubText>
 								<Description weight="thin">{category}</Description>
 							</Pane>
-							<Pane marginY={'auto'} marginRight='1rem'>
-								<ChevronRightIcon color="disabled" size={30}/>
-							</Pane>
+							<Chevy marginR={marginR} opac={opac}>
+								<ChevronRightIcon color="disabled" size={30}/> 
+							</Chevy>
 						</Pane>
 					</Item>
 				</Pane>

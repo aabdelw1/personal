@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
-import { ThemeProvider } from '../../Layout'
+import { ThemeProvider, CardContext } from '../../Layout'
 import Card from '../Portfolio/Card'
 
 
@@ -52,6 +52,8 @@ const Column = styled.div`
 
 const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+
 	const [theme] = themeCtx
 
 	const cardInfo = [
@@ -78,11 +80,11 @@ const LatestWork = () => {
 				<Column>SOME OF MY LATEST WORK</Column>
 				<Column/>
 			</MiddleConsole>
-			<MiddleConsole>
+			<MiddleConsole  onMouseLeave={() => setActiveCard(null)}>
 				<Pane marginTop="2rem" display="flex">
 					{
-						cardInfo.map((project, index) => {
-					 return(	<Card project={project} key={index} />)
+						cardInfo.map((project, i) => {
+					 return(	<Card project={project} index={i} key={i} />)
 						})
 					}
 				</Pane>

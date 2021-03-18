@@ -4,8 +4,6 @@ import styled from 'styled-components'
 import { ThemeProvider, CardContext } from '../../Layout'
 import Card from './Card'
 
-
-
 const Container = styled.div`
   display: flex;
   margin-top:3rem;
@@ -21,15 +19,10 @@ const MiddleConsole = styled.div`
   align-content: flex-start;
 `
 
-
 const Portfolio = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+	const [, setActiveCard] = useContext(CardContext.Context)
 
-	console.log(activeCard)
-
-  
-  
 	const cardInfo = [
 		{
 			name: 'Astroids',

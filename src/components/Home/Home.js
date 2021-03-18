@@ -1,24 +1,17 @@
 import React, { useContext, useRef, useEffect, useState} from 'react'
 import useMouse from '@react-hook/mouse-position'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarCoder from '../../assets/img/home/coder_ammar2.png'
 import AmmarCreator from '../../assets/img/home/creator_ammar2.png'
 
 
-
-const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
-
-
-
 const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 40rem;
   height:40rem;
-  /* border-bottom: 1px solid #dddddd; */
-
 `
 const MiddleConsole = styled.div`
   margin-left: auto;
@@ -28,7 +21,6 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	position: relative;
-	/* align-items: flex-end; */
 	height:100%;
 `
 
@@ -52,7 +44,6 @@ const AboutBlock = styled(Typography)`
   font-size: 65px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
- 
   p {
     display: inline;
     font-weight: 400;
@@ -76,27 +67,19 @@ const GraphicContainer = styled.div`
     position: absolute;
     top: 0;
 		justify-content:center;
-
 `
 
 const ImageColumn = styled.div`
 	display:flex;
 	justify-content:center;
-
 	:first-of-type,
 	:last-of-type {
-
 		width:50%;
-		/* width:${props => props.width}; */
 		img {
 			transition: object-position 0.8s ease-out;
-
 			height: 40rem;
 			object-fit:cover;
 			object-position: ${props => props.postion};
-			/* object-position:-410% 0; */
-			/* object-position:20rem 0; */
-
 		}
 	}
 `
