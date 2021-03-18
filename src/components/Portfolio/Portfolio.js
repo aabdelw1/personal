@@ -1,14 +1,12 @@
-import React, { useContext, useRef, useState} from 'react'
+import React, { useContext } from 'react'
 import useMouse from '@react-hook/mouse-position'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
-import { Typography } from '../primitives'
-import { ThemeProvider } from '../../Layout'
+import { ThemeProvider, CardContext } from '../../Layout'
 import Card from './Card'
 
 
 
-const AboutMeContainer = styled.div`
+const Container = styled.div`
   display: flex;
   margin-top:3rem;
 `
@@ -26,6 +24,10 @@ const MiddleConsole = styled.div`
 
 const Portfolio = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+
+	console.log(activeCard)
+
   
   
 	const cardInfo = [
@@ -64,17 +66,15 @@ const Portfolio = () => {
 	]
 
 	return (
-		<AboutMeContainer>
-			<MiddleConsole>
+		<Container>
+			<MiddleConsole onMouseLeave={() => setActiveCard(null)}>
 				{
-					cardInfo.map((project, index) => {
-						return (
-							<Card project={project} key={index} />
-						)
+					cardInfo.map((project, i) => {
+						return <Card project={project} index={i} key={i}/>
 					})
 				}
 			</MiddleConsole>
-		</AboutMeContainer>
+		</Container>
 	)
 }
 

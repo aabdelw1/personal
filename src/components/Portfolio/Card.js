@@ -1,16 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'evergreen-ui'
+import { Link, ChevronRightIcon } from 'evergreen-ui'
 import PropTypes from 'prop-types'
 
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
-import { ThemeProvider } from '../../Layout'
+import { ThemeProvider, CardContext } from '../../Layout'
 
 const CardContainer = styled.div`
   display:flex;
   flex-direction: column;
 	padding: 0.8rem;
+	transition: opacity, 0.2s;
+	opacity: ${props => props.opac};
 	a {
 		text-decoration: none;
 	}
@@ -45,29 +47,33 @@ const Description = styled(Typography)`
 `
 
 const Card = (props) => {
-	const { project } = props
+	const { project, index } = props
 	const { name, category, image, link } = project
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [activeCard, setActiveCard] = useContext(CardContext.Context)
 	const [theme] = themeCtx
 
-	const toogleRouter = () => {
+	const activate = activeCard === index || activeCard === null
 
-	}
-	console.log(link)
-
+	console.log(activeCard)
 
 	return (
-		<CardContainer onClick={toogleRouter()}>
+		<CardContainer opac={activate ? '1.0' : '0.6'} onMouseEnter={() => setActiveCard(index)} onMouseLeave={() => setActiveCard(index)}>
 			<Link href={link}>
 				<Pane hoverElevation={2}>
 					<Item>
 						<Pane display="flex" justifyContent="center">
 							<img src={require(`../../assets/img/portfolio/${image}.png`)}/>
 						</Pane>
-						<Pane marginLeft={'1rem'}  display="flex" flexDirection="column">
-							<SubText weight="light">{name}</SubText>
-							<Description weight="thin">	{category}</Description>
+						<Pane display="flex" justifyContent="space-between">
+							<Pane marginLeft={'1rem'}  display="flex" flexDirection="column">
+								<SubText weight="light">{name}</SubText>
+								<Description weight="thin">{category}</Description>
+							</Pane>
+							<Pane marginY={'auto'} marginRight='1rem'>
+								<ChevronRightIcon color="disabled" size={30}/>
+							</Pane>
 						</Pane>
 					</Item>
 				</Pane>
@@ -77,7 +83,8 @@ const Card = (props) => {
 }
 
 Card.propTypes = {
-	project: PropTypes.object
+	project: PropTypes.object,
+	index: PropTypes.any,
 }
 
 export default Card

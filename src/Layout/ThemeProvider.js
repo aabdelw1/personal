@@ -75,4 +75,4 @@ Provider.propTypes = {
 	children: PropTypes.any
 }
 
-export default { Context, Provider}
+export default { Context, Provider }
