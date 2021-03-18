@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import useMouse from '@react-hook/mouse-position'
 import styled from 'styled-components'
 import { ThemeProvider, CardContext } from '../../Layout'
 import Card from './Card'
+import { useInView } from 'react-intersection-observer'
+
 
 const Container = styled.div`
   display: flex;
@@ -19,9 +21,26 @@ const MiddleConsole = styled.div`
   align-content: flex-start;
 `
 
+const CardAnim = styled.div`
+	opacity: ${props => props.opac};
+	transition: margin-top, opacity;
+	transition-duration: 0.2s;
+	transition-delay: ${props => props.time};
+	transition-timing-function: ease-in; 
+`
+
 const Portfolio = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [, setActiveCard] = useContext(CardContext.Context)
+	const [opac, setOpac] = useState('0')
+	const [ref, inView] = useInView()
+
+
+	useEffect(() => {
+		if(inView){
+			setOpac('1')
+		}
+	}, [inView])
 
 	const cardInfo = [
 		{
@@ -59,11 +78,12 @@ const Portfolio = () => {
 	]
 
 	return (
-		<Container>
+		<Container ref={ref}>
 			<MiddleConsole onMouseLeave={() => setActiveCard(null)}>
 				{
 					cardInfo.map((project, i) => {
-						return <Card project={project} index={i} key={i}/>
+						const time = ((i + 0.5) * 0.25).toString() + 's'
+						return <CardAnim key={i} time={time} opac={opac}><Card project={project} index={i}/></CardAnim>
 					})
 				}
 			</MiddleConsole>
