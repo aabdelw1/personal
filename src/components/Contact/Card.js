@@ -16,7 +16,6 @@ const CardContainer = styled.div`
 	transition: opacity 0.2s;
 	a {
 		text-decoration: none;
-
 	}
 	:hover{
 		cursor: pointer;

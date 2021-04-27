@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import useMouse from '@react-hook/mouse-position'
 import styled from 'styled-components'
 import { ThemeProvider, CardContext } from '../../Layout'
 import Card from './Card'

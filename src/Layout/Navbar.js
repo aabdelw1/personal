@@ -12,20 +12,35 @@ const Container = styled(Navbar)`
 		/* mpadding:14rem; */
 		box-shadow: ${({ boxshadow }) => boxshadow};
 		background: ${({theme}) => theme.grey_6};
+		padding: 1.2rem 2rem 4rem ;		
+		/* padding: 3rem; */
+
 	}
 `
 
 const NavLinks = styled.div`
 	display: flex;
+	/* margin-bottom: auto; */
+	a{
+		text-decoration: none;
+	}
 `
 
 const ThemedLink = styled(Link)`
+	transition: opacity 0.1s;
 	&& {
 		* {
-			color: ${({theme}) => theme.grey};
+			/* color: ${({theme}) => theme.grey}; */
+		color: white;
+		font-size: 18px;
+		margin-left:1rem;
 		}
+	} 
+	:hover{
+		opacity: 0.5;
 	}
 `
+
 
 const NavbarLinks = [
 	{ name: 'Gatsby', link: '/' },
@@ -46,7 +61,7 @@ const _ = ({
 		<Container {...props} fixedToTop={fixed}>
 			<Navbar.Group align={Alignment.LEFT} className="pl-10">
 				<Pane paddingX=".5rem">
-					<Typography>GatsbyJS Template</Typography>
+					<Typography >GatsbyJS Template</Typography>
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
@@ -65,6 +80,7 @@ const _ = ({
 					lastThemeType === 'light' ? 'dark' : 'light'
 				))} />
 			</Navbar.Group>
+			
 		</Container>
 	)
 }

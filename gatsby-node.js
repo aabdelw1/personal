@@ -4,7 +4,21 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-exports.onCreatePage = async ({page, actions}) => {
-	const {createPage} = actions
+// exports.onCreatePage = async ({page, actions}) => {
+// 	const {createPage} = actions
 	
+// }
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+	if (stage === 'build-html' || stage === 'develop-html') {
+		actions.setWebpackConfig({
+			module: {
+				rules: [
+					{
+						test: /bad-module/,
+						use: loaders.null(),
+					},
+				],
+			},
+		})
+	}
 }
