@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import {  Pane, toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
+import { useInView } from 'react-intersection-observer'
+
 
 
 const Container = styled.div`
@@ -20,6 +22,17 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
+`
+
+const AnimationBox = styled.div`
+	display:flex;
+	width:100%;
+	margin-top: ${props => props.pos};
+	opacity: ${props => props.opac};
+	transition: margin-top, opacity;
+	transition-duration: 0.6s;
+	transition-delay: 0s;
+	transition-timing-function: ease-in-out; 
 `
 
 const Column = styled.div`
@@ -119,6 +132,9 @@ const EmailMe = () => {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [message, seMessage] = useState('')
+	const [containerOffset, setContainerOffset] = useState('10rem')
+	const [opac, setOpac] = useState('0')
+	const [ref, inView] = useInView()
 	const [theme] = themeCtx
 
 	const sendEmail = () => {
@@ -126,30 +142,39 @@ const EmailMe = () => {
 			toaster.warning('Missing Field')
 		}
 	}
+
+	useEffect(() => {
+		if(inView){
+			setContainerOffset('0rem') 
+			setOpac('1')
+		}
+	}, [inView])
   
 	return (
 		<Container>
 			<MiddleConsole>
-				<Column>
-					<Row><Header weight="normal">Send me an email</Header></Row>
-					<Row>
-						<Pane display="flex" flexDirection="column" width="100%" marginTop="1.5rem">
-							<Pane>
-								<Fields weight="thin">Your name:</Fields>
-								<NameEmailInput onChange={e => setName(e.target.value)}/>
+				<AnimationBox ref={ref} pos={containerOffset} opac={opac}>
+					<Column>
+						<Row><Header weight="normal">Send me an email</Header></Row>
+						<Row>
+							<Pane display="flex" flexDirection="column" width="100%" marginTop="1.5rem">
+								<Pane>
+									<Fields weight="thin">Your name:</Fields>
+									<NameEmailInput onChange={e => setName(e.target.value)}/>
+								</Pane>
+								<Pane marginTop="0.5rem">
+									<Fields weight="thin">Your email:</Fields>
+									<NameEmailInput onChange={e => setEmail(e.target.value)}/>
+								</Pane>
 							</Pane>
-							<Pane marginTop="0.5rem">
-								<Fields weight="thin">Your email:</Fields>
-								<NameEmailInput onChange={e => setEmail(e.target.value)}/>
-							</Pane>
-						</Pane>
-					</Row>
-				</Column>
-				<Column>
-					<Row2><Pane marginTop="-1rem"><Fields weight="thin">Your message:</Fields></Pane></Row2>
-					<Row2><MessageBox onChange={e => seMessage(e.target.value)}/></Row2>
-					<Row2><Send onClick={() => sendEmail()}>Send Email</Send></Row2>
-				</Column>
+						</Row>
+					</Column>
+					<Column>
+						<Row2><Pane marginTop="-1rem"><Fields weight="thin">Your message:</Fields></Pane></Row2>
+						<Row2><MessageBox onChange={e => seMessage(e.target.value)}/></Row2>
+						<Row2><Send onClick={() => sendEmail()}>Send Email</Send></Row2>
+					</Column>
+				</AnimationBox>
 			</MiddleConsole>
 		</Container>
 	)
