@@ -4,6 +4,8 @@ import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import Card from './Card'
+import { useInView } from 'react-intersection-observer'
+
 
 const Container = styled.div`
   max-height: 38rem;
@@ -22,15 +24,26 @@ const MiddleConsole = styled.div`
 `
 
 const Column = styled.div`
+	transition: margin-left, opacity, left;
+	transition-duration: 0.7s;
+	transition-delay: 0s;
+	transition-timing-function: ease-out; 
   display:flex;
 	align-items: center;
 
   :first-of-type {
     width: 38%;
+		margin-left:${props => props.pos};
+		opacity: ${props => props.opac};
   }
   :last-of-type {
     width: 62%;
 		justify-content: center;
+		position: relative;
+
+		opacity: ${props => props.opac};
+		left: ${props => props.pos};
+		margin-left: ${props => props.pos};
   }
 `
 
@@ -47,9 +60,10 @@ const SubText = styled(Typography)`
 
 const ContactMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const [contactPos, setContactPos] = useState('30rem')
+	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
+	const [ref, inView] = useInView()
 	const [theme] = themeCtx
 
 
@@ -81,19 +95,19 @@ const ContactMe = () => {
 		}
 	]
 
-	// useEffect(() => {
-	// 	if(true){
-	// 		setPicturePos('0rem') 
-	// 		setAboutPos('0rem')
-	// 		setOpac('1')
-	// 	}
-	// }, [])
+	useEffect(() => {
+		if(inView){
+			setPicturePos('0rem') 
+			setAboutPos('0rem')
+			setOpac('1')
+		}
+	}, [inView])
 
   
 	return (
-		<Container>
+		<Container ref={ref}>
 			<MiddleConsole>
-				<Column>
+				<Column pos={'-' + aboutPos} opac={opac}>
 					<Pane display="flex" flexDirection="column">
 						<AboutBlock weight="bold">Contact me</AboutBlock>
 						<SubText>Let&#39;s talk about things</SubText>
@@ -104,7 +118,7 @@ const ContactMe = () => {
 						}
 					</Pane>
 				</Column>
-				<Column>
+				<Column pos={aboutPos} opac={opac}>
 					Cool Graphic Coming Soon
 				</Column>
 			</MiddleConsole>

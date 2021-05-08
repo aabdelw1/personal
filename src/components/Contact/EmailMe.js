@@ -31,7 +31,7 @@ const AnimationBox = styled.div`
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.6s;
-	transition-delay: 0s;
+	transition-delay: 1s;
 	transition-timing-function: ease-in-out; 
 `
 

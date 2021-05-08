@@ -72,7 +72,6 @@ const Column = styled.div`
 		img {
 			max-width:40rem;
 		}
-
   }
 `
 
