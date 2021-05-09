@@ -1,3 +1,4 @@
+import { useMediaQuery } from 'react-responsive'
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -5,8 +6,10 @@ import { Pane, Spinner } from 'evergreen-ui'
 import { Typography } from '../components/primitives'
 import SEO from '../components/seo'
 import Navbar from './Navbar'
+import MobileNav from './MobileNav'
 import Footer from './Footer'
 import { LoadingMessages } from '../../utils/models'
+import { DeviceSize } from './DeviceSize'
 
 const Container = styled.div`
 	/* background: ${({theme}) => theme.grey_6}; */
@@ -28,14 +31,17 @@ const ThemedSpinner = styled(Spinner)`
 
 const _ = (props) => {
 	const {
-		navbar, footer, isLoading, loadingMessage, hero, breadcrumbs, content, title, error
+		navbar, mobileNav, footer, isLoading, loadingMessage, hero, breadcrumbs, content, title, error
 	} = props
+	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile})
+	console.log(isMobile)
 	return (
 		<Container>
 			<SEO title={title} />
 			<div className="flex flex-col w-full h-screen content-between">
+				{/* <MobileNav/> */}
 				{
-					navbar
+					isMobile ? mobileNav : navbar
 				}
 				{ (hero && !error)
           && 
@@ -88,6 +94,7 @@ const _ = (props) => {
 _.propTypes = {
 	/** Optional custom navbar */
 	navbar: PropTypes.object,
+	mobileNav: PropTypes.object,
 	/** Optional custom footer */
 	footer: PropTypes.object,
 	hero: PropTypes.object,
@@ -104,6 +111,7 @@ _.propTypes = {
 }
 _.defaultProps = {
 	navbar: <Navbar/>,
+	mobileNav: <MobileNav/>,
 	footer: <Footer/>,
 	content: <div/>,
 	isLoading: false

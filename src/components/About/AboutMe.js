@@ -1,8 +1,8 @@
-import React, { useContext, useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
-import { ThemeProvider } from '../../Layout'
+// import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
 import { useInView } from 'react-intersection-observer'
 
@@ -98,13 +98,13 @@ const Description = styled(Typography)`
 `
 
 const AboutMe = () => {
-	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	// const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
 
-	const [theme] = themeCtx
+	// const [theme] = themeCtx
 
 	useEffect(() => {
 		if(inView){
@@ -119,7 +119,7 @@ const AboutMe = () => {
 		<AboutMeContainer ref={ref}>
 			<MiddleConsole>
 				<Column pos={'-' + aboutPos} opac={opac}>
-       		<Pane display="flex" flexDirection="column">
+					<Pane display="flex" flexDirection="column">
 						<AboutBlock weight="bold">About Me </AboutBlock>
 						<SubText>I&#39;m a software engineer based in cowboy country Dallas, Texas.</SubText>
 						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&quot;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
