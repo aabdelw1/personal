@@ -12,16 +12,20 @@ const Container = styled.div`
   height:38rem;
 	box-shadow: 0 1px 6px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
+	display:flex;
+	/* max-width: 65rem; */
+
+
 `
 
 const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:65rem;
-	max-width: 80rem;
 	display:flex;
 	justify-content:center;
 	height:100%;
+	flex-wrap: wrap;
 `
 
 const AnimationBox = styled.div`

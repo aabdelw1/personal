@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
@@ -54,6 +55,9 @@ const Header = styled(Typography)`
   color: #000;
   font-size: 30px;
   margin: 25px 0;
+	@media (max-width: 768px) { 
+		text-align:center;
+	}
 `
 
 const Description = styled(Typography)`
@@ -61,19 +65,20 @@ const Description = styled(Typography)`
   font-weight: 200;
 	font-size: 20px;
   margin-bottom:0.9rem;
+	@media (max-width: 768px) { 
+		text-align:center;
+	}
 `
 
 
 const RandomFacts = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [ref, inView] = useInView()
+	const isMobile = useMediaQuery({ maxWidth: 768 })
 	const [theme] = themeCtx
 
 	const [containerOffset, setContainerOffset] = useState('20rem')
 	const [opac, setOpac] = useState('0')
-
-	// const ref = useRef()
-	// const isVisible = useOnScreen(ref)
 
 
 	useEffect(() => {
@@ -82,27 +87,51 @@ const RandomFacts = () => {
 			setOpac('1')
 		}
 	}, [inView]) 
-  
+
+	function renderImage () {
+		return (
+			<Column pos={'-' + containerOffset} opac={opac} >
+				<ImgBox>
+					<img src={Ghidorah}/>
+				</ImgBox>
+			</Column>
+		)
+
+	}
+
+	function renderFacts () {
+		return (
+			<Column pos={containerOffset}>
+				<Pane display="flex" flexDirection="column">
+					<Header weight="normal">Random Facts</Header>
+					<Description>I play a lot of piano</Description>
+					<Description>I like to draw</Description>
+					<Description><span ref={ref}>I make the best cookies</span></Description>
+					<Description>I&#39;m a neat freak</Description>
+					<Description>I love snowbording</Description>
+					<Description>I love sci fi movies</Description>
+					<Description>I&#39;m addicted to Chick-fil-A</Description>
+				</Pane>
+			</Column> 
+
+		)
+	}
+
 	return (
 		<Container>
 			<MiddleConsole>
-				<Column pos={'-' + containerOffset} opac={opac} >
-					<ImgBox>
-						<img src={Ghidorah}/>
-					</ImgBox>
-				</Column>
-				<Column pos={containerOffset}>
-					<Pane display="flex" flexDirection="column">
-						<Header weight="normal">Random Facts</Header>
-						<Description>I play a lot of piano</Description>
-						<Description>I like to draw</Description>
-						<Description><span ref={ref}>I make the best cookies</span></Description>
-						<Description>I&#39;m a neat freak</Description>
-						<Description>I love snowbording</Description>
-						<Description>I love sci fi movies</Description>
-						<Description>I&#39;m addicted to Chick-fil-A</Description>
-					</Pane>
-				</Column> 
+				{
+					renderImage()
+				}
+				{
+					renderFacts()
+				}
+				{/* {
+					!isMobile ? renderImage() : renderFacts()
+				}
+				{
+					!isMobile ? renderFacts() : renderImage()
+				} */}
 			</MiddleConsole>
 		</Container> 
 	)

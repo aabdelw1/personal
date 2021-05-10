@@ -14,6 +14,11 @@ const Container = styled.div`
   height:38rem;
 	box-shadow: 0 2px 3px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
+
+	@media (max-width: 768px) { 
+		max-height: unset;
+		height:unset;
+ 	}
 `
 
 const MiddleConsole = styled.div`
@@ -24,26 +29,23 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
+	justify-content: flex-start;
+		@media (max-width: 768px) { 
+		width:unset;
+		max-width: unset;
+		justify-content:center;
+ 	}
+
 `
-
-const Column = styled.div`
-		display:flex;
-
-	flex:1;
-  
-	justify-content:center;
-	align-items:center;
-  :last-of-type {
-		justify-content: flex-end;
-	}
-  :first-of-type {
-		justify-content: flex-start;
-  }
-`
-
 const AnimationBox = styled.div`
+	@media (max-width: 768px) { 
+		max-width: 768px;
+		flex-direction: column;
+		img {
+			max-width: 20rem;
+		}
+ 	}
 	display:flex;
-
 	margin-top: ${props => props.pos};
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
@@ -51,6 +53,31 @@ const AnimationBox = styled.div`
 	transition-delay: 0s;
 	transition-timing-function: ease-in-out; 
 `
+const Column = styled.div`
+	display:flex;
+	flex:1;
+	justify-content:center;
+	align-items:center;
+
+	@media (max-width: 768px) { 
+		margin-bottom:1rem;
+ 	}
+  :first-of-type {
+		justify-content: flex-start;
+		@media (max-width: 768px) { 
+		justify-content:center;
+ 	}
+  }
+	:last-of-type {
+		justify-content: flex-end;
+		@media (max-width: 768px) { 
+		justify-content:center;
+		}
+	}
+
+`
+
+
 
 const ImgBox = styled.div`
   /* max-width:35vh; */
@@ -61,6 +88,10 @@ const Header = styled(Typography)`
   font-size: 30px;
   font-family: 'Raleway', sans-serif;
   margin: 25px 0;
+	@media (max-width: 768px) { 
+		text-align:center;
+	}
+
 `
 
 const Description = styled(Typography)`
@@ -68,6 +99,10 @@ const Description = styled(Typography)`
   font-weight: 200;
 	font-size: 20px;
   margin-bottom:0.9rem;
+
+	@media (max-width: 768px) { 
+		text-align:center;
+	}
 `
 
 
