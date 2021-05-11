@@ -13,6 +13,10 @@ const Container = styled.div`
   max-height: 38rem;
   height:38rem;
 	box-shadow: 0 4px 6px #dddddd;
+	@media (max-width: 768px) { 
+		max-height: unset;
+		height:unset;
+ 	}
 `
 
 const MiddleConsole = styled.div`
@@ -23,6 +27,12 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
+	@media (max-width: 768px) { 
+		/* max-width: 768px; */
+		width:unset;
+			max-width: unset;
+		flex-direction: column;
+ 		}
 `
 
 const Column = styled.div`
@@ -31,24 +41,37 @@ const Column = styled.div`
 	transition-duration: 0.6s;
 	transition-delay: 0s;
 	transition-timing-function: ease-out; 
+	@media (max-width: 768px) { 
+		margin-top:1rem;
+ 	}
   :first-of-type {
 		margin-left: ${props => props.pos};
 		opacity: ${props => props.opac};
     width: 68%;
     justify-content: flex-end;
 		align-items: flex-end;
-  }
+		@media (max-width: 768px) { 
+			width:unset;
+			margin-right:2rem;
+  	}
+	}
   :last-of-type {
 		margin-left: ${props => props.pos};
     width: 32%;
 		align-items: center;
 		justify-content: center;
+		@media (max-width: 768px) { 
+			width:unset;
+			margin-bottom: 1rem;
+  	}
   }
 `
 
 const ImgBox = styled.div`
   max-width:80vh;
-
+	@media (max-width: 768px) { 
+		max-width:70vh;
+ 	}
 `
 
 const Header = styled(Typography)`
@@ -120,12 +143,23 @@ const RandomFacts = () => {
 	return (
 		<Container>
 			<MiddleConsole>
-				{
-					renderImage()
-				}
-				{
-					renderFacts()
-				}
+				<Column pos={'-' + containerOffset} opac={opac} >
+					<ImgBox>
+						<img src={Ghidorah}/>
+					</ImgBox>
+				</Column>
+				<Column pos={containerOffset}>
+					<Pane display="flex" flexDirection="column">
+						<Header weight="normal">Random Facts</Header>
+						<Description>I play a lot of piano</Description>
+						<Description>I like to draw</Description>
+						<Description><span ref={ref}>I make the best cookies</span></Description>
+						<Description>I&#39;m a neat freak</Description>
+						<Description>I love snowbording</Description>
+						<Description>I love sci fi movies</Description>
+						<Description>I&#39;m addicted to Chick-fil-A</Description>
+					</Pane>
+				</Column> 
 				{/* {
 					!isMobile ? renderImage() : renderFacts()
 				}

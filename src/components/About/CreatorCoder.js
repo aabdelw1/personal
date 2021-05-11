@@ -31,9 +31,9 @@ const MiddleConsole = styled.div`
 	height:100%;
 	justify-content: flex-start;
 		@media (max-width: 768px) { 
-		width:unset;
-		max-width: unset;
-		justify-content:center;
+			width:unset;
+			max-width: unset;
+			justify-content:center;
  	}
 
 `
@@ -65,13 +65,13 @@ const Column = styled.div`
   :first-of-type {
 		justify-content: flex-start;
 		@media (max-width: 768px) { 
-		justify-content:center;
+			justify-content:center;
  	}
   }
 	:last-of-type {
 		justify-content: flex-end;
 		@media (max-width: 768px) { 
-		justify-content:center;
+			justify-content:center;
 		}
 	}
 
