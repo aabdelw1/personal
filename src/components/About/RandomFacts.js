@@ -29,9 +29,9 @@ const MiddleConsole = styled.div`
 	height:100%;
 	@media (max-width: 768px) { 
 		/* max-width: 768px; */
-		width:unset;
+			width:unset;
 			max-width: unset;
-		flex-direction: column;
+			flex-direction: column;
  		}
 `
 
@@ -52,7 +52,7 @@ const Column = styled.div`
 		align-items: flex-end;
 		@media (max-width: 768px) { 
 			width:unset;
-			margin-right:2rem;
+			margin:2rem;
   	}
 	}
   :last-of-type {

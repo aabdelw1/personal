@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
@@ -7,9 +8,7 @@ import AmmarAbout from '../../assets/img/ammar_about.png'
 import { useInView } from 'react-intersection-observer'
 
 
-
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
-
 
 
 const AboutMeContainer = styled.div`
@@ -20,6 +19,10 @@ const AboutMeContainer = styled.div`
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
+	@media (max-width: 768px) { 
+		max-height: unset;
+		height:unset;
+ 	}
 
 `
 const MiddleConsole = styled.div`
@@ -28,24 +31,36 @@ const MiddleConsole = styled.div`
   width:65rem;
   display:flex;
 	transition: margin-top 1s 3s ease-in-out;
+	@media (max-width: 768px) { 
+			width:unset;
+			flex-direction: column;
+			justify-content: center;
+ 		}
 
   :first-of-type {
     height: 75%;
     border-bottom: 1px solid #dddddd;
+		@media (max-width: 768px) { 
+			align-items: center;
+			margin-right:2rem;
+			margin-left:2rem;
+ 		}
   }
   :last-of-type {
     height: 25%;
     justify-content: center;
-    
+
   }
 `
 const Pictures = styled.div`
+	display: flex;
 	margin-top: ${props => props.pos};
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.2s;
 	transition-delay: ${props => props.time};
 	transition-timing-function: ease-in-out; 
+	flex-wrap: wrap;
 `
 const Column = styled.div`
 	transition: margin-left, opacity, left;
@@ -59,6 +74,10 @@ const Column = styled.div`
     width: 40%;
     justify-content: flex-end;
     align-items: center;
+			@media (max-width: 768px) { 
+			width:unset;
+ 	}
+		
   }
   :last-of-type {
 		margin-left: ${props => props.pos};
@@ -69,8 +88,16 @@ const Column = styled.div`
     max-width:90vh;
     justify-content: flex-end;
     align-items: flex-end;
+		@media (max-width: 768px) { 
+			justify-content: center;
+ 		}
 		img {
 			max-width:40rem;
+			@media (max-width: 768px) { 
+					max-width:60vh;
+					margin-top:1rem;
+				}
+
 		}
   }
 `
@@ -80,6 +107,9 @@ const AboutBlock = styled(Typography)`
   font-size: 70px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
+	@media (max-width: 768px) { 
+		margin-top:3rem;
+	}
  
   p:first-of-type {
     display: inline;
@@ -98,13 +128,12 @@ const Description = styled(Typography)`
 `
 
 const AboutMe = () => {
-	// const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
+	const isMobile = useMediaQuery({ maxWidth: 768 })
 
-	// const [theme] = themeCtx
 
 	useEffect(() => {
 		if(inView){
@@ -130,7 +159,7 @@ const AboutMe = () => {
 				</Column>
 			</MiddleConsole>
 			<MiddleConsole>
-				<Pane display="flex" marginTop="2rem" justifyContent="center">
+				<Pane display="flex" marginTop="2rem" justifyContent="center" flexWrap="wrap" marginBottom={isMobile && "3rem"}>
 					{
 						aboutMeImgs.map((name, index) => {
 							const time = ((index + 1.8) * 0.25).toString() + 's'
@@ -144,17 +173,17 @@ const AboutMe = () => {
 										width={150}
 										height={85}
 										border="default"
-										marginLeft={index == 0 ? 0 : 28}
+										marginRight={index == 5 && !isMobile ? 0 : 28}
 										display="flex"
 										justifyContent="center"
 										alignItems="center"
 										flexDirection="column"
 										padding = {5}
+										marginBottom="1rem"
 									>
 										<img src={require(`../../assets/img/about_slide/${name}.png`)}/>
 									</Pane>
 								</Pictures>
-
 							)
 						})
 					}
