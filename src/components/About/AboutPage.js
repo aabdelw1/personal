@@ -14,7 +14,6 @@ const AboutPage = () => {
 			<AboutMe/>
 			<CreateCoder/>
 			<RandomFacts/>
-			{/* <Skills/> */}
 			{ !isMobile && <Skills/> }
 		</Pane>
 	)

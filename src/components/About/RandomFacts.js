@@ -111,34 +111,32 @@ const RandomFacts = () => {
 		}
 	}, [inView]) 
 
-	function renderImage () {
-		return (
-			<Column pos={'-' + containerOffset} opac={opac} >
-				<ImgBox>
-					<img src={Ghidorah}/>
-				</ImgBox>
-			</Column>
-		)
+	// function renderImage () {
+	// 	return (
+	// 		<Column pos={'-' + containerOffset} opac={opac} >
+	// 			<ImgBox>
+	// 				<img src={Ghidorah}/>
+	// 			</ImgBox>
+	// 		</Column>
+	// 	)
+	// }
 
-	}
-
-	function renderFacts () {
-		return (
-			<Column pos={containerOffset}>
-				<Pane display="flex" flexDirection="column">
-					<Header weight="normal">Random Facts</Header>
-					<Description>I play a lot of piano</Description>
-					<Description>I like to draw</Description>
-					<Description><span ref={ref}>I make the best cookies</span></Description>
-					<Description>I&#39;m a neat freak</Description>
-					<Description>I love snowbording</Description>
-					<Description>I love sci fi movies</Description>
-					<Description>I&#39;m addicted to Chick-fil-A</Description>
-				</Pane>
-			</Column> 
-
-		)
-	}
+	// function renderFacts () {
+	// 	return (
+	// 		<Column pos={containerOffset}>
+	// 			<Pane display="flex" flexDirection="column">
+	// 				<Header weight="normal">Random Facts</Header>
+	// 				<Description>I play a lot of piano</Description>
+	// 				<Description>I like to draw</Description>
+	// 				<Description><span ref={ref}>I make the best cookies</span></Description>
+	// 				<Description>I&#39;m a neat freak</Description>
+	// 				<Description>I love snowbording</Description>
+	// 				<Description>I love sci fi movies</Description>
+	// 				<Description>I&#39;m addicted to Chick-fil-A</Description>
+	// 			</Pane>
+	// 		</Column> 
+	// 	)
+	// }
 
 	return (
 		<Container>

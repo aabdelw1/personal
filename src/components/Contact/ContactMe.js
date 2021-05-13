@@ -1,4 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
+import { useMediaQuery } from 'react-responsive'
+
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
@@ -21,6 +23,12 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
+	@media (max-width: 768px) { 
+			width:unset;
+			max-width: unset;
+			flex-direction: column;
+			align-items: center;
+ 		}
 `
 
 const Column = styled.div`
@@ -35,6 +43,7 @@ const Column = styled.div`
     width: 38%;
 		margin-left:${props => props.pos};
 		opacity: ${props => props.opac};
+
   }
   :last-of-type {
     width: 62%;
@@ -44,6 +53,12 @@ const Column = styled.div`
 		opacity: ${props => props.opac};
 		left: ${props => props.pos};
 		margin-left: ${props => props.pos};
+		@media (max-width: 768px) { 
+			width:unset;
+			margin-left:unset;
+			align-items: unset;
+ 		}
+
   }
 `
 
@@ -64,6 +79,7 @@ const ContactMe = () => {
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
+	const isMobile = useMediaQuery({ maxWidth: 768 })
 	const [theme] = themeCtx
 
 
@@ -108,7 +124,7 @@ const ContactMe = () => {
 		<Container ref={ref}>
 			<MiddleConsole>
 				<Column pos={'-' + aboutPos} opac={opac}>
-					<Pane display="flex" flexDirection="column">
+					<Pane display="flex" flexDirection="column" justifyContent={isMobile && 'center'}>
 						<AboutBlock weight="bold">Contact me</AboutBlock>
 						<SubText>Let&#39;s talk about things</SubText>
 						{
@@ -118,9 +134,11 @@ const ContactMe = () => {
 						}
 					</Pane>
 				</Column>
-				<Column pos={aboutPos} opac={opac}>
+				{
+					!isMobile && <Column pos={aboutPos} opac={opac}>
 					Cool Graphic Coming Soon
-				</Column>
+					</Column>
+				}
 			</MiddleConsole>
 		</Container>
 	)
