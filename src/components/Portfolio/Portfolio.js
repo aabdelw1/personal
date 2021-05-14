@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { ThemeProvider, CardContext } from '../../Layout'
+import { /*ThemeProvider,*/ CardContext } from '../../Layout'
 import Card from './Card'
 import { useInView } from 'react-intersection-observer'
 
@@ -16,7 +16,7 @@ const MiddleConsole = styled.div`
 	max-width: 62rem;
 	display:flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
   align-content: flex-start;
 `
 
@@ -29,7 +29,7 @@ const CardAnim = styled.div`
 `
 
 const Portfolio = () => {
-	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	// const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [, setActiveCard] = useContext(CardContext.Context)
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
@@ -51,8 +51,7 @@ const Portfolio = () => {
 			name: 'Ingies Animal Shelter',
 			category: 'Full Stack Web App',
 			image: 'dog',
-			link: ''
-			
+			link: 'https://github.com/aabdelw1/Animal-Shelter-Dashboard'
 		},{
 			name: 'Indicator Evaluation',
 			category: 'Machine Learning',
@@ -73,6 +72,16 @@ const Portfolio = () => {
 			category: 'Java Program',
 			image: 'bus',
 			link: 'https://github.com/aabdelw1/MartaSimulation'
+		},{
+			name: 'DSA Key Recovery',
+			category: 'Applied Cryptography',
+			image: 'lock',
+			link: 'https://github.com/aabdelw1/dsa-key-recovery'
+		},{
+			name: 'Length Extenstion Attack',
+			category: 'Applied Cryptography',
+			image: 'hash',
+			link: 'https://github.com/aabdelw1/length-extension-attack'
 		}
 	]
 
@@ -82,7 +91,7 @@ const Portfolio = () => {
 				{
 					cardInfo.map((project, i) => {
 						const time = ((i + 0.5) * 0.25).toString() + 's'
-						return <CardAnim key={i} time={time} opac={opac}><Card project={project} index={i}/></CardAnim>
+						return <CardAnim key={i} time={time} opac={opac}><Card project={project} index={i} length={(cardInfo.length + 0.5) * 0.25}/></CardAnim>
 					})
 				}
 			</MiddleConsole>

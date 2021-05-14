@@ -6,6 +6,8 @@ import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import AmmarCoder from '../../assets/img/home/coder_ammar2.png'
 import AmmarCreator from '../../assets/img/home/creator_ammar2.png'
+import useMousePosition from '../primitives/useMousePosition'
+import { hasError } from 'apollo-client/core/ObservableQuery'
 
 
 const AboutMeContainer = styled.div`
@@ -90,12 +92,18 @@ const Home = () => {
 	const [imgPostions, setImgPostions] = useState([19.5, -25])
 	const [opacity, setOpacity] = useState([1,1])
 	const [positionSide, setPostionSide] = useState()
+	const { x, y } = useMousePosition()
+	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
+	// console.log(x, y)
+
 	const [theme] = themeCtx
 	const ref = useRef(null)
 	const mouse = useMouse(ref, {
 		enterDelay: 100,
 		leaveDelay: 100,
 	})
+
+
 
 	const midpoint =  mouse.elementWidth/2
 	const width = mouse.elementWidth
@@ -147,7 +155,7 @@ const Home = () => {
 	useEffect(() => {
 		if(mouse.elementWidth != null){
 			animateWidth()
-			console.log(opacity)
+			// console.log(opacity)
 		}
 		else {
 			setImgWidths([50, 50])

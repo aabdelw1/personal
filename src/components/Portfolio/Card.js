@@ -4,7 +4,7 @@ import { Link, ChevronRightIcon } from 'evergreen-ui'
 import PropTypes from 'prop-types'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
-import { ThemeProvider, CardContext } from '../../Layout'
+import { /*ThemeProvider,*/ CardContext } from '../../Layout'
 
 const CardContainer = styled.div`
   display:flex;
@@ -22,7 +22,6 @@ const Item = styled.div`
 	height: 14.3rem;
 	width: 18.5rem;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) ;
-
 	img {
 		margin: 0.5rem;
 		width:17.5rem;
@@ -34,7 +33,6 @@ const Item = styled.div`
 const SubText = styled(Typography)`
   font-size: 17px;
 	color:#000;
-
 `
 const Description = styled(Typography)`
   font-size: 14px;
@@ -52,18 +50,24 @@ const Chevy = styled.div`
 `
 
 const Card = (props) => {
-	const { project, index } = props
+	const { project, index, length } = props
 	const { name, category, image, link } = project
 
-	const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	// const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+	const [counter, setCounter] = useState(Math.round(length))
 	const [opac, setOpac] = useState('0')
 	const [marginR, setMarginR] = useState('0.5rem')
-	const [theme] = themeCtx
+	// const [theme] = themeCtx
 
 	const activate = activeCard === index || activeCard === null
 	const chevronAnim = activate && activeCard !== null 
 
+	useEffect(() => {
+		const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000)
+		return () => clearInterval(timer)
+	}, [counter])
 
 	useEffect(() => {
 		if(chevronAnim){
@@ -75,10 +79,9 @@ const Card = (props) => {
 		}
 	}, [chevronAnim]) 
 
-	console.log(activeCard)
 
 	return (
-		<CardContainer opac={activate ? '1.0' : '0.6'} onMouseEnter={() => setActiveCard(index)} onMouseLeave={() => setActiveCard(index)}>
+		<CardContainer opac={activate ? '1.0' : '0.6'} onMouseEnter={() => counter == 0 && setActiveCard(index)} onMouseLeave={() => setActiveCard(null)}>
 			<Link href={link}>
 				<Pane hoverElevation={2}>
 					<Item>
@@ -104,6 +107,7 @@ const Card = (props) => {
 Card.propTypes = {
 	project: PropTypes.object,
 	index: PropTypes.any,
+	length: PropTypes.number
 }
 
 export default Card
