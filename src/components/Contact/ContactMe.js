@@ -23,7 +23,7 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 			width:unset;
 			max-width: unset;
 			flex-direction: column;
@@ -53,7 +53,7 @@ const Column = styled.div`
 		opacity: ${props => props.opac};
 		left: ${props => props.pos};
 		margin-left: ${props => props.pos};
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			width:unset;
 			margin-left:unset;
 			align-items: unset;
@@ -79,7 +79,7 @@ const ContactMe = () => {
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
-	const isMobile = useMediaQuery({ maxWidth: 768 })
+	const isMobile = useMediaQuery({ maxWidth: 992 })
 	const [theme] = themeCtx
 
 

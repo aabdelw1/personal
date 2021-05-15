@@ -19,7 +19,7 @@ const AboutMeContainer = styled.div`
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
  	}
@@ -31,7 +31,7 @@ const MiddleConsole = styled.div`
   width:65rem;
   display:flex;
 	transition: margin-top 1s 3s ease-in-out;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 			width:unset;
 			flex-direction: column;
 			justify-content: center;
@@ -40,7 +40,7 @@ const MiddleConsole = styled.div`
   :first-of-type {
     height: 75%;
     border-bottom: 1px solid #dddddd;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			align-items: center;
 			margin-right:2rem;
 			margin-left:2rem;
@@ -74,7 +74,7 @@ const Column = styled.div`
     width: 40%;
     justify-content: flex-end;
     align-items: center;
-			@media (max-width: 768px) { 
+			@media (max-width: 992px) { 
 			width:unset;
  	}
 		
@@ -88,12 +88,12 @@ const Column = styled.div`
     max-width:90vh;
     justify-content: flex-end;
     align-items: flex-end;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			justify-content: center;
  		}
 		img {
 			max-width:40rem;
-			@media (max-width: 768px) { 
+			@media (max-width: 992px) { 
 					max-width:60vh;
 					margin-top:1rem;
 				}
@@ -107,7 +107,7 @@ const AboutBlock = styled(Typography)`
   font-size: 70px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		margin-top:3rem;
 	}
  
@@ -132,7 +132,7 @@ const AboutMe = () => {
 	const [picturePos, setPicturePos] = useState('4rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
-	const isMobile = useMediaQuery({ maxWidth: 768 })
+	const isMobile = useMediaQuery({ maxWidth: 992 })
 
 
 	useEffect(() => {

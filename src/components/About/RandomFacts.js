@@ -13,7 +13,7 @@ const Container = styled.div`
   max-height: 38rem;
   height:38rem;
 	box-shadow: 0 4px 6px #dddddd;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
  	}
@@ -27,8 +27,8 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
-	@media (max-width: 768px) { 
-		/* max-width: 768px; */
+	@media (max-width: 992px) { 
+		/* max-width: 992px; */
 			width:unset;
 			max-width: unset;
 			flex-direction: column;
@@ -41,7 +41,7 @@ const Column = styled.div`
 	transition-duration: 0.6s;
 	transition-delay: 0s;
 	transition-timing-function: ease-out; 
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		margin-top:1rem;
  	}
   :first-of-type {
@@ -50,9 +50,11 @@ const Column = styled.div`
     width: 68%;
     justify-content: flex-end;
 		align-items: flex-end;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			width:unset;
+			border-bottom: 1px solid #dddddd;
 			margin:2rem;
+			justify-content:center;
   	}
 	}
   :last-of-type {
@@ -60,7 +62,7 @@ const Column = styled.div`
     width: 32%;
 		align-items: center;
 		justify-content: center;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			width:unset;
 			margin-bottom: 1rem;
   	}
@@ -69,7 +71,7 @@ const Column = styled.div`
 
 const ImgBox = styled.div`
   max-width:80vh;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		max-width:70vh;
  	}
 `
@@ -78,7 +80,7 @@ const Header = styled(Typography)`
   color: #000;
   font-size: 30px;
   margin: 25px 0;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		text-align:center;
 	}
 `
@@ -88,7 +90,7 @@ const Description = styled(Typography)`
   font-weight: 200;
 	font-size: 20px;
   margin-bottom:0.9rem;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		text-align:center;
 	}
 `
@@ -97,7 +99,7 @@ const Description = styled(Typography)`
 const RandomFacts = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [ref, inView] = useInView()
-	const isMobile = useMediaQuery({ maxWidth: 768 })
+	const isMobile = useMediaQuery({ maxWidth: 992 })
 	const [theme] = themeCtx
 
 	const [containerOffset, setContainerOffset] = useState('20rem')

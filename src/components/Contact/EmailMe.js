@@ -13,7 +13,7 @@ const Container = styled.div`
 	box-shadow: 0 1px 6px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
 	display:flex;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
  	}
@@ -28,9 +28,9 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	height:100%;
 	flex-wrap: wrap;
-	@media (max-width: 768px) { 
-			width:unset;
-			max-width: unset;
+	@media (max-width: 992px) { 
+			width:100%;
+			padding: 0 3.5rem 0 3.5rem;
  		}
 `
 
@@ -43,8 +43,7 @@ const AnimationBox = styled.div`
 	transition-duration: 0.6s;
 	transition-delay: 1s;
 	transition-timing-function: ease-in-out; 
-	@media (max-width: 768px) { 
-
+	@media (max-width: 992px) { 
 			flex-direction: column;
  		}
 `
@@ -52,7 +51,15 @@ const AnimationBox = styled.div`
 const Column = styled.div`
 	flex:1;
   :first-of-type {
-		margin-right: 2.5rem;
+		margin-right: 3.5rem;
+				@media (max-width: 992px) { 
+				margin-right:unset; 
+ 		} 
+  }
+	:last-of-type {
+		/* @media (max-width: 992px) { 
+			margin-right:2.5rem;
+ 		} */
   }
 `
 
@@ -137,7 +144,7 @@ const Send = styled.button`
 		background-color: #fafafa;
 		color: #1C1C1E;
 	}
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 			margin-bottom:5rem;
 			margin-top:1rem;
   	}

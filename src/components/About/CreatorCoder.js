@@ -15,7 +15,7 @@ const Container = styled.div`
 	box-shadow: 0 2px 3px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
 
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
  	}
@@ -30,7 +30,7 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	height:100%;
 	justify-content: flex-start;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			width:unset;
 			max-width: unset;
 			justify-content:center;
@@ -38,8 +38,8 @@ const MiddleConsole = styled.div`
 
 `
 const AnimationBox = styled.div`
-	@media (max-width: 768px) { 
-		max-width: 768px;
+	@media (max-width: 992px) { 
+		max-width: 992px;
 		flex-direction: column;
 		img {
 			max-width: 20rem;
@@ -59,18 +59,18 @@ const Column = styled.div`
 	justify-content:center;
 	align-items:center;
 
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		margin-bottom:1rem;
  	}
   :first-of-type {
 		justify-content: flex-start;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			justify-content:center;
  	}
   }
 	:last-of-type {
 		justify-content: flex-end;
-		@media (max-width: 768px) { 
+		@media (max-width: 992px) { 
 			justify-content:center;
 		}
 	}
@@ -88,7 +88,7 @@ const Header = styled(Typography)`
   font-size: 30px;
   font-family: 'Raleway', sans-serif;
   margin: 25px 0;
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		text-align:center;
 	}
 
@@ -100,7 +100,7 @@ const Description = styled(Typography)`
 	font-size: 20px;
   margin-bottom:0.9rem;
 
-	@media (max-width: 768px) { 
+	@media (max-width: 992px) { 
 		text-align:center;
 	}
 `

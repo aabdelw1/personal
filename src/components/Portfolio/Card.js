@@ -81,7 +81,7 @@ const Card = (props) => {
 
 
 	return (
-		<CardContainer opac={activate ? '1.0' : '0.6'} onMouseEnter={() => counter == 0 && setActiveCard(index)} onMouseLeave={() => setActiveCard(null)}>
+		<CardContainer opac={activate ? '1.0' : '1'} onMouseEnter={() => counter == 0 && setActiveCard(index)} onMouseLeave={() => setActiveCard(null)}>
 			<Link href={link}>
 				<Pane hoverElevation={2}>
 					<Item>

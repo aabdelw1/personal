@@ -18,6 +18,10 @@ const MiddleConsole = styled.div`
   flex-wrap: wrap;
   /* justify-content: center; */
   align-content: flex-start;
+	@media (max-width: 992px) { 
+			justify-content: center;
+ 	}
+
 `
 
 const CardAnim = styled.div`

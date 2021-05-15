@@ -84,7 +84,7 @@ const LatestWork = () => {
 				<Pane marginTop="2rem" display="flex">
 					{
 						cardInfo.map((project, i) => {
-					 return(	<Card project={project} index={i} key={i} />)
+					 return(	<Card project={project} index={i} key={i} length={(cardInfo.length + 0.5) * 0.25}/>)
 						})
 					}
 				</Pane>
