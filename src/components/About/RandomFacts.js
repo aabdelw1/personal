@@ -145,15 +145,18 @@ const RandomFacts = () => {
 			<MiddleConsole>
 				<Column pos={'-' + containerOffset} opac={opac} >
 					<ImgBox>
-						<img src={Ghidorah}/>
+
+						<img src={Ghidorah}/> 
 					</ImgBox>
 				</Column>
 				<Column pos={containerOffset}>
 					<Pane display="flex" flexDirection="column">
-						<Header weight="normal">Random Facts</Header>
+						{isMobile && <Header weight="normal"><span ref={ref}>Random Facts </span></Header> }
+						{!isMobile && <Header weight="normal">Random Facts</Header> }
 						<Description>I play a lot of piano</Description>
 						<Description>I like to draw</Description>
-						<Description><span ref={ref}>I make the best cookies</span></Description>
+						{ !isMobile && <Description><span ref={ref}>I make the best cookies</span></Description>}
+						{ isMobile && <Description>I make the best cookies</Description>}
 						<Description>I&#39;m a neat freak</Description>
 						<Description>I love snowbording</Description>
 						<Description>I love sci fi movies</Description>
