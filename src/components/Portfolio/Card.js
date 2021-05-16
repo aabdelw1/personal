@@ -22,9 +22,16 @@ const Item = styled.div`
 	height: 14.3rem;
 	width: 18.5rem;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) ;
+	@media (max-width: 992px) { 
+		height: 12rem;
+		width: 15rem;
+ 	}
 	img {
 		margin: 0.5rem;
 		width:17.5rem;
+		@media (max-width: 992px) { 
+			width:14rem;
+ 	}
 	}
 	:hover{
 		cursor: pointer;
@@ -33,12 +40,18 @@ const Item = styled.div`
 const SubText = styled(Typography)`
   font-size: 17px;
 	color:#000;
+	@media (max-width: 992px) { 
+			font-size:15.5px;
+ 	}
 `
 const Description = styled(Typography)`
   font-size: 14px;
   color:#000;
 	margin-top: 0.1rem;
 	text-decoration: none;
+	@media (max-width: 992px) { 
+			font-size:13px;
+ 	}
 `
 const Chevy = styled.div`
 	margin: auto;

@@ -12,6 +12,11 @@ const Container = styled.div`
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
   border-top: 2px solid #dddddd;
+	@media (max-width: 992px) { 
+		max-height: unset;
+		height:unset;
+		padding:3rem;
+ 	}
 `
 
 const MiddleConsole = styled(Typography)`
@@ -22,6 +27,11 @@ const MiddleConsole = styled(Typography)`
 	display:flex;
 	justify-content:center;
 	height:100%;
+	@media (max-width: 992px) { 
+			width:unset;
+			max-width: unset;
+ 	}
+	
   :first-of-type {
     height: 18%;
   }
@@ -34,18 +44,26 @@ const MiddleConsole = styled(Typography)`
 
 const Column = styled.div`
   width:100%;
+	/* @media (max-width: 992px) { 
+			width:unset;
+  	} */
   :first-of-type{
     border-bottom:1px solid #dddddd;
+		margin-left:3rem;
   }
   :nth-of-type(2){
     display:flex;
     justify-content: center;
     align-items: flex-end;
     margin-bottom:-0.5rem;
-    width: 70%;
-  }
+    /* width: 50rem; */
+		@media (max-width: 850px) { 
+			width:80rem;
+  	} 
+	}
   :last-of-type{
     border-bottom:1px solid #dddddd;
+		margin-right:3rem;
   }
 `
 
@@ -81,7 +99,7 @@ const LatestWork = () => {
 				<Column/>
 			</MiddleConsole>
 			<MiddleConsole  onMouseLeave={() => setActiveCard(null)}>
-				<Pane marginTop="2rem" display="flex">
+				<Pane marginTop="2rem" display="flex" flexWrap="wrap" justifyContent="center">
 					{
 						cardInfo.map((project, i) => {
 					 return(	<Card project={project} index={i} key={i} length={(cardInfo.length + 0.5) * 0.25}/>)

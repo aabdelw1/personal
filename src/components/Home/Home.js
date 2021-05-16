@@ -14,6 +14,10 @@ const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 40rem;
   height:40rem;
+	@media (max-width: 992px) { 
+		/* max-height: unset; */
+		height:30rem;
+ 	}
 `
 const MiddleConsole = styled.div`
   margin-left: auto;
@@ -24,6 +28,10 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	position: relative;
 	height:100%;
+	@media (max-width: 992px) { 
+			width:unset;
+			max-width: unset;
+ 		}
 `
 
 const Column = styled.div`
@@ -69,6 +77,10 @@ const GraphicContainer = styled.div`
     position: absolute;
     top: 0;
 		justify-content:center;
+		@media (max-width: 992px) { 
+				height:unset;
+				align-items:flex-end;
+ 			}
 `
 
 const ImageColumn = styled.div`
@@ -76,12 +88,21 @@ const ImageColumn = styled.div`
 	justify-content:center;
 	:first-of-type,
 	:last-of-type {
+		back
 		width:50%;
+		/* @media (max-width: 992px) { 
+				width:unset;
+				align-items:flex-end;
+ 			} */
 		img {
 			transition: object-position 0.8s ease-out;
 			height: 40rem;
 			object-fit:cover;
 			object-position: ${props => props.postion};
+			@media (max-width: 992px) { 
+				height:unset;
+				justify-content: flex-end;
+ 			}
 		}
 	}
 `
