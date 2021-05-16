@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useMediaQuery } from 'react-responsive'
 import {  Pane, toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
@@ -17,7 +18,6 @@ const Container = styled.div`
 		max-height: unset;
 		height:unset;
  	}
-
 `
 
 const MiddleConsole = styled.div`
@@ -41,7 +41,7 @@ const AnimationBox = styled.div`
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.6s;
-	transition-delay: 1s;
+	transition-delay: ${props => props.mobile};
 	transition-timing-function: ease-in-out; 
 	@media (max-width: 992px) { 
 			flex-direction: column;
@@ -160,6 +160,7 @@ const EmailMe = () => {
 	const [message, seMessage] = useState('')
 	const [containerOffset, setContainerOffset] = useState('10rem')
 	const [opac, setOpac] = useState('0')
+	const isMobile = useMediaQuery({ maxWidth: 992 })
 	const [ref, inView] = useInView()
 	const [theme] = themeCtx
 
@@ -179,7 +180,7 @@ const EmailMe = () => {
 	return (
 		<Container>
 			<MiddleConsole>
-				<AnimationBox ref={ref} pos={containerOffset} opac={opac}>
+				<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1.0 + 's'}>
 					<Column>
 						<Row><Header weight="normal">Send me an email</Header></Row>
 						<Row>

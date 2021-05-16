@@ -1,5 +1,6 @@
 import React, { useContext, useRef, useEffect, useState} from 'react'
 import useMouse from '@react-hook/mouse-position'
+import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
@@ -14,9 +15,9 @@ const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 40rem;
   height:40rem;
-	@media (max-width: 992px) { 
+	@media (max-width: 1300px) { 
 		/* max-height: unset; */
-		height:30rem;
+		height:20rem;
  	}
 `
 const MiddleConsole = styled.div`
@@ -28,7 +29,9 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	position: relative;
 	height:100%;
-	@media (max-width: 992px) { 
+	transition: align-items 0.8s ease-out;
+
+	@media (max-width: 1350px) { 
 			width:unset;
 			max-width: unset;
  		}
@@ -40,8 +43,13 @@ const Column = styled.div`
 	justify-content:center;
 	align-items:center;
 	transition: opacity 0.5s ease-in-out;
+	@media (max-width: 650px) { 
+			align-items:unset;
+ 	}
+
 	:nth-of-type(2){
 		opacity:${props => props.opacity};
+		
 	}
 	:last-of-type{
 		opacity:${props => props.opacity};
@@ -51,9 +59,12 @@ const Column = styled.div`
 
 const AboutBlock = styled(Typography)`
   display:block !important;
-  font-size: 65px !important;
+  font-size: 5vw !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
+	 @media (max-width: 992px) { 
+			font-size: 6vw !important; 
+	 }
   p {
     display: inline;
     font-weight: 400;
@@ -67,6 +78,18 @@ const Description = styled(Typography)`
   color:#000;
   width:18rem;
 	margin-top:1rem;
+	@media (max-width: 600px) { 
+		font-size: 7px !important;
+ 	}
+	@media (max-width: 768px) { 
+		font-size: 9px !important;
+ 	}
+	 @media (max-width: 992px) { 
+			font-size: 12px !important; 
+	 }
+	 @media (max-width: 1200px) { 
+			font-size: 18px !important;
+ 	}
 `
 
 const GraphicContainer = styled.div`
@@ -76,9 +99,9 @@ const GraphicContainer = styled.div`
 		height:100%;
     position: absolute;
     top: 0;
-		justify-content:center;
+		/* justify-content:center; */
+		
 		@media (max-width: 992px) { 
-				height:unset;
 				align-items:flex-end;
  			}
 `
@@ -88,20 +111,19 @@ const ImageColumn = styled.div`
 	justify-content:center;
 	:first-of-type,
 	:last-of-type {
-		back
 		width:50%;
-		/* @media (max-width: 992px) { 
-				width:unset;
-				align-items:flex-end;
- 			} */
 		img {
 			transition: object-position 0.8s ease-out;
 			height: 40rem;
 			object-fit:cover;
 			object-position: ${props => props.postion};
-			@media (max-width: 992px) { 
+			@media (max-width: 1350px) { 
 				height:unset;
-				justify-content: flex-end;
+				max-height:20rem;
+				object-fit:unset;
+ 			}
+			 @media (max-width: 650px) { 
+				object-position: unset;
  			}
 		}
 	}
@@ -115,6 +137,8 @@ const Home = () => {
 	const [positionSide, setPostionSide] = useState()
 	const { x, y } = useMousePosition()
 	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
+	const isMobile = useMediaQuery({ maxWidth: 1350 })
+
 	// console.log(x, y)
 
 	const [theme] = themeCtx
@@ -189,23 +213,23 @@ const Home = () => {
 		<AboutMeContainer ref={ref}>
 			<MiddleConsole >
 				<GraphicContainer>
-					<ImageColumn width={imgWidths[0].toString() + '%'} postion={imgPostions[0].toString() + 'rem'} >
+					<ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
 						<img src={AmmarCreator}/>
 					</ImageColumn>
-					<ImageColumn width={imgWidths[1].toString() + '%'} postion={imgPostions[1].toString() + 'rem'}>
+					<ImageColumn width={imgWidths[1].toString() + '%'} postion={isMobile ? '-12.5rem' : imgPostions[1].toString() + 'rem'}>
 						<img src={AmmarCoder}/>
 					</ImageColumn>
 				</GraphicContainer>
 				<Column opacity={opacity[0]}>
 					<Pane display="flex" flexDirection="column" marginRight="2rem" marginBottom="2rem">
 						<AboutBlock weight="bold">creator</AboutBlock>
-						<Description weight="thin">Artistic designer with a drive to create simple yet stunning user expirences.</Description>
+						{!isMobile && <Description weight="thin">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
 					</Pane>
 				</Column>
 				<Column opacity={opacity[1]}>
-					<Pane display="flex" flexDirection="column" marginRight="-4rem"  marginBottom="2rem">
+					<Pane display="flex" flexDirection="column" marginRight={!isMobile && "-4rem"}  marginBottom="2rem">
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
-						<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description>
+						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
 					</Pane>
 				</Column>
 			</MiddleConsole>
