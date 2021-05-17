@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import  Link from 'gatsby-link'
 import { Navbar, Alignment, Menu } from '@blueprintjs/core'
-import { Pane } from 'evergreen-ui'
+import { Pane, MenuIcon } from 'evergreen-ui'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
 import { MenuToggle } from './MenuToggle'
@@ -12,21 +12,22 @@ const Container = styled(Navbar)`
 	&& {
 		/* mpadding:14rem; */
 		box-shadow: ${({ boxshadow }) => boxshadow};
-		background: ${({theme}) => theme.grey_6};
+		/* background: ${({theme}) => theme.grey_6}; */
+		background: black;
 		padding: 1.2rem 2rem 4rem ;		
 		/* padding: 3rem; */
 
 	}
 `
 
-const NavLinks = styled.div`
+const NavLinks = styled.ul`
 	margin: 0;
-	padding: 0;
 	display: flex;
 	/* height: 100%; */
 	list-style: none;
-	background-color: #fff;
-	/* width: 100%; */
+	background-color: ${({theme}) => theme.grey_6};
+	width: 100%;
+	align-items:center;
 	flex-direction: column;
 	position: fixed;
 	top: 65px;
@@ -35,14 +36,22 @@ const NavLinks = styled.div`
 		text-decoration: none;
 	}
 `
+const LinkRow = styled.li`
+	padding:1rem;
+	border-bottom: 0.1px solid #878787;
+	width:100%;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+`
 
-const ThemedLink = styled.li`
+const ThemedLink = styled(Link)`
 	transition: opacity 0.1s;
 	&& {
 		* {
 			/* color: ${({theme}) => theme.grey}; */
-		color: white;
-		font-size: 18px;
+		color: #FEFEFE;
+		font-size: 20px;
 		margin-left:1rem;
 		}
 	} 
@@ -77,23 +86,26 @@ const _ = ({
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<MenuToggle isOpen={isOpen} toggle={() => setOpen(!isOpen)}/>
+				{/* <MenuToggle isOpen={isOpen} toggle={() => setOpen(!isOpen)}/> */}
+				<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
 				{ isOpen && 
 					<NavLinks>
 						{
 							NavbarLinks.map(({ name, link }, i) => (
-								<ThemedLink key={i} to={link}>
-									<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
-										{ name }
-									</Typography>
-								</ThemedLink>
+								<LinkRow key={i}>
+									<ThemedLink to={link}>
+										<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
+											{ name }
+										</Typography>
+									</ThemedLink>
+								</LinkRow>
 							))
 						}
 					</NavLinks>
 				}
-				<ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
+				{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
 					lastThemeType === 'light' ? 'dark' : 'light'
-				))} />
+				))} /> */}
 			</Navbar.Group>
 			
 		</Container>

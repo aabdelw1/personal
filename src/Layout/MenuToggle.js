@@ -6,6 +6,9 @@ import styled from 'styled-components'
 const Button = styled.div`
   z-index: 99;
   cursor: pointer;
+	svg {
+		fill:white;
+	}
 `
 
 const Path = (props) => (
@@ -27,7 +30,7 @@ export function MenuToggle({ toggle, isOpen }) {
 		<Button onClick={toggle}>
 			<svg width="23" height="23" viewBox="0 0 23 23">
 				<Path
-					backgroundColor="#09F"
+					// backgroundColor="#09F"
 					animate={isOpen ? 'open' : 'closed'}
 					initial={false}	
 					variants={{

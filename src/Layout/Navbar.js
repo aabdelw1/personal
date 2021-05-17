@@ -11,7 +11,8 @@ const Container = styled(Navbar)`
 	&& {
 		/* mpadding:14rem; */
 		box-shadow: ${({ boxshadow }) => boxshadow};
-		background: ${({theme}) => theme.grey_6};
+		/* background: ${({theme}) => theme.grey_6}; */
+		background:black;
 		padding: 1.2rem 2rem 4rem ;		
 		/* padding: 3rem; */
 
@@ -76,9 +77,9 @@ const _ = ({
 						))
 					}
 				</NavLinks>
-				<ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
+				{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
 					lastThemeType === 'light' ? 'dark' : 'light'
-				))} />
+				))} /> */}
 			</Navbar.Group>
 			
 		</Container>
