@@ -46,7 +46,7 @@ const Portfolio = () => {
 
 	const cardInfo = [
 		{
-			name: 'Astroids',
+			name: 'Kalman Filter',
 			category: 'AI for Robotics',
 			image: 'rocket',
 			link: 'https://github.com/aabdelw1/asteroids'

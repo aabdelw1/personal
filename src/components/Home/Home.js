@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect, useState} from 'react'
-import useMouse from '@react-hook/mouse-position'
+import  useMouse  from '@react-hook/mouse-position'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
@@ -8,22 +8,21 @@ import { ThemeProvider } from '../../Layout'
 import AmmarCoder from '../../assets/img/home/coder_ammar2.png'
 import AmmarCreator from '../../assets/img/home/creator_ammar2.png'
 import useMousePosition from '../primitives/useMousePosition'
-import { hasError } from 'apollo-client/core/ObservableQuery'
 
 
 const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 40rem;
   height:40rem;
-	@media (max-width: 1300px) { 
-		/* max-height: unset; */
-		height:20rem;
+	@media (max-width: 1140px) { 
+		height: 56vw;
+		/* height:20rem; */
  	}
 `
 const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width:90rem;
+  /* width:90rem; */
 	max-width: 90rem;
 	display:flex;
 	justify-content:center;
@@ -32,8 +31,7 @@ const MiddleConsole = styled.div`
 	transition: align-items 0.8s ease-out;
 
 	@media (max-width: 1350px) { 
-			width:unset;
-			max-width: unset;
+			/* width:126vh; */
  		}
 `
 
@@ -42,14 +40,14 @@ const Column = styled.div`
 	flex:1;
 	justify-content:center;
 	align-items:center;
-	transition: opacity 0.5s ease-in-out;
-	@media (max-width: 650px) { 
+	transition: opacity 0.5s;
+	/* @media (max-width: 650px) { 
 			align-items:unset;
- 	}
+ 	} */
 
 	:nth-of-type(2){
 		opacity:${props => props.opacity};
-		
+
 	}
 	:last-of-type{
 		opacity:${props => props.opacity};
@@ -59,7 +57,7 @@ const Column = styled.div`
 
 const AboutBlock = styled(Typography)`
   display:block !important;
-  font-size: 5vw !important;
+  font-size: 4.5vw !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
 	 @media (max-width: 992px) { 
@@ -78,18 +76,9 @@ const Description = styled(Typography)`
   color:#000;
   width:18rem;
 	margin-top:1rem;
-	@media (max-width: 600px) { 
-		font-size: 7px !important;
- 	}
-	@media (max-width: 768px) { 
-		font-size: 9px !important;
- 	}
-	 @media (max-width: 992px) { 
-			font-size: 12px !important; 
+	@media (max-width: 992px) { 
+			font-size: 2vw !important; 
 	 }
-	 @media (max-width: 1200px) { 
-			font-size: 18px !important;
- 	}
 `
 
 const GraphicContainer = styled.div`
@@ -101,9 +90,9 @@ const GraphicContainer = styled.div`
     top: 0;
 		/* justify-content:center; */
 		
-		@media (max-width: 992px) { 
+		/* @media (max-width: 992px) { 
 				align-items:flex-end;
- 			}
+ 			} */
 `
 
 const ImageColumn = styled.div`
@@ -117,14 +106,14 @@ const ImageColumn = styled.div`
 			height: 40rem;
 			object-fit:cover;
 			object-position: ${props => props.postion};
-			@media (max-width: 1350px) { 
+			/* @media (max-width: 1350px) { 
 				height:unset;
 				max-height:20rem;
 				object-fit:unset;
  			}
 			 @media (max-width: 650px) { 
 				object-position: unset;
- 			}
+ 			} */
 		}
 	}
 `
@@ -137,9 +126,8 @@ const Home = () => {
 	const [positionSide, setPostionSide] = useState()
 	const { x, y } = useMousePosition()
 	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
-	const isMobile = useMediaQuery({ maxWidth: 1350 })
-
-	// console.log(x, y)
+	const isTablet = useMediaQuery({ maxWidth: 992 })
+	const isMobile = useMediaQuery({ maxWidth: 768 })
 
 	const [theme] = themeCtx
 	const ref = useRef(null)
@@ -148,15 +136,11 @@ const Home = () => {
 		leaveDelay: 100,
 	})
 
-
-
 	const midpoint =  mouse.elementWidth/2
 	const width = mouse.elementWidth
 	const splits = [[0, width/2], [width/2, width]]
 
-
 	const animateWidth = () => {
-	
 		if( 0 < mouse.x && mouse.x < midpoint){
 			setPostionSide('Left')
 		} else if (midpoint < mouse.x && mouse.x < width){
@@ -191,34 +175,37 @@ const Home = () => {
 				const RightPostion = (-25 - ((midpoint - mouse.x) * postionAspectR) ).toFixed(1)
 				setImgPostions([+LeftPostion, +RightPostion])
 				setOpacity([2.5-opacity, 1])
-
 			} 
 		}
-		
 	}
 
 	useEffect(() => {
 		if(mouse.elementWidth != null){
 			animateWidth()
-			// console.log(opacity)
 		}
 		else {
 			setImgWidths([50, 50])
 			setImgPostions([20, -25])
 			setOpacity([1,1])
 		}
-	}, [mouse.x, mouse.y])
+	}, [mouse.x])
 
 	return (
-		<AboutMeContainer ref={ref}>
-			<MiddleConsole >
+		<AboutMeContainer ref={ref} onMouseEnter>
+			<MiddleConsole>
 				<GraphicContainer>
-					<ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
+					{/* <ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
 						<img src={AmmarCreator}/>
 					</ImageColumn>
 					<ImageColumn width={imgWidths[1].toString() + '%'} postion={isMobile ? '-12.5rem' : imgPostions[1].toString() + 'rem'}>
 						<img src={AmmarCoder}/>
-					</ImageColumn>
+					</ImageColumn> */}
+
+					{/* <br></br>
+					{hasMovedCursor
+						? `Your cursor is at ${x}, ${y}.`
+						: 'Move your mouse around.'}
+							<br></br> */}
 				</GraphicContainer>
 				<Column opacity={opacity[0]}>
 					<Pane display="flex" flexDirection="column" marginRight="2rem" marginBottom="2rem">
@@ -227,7 +214,7 @@ const Home = () => {
 					</Pane>
 				</Column>
 				<Column opacity={opacity[1]}>
-					<Pane display="flex" flexDirection="column" marginRight={!isMobile && "-4rem"}  marginBottom="2rem">
+					<Pane display="flex" flexDirection="column"  marginBottom="2rem" alignItems={isTablet && 'flex-end'} textAlign={isTablet && 'right'}>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
 						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
 					</Pane>

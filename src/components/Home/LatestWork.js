@@ -78,15 +78,18 @@ const LatestWork = () => {
 		{
 			name: 'Kalman Filter',
 			category: 'AI for Robotics',
-			image: 'rocket'
+			image: 'rocket',
+			link: 'https://github.com/aabdelw1/asteroids'
 		},{
 			name: 'Ingies Animal Shelter',
 			category: 'Full Stack Web App',
-			image: 'dog'
+			image: 'dog',
+			link: 'https://github.com/aabdelw1/Animal-Shelter-Dashboard'
 		},{
-			name: 'Indicator Evaluation',
-			category: 'Machine Learning',
-			image: 'stocks'
+			name: 'DSA Key Recovery',
+			category: 'Applied Cryptography',
+			image: 'lock',
+			link: 'https://github.com/aabdelw1/dsa-key-recovery'
 		}
 	]
 
