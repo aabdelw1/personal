@@ -22,42 +22,41 @@ const AboutMeContainer = styled.div`
 const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
-  /* width:90rem; */
-	max-width: 90rem;
+  width:70rem;
 	display:flex;
 	justify-content:center;
 	position: relative;
 	height:100%;
 	transition: align-items 0.8s ease-out;
 
-	@media (max-width: 1350px) { 
-			/* width:126vh; */
+	@media (max-width: 1150px) { 
+			width:unset;
  		}
 `
 
 const Column = styled.div`
 	display:flex;
 	flex:1;
-	justify-content:center;
 	align-items:center;
 	transition: opacity 0.5s;
-	/* @media (max-width: 650px) { 
-			align-items:unset;
- 	} */
 
 	:nth-of-type(2){
 		opacity:${props => props.opacity};
-
+		margin-left:3rem;
 	}
 	:last-of-type{
 		opacity:${props => props.opacity};
+		justify-content:flex-end; 
+		@media (max-width: 1350px) { 
+			margin-right:2rem;
+ 		}
 	}
 
 `
 
 const AboutBlock = styled(Typography)`
   display:block !important;
-  font-size: 4.5vw !important;
+  font-size: 65px !important;
   color: ${({theme}) => theme.grey_6};;
   color: #000000;
 	 @media (max-width: 992px) { 
@@ -83,52 +82,74 @@ const Description = styled(Typography)`
 
 const GraphicContainer = styled.div`
 		display: flex;
-		flex-direction:row;
-		justify-content: center;
-		height:100%;
     position: absolute;
     top: 0;
-		/* justify-content:center; */
-		
-		/* @media (max-width: 992px) { 
-				align-items:flex-end;
- 			} */
+		max-height: 40rem;
+		height:100%;
+		align-items: flex-end;
+		background-color: orange;
+
 `
+// const ImageColumn = styled.div`
+// 	display:flex; 
+// 	overflow: hidden;
+
+// 	:first-of-type{
+// 			transition: object-position 0.8s ease-out; 
+// 			max-height: 40rem;
+// 			img{
+// 			/* object-fit:cover;  */
+//  			object-position: 19.5rem; 
+// 			}
+// 	}
+// 	:last-of-type{
+// 	}
+// `
 
 const ImageColumn = styled.div`
-	display:flex;
-	justify-content:center;
+	/* display:flex; */
+	/* justify-content:center; */
 	:first-of-type,
-	:last-of-type {
-		width:50%;
-		img {
+	/* width:50%;
+	img {
 			transition: object-position 0.8s ease-out;
 			height: 40rem;
 			object-fit:cover;
-			object-position: ${props => props.postion};
-			/* @media (max-width: 1350px) { 
-				height:unset;
-				max-height:20rem;
-				object-fit:unset;
- 			}
-			 @media (max-width: 650px) { 
-				object-position: unset;
- 			} */
+			margin: 0 auto;
+			object-position: 19.5rem 0;
 		}
+	} */
+	:last-of-type {
+		width:50%;
+
+		img {
+			transition: object-position height 0.8s ease-out;
+			object-fit:cover;
+			/* object-position: -25rem; */
+			height: 90%;
+
+			object-position: ${props => props.postion}; 
+			 @media (max-width: 1150px) {  
+					/* height: unset; */
+ 				}
+			 @media (max-width: 650px) { 
+				/* object-position: unset; */
+ 			}
+		} 
 	}
 `
+
 
 const Home = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [imgWidths, setImgWidths] = useState([50, 50])
-	const [imgPostions, setImgPostions] = useState([19.5, -25])
+	const [imgPostions, setImgPostions] = useState([10, -25])
 	const [opacity, setOpacity] = useState([1,1])
 	const [positionSide, setPostionSide] = useState()
 	const { x, y } = useMousePosition()
 	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
 	const isTablet = useMediaQuery({ maxWidth: 992 })
 	const isMobile = useMediaQuery({ maxWidth: 768 })
-
 	const [theme] = themeCtx
 	const ref = useRef(null)
 	const mouse = useMouse(ref, {
@@ -180,26 +201,26 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		if(mouse.elementWidth != null){
-			animateWidth()
-		}
-		else {
-			setImgWidths([50, 50])
-			setImgPostions([20, -25])
-			setOpacity([1,1])
-		}
+		// if(mouse.elementWidth != null){
+		// 	animateWidth()
+		// }
+		// else {
+		// 	setImgWidths([50, 50])
+		// 	setImgPostions([20, -25])
+		// 	setOpacity([1,1])
+		// }
 	}, [mouse.x])
 
 	return (
 		<AboutMeContainer ref={ref} onMouseEnter>
 			<MiddleConsole>
 				<GraphicContainer>
-					{/* <ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
+					<ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
 						<img src={AmmarCreator}/>
 					</ImageColumn>
 					<ImageColumn width={imgWidths[1].toString() + '%'} postion={isMobile ? '-12.5rem' : imgPostions[1].toString() + 'rem'}>
 						<img src={AmmarCoder}/>
-					</ImageColumn> */}
+					</ImageColumn>
 
 					{/* <br></br>
 					{hasMovedCursor
