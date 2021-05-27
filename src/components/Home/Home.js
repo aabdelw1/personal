@@ -82,13 +82,12 @@ const Description = styled(Typography)`
 
 const GraphicContainer = styled.div`
 		display: flex;
-    position: absolute;
+    position: relative;
     top: 0;
 		max-height: 40rem;
 		height:100%;
+		background-color:orange;
 		align-items: flex-end;
-		background-color: orange;
-
 `
 // const ImageColumn = styled.div`
 // 	display:flex; 
@@ -121,16 +120,16 @@ const ImageColumn = styled.div`
 	} */
 	:last-of-type {
 		width:50%;
-
+		display: flex;
+		position:fixed;
 		img {
 			transition: object-position height 0.8s ease-out;
 			object-fit:cover;
 			/* object-position: -25rem; */
-			height: 90%;
-
+			height: 40rem;
 			object-position: ${props => props.postion}; 
 			 @media (max-width: 1150px) {  
-					/* height: unset; */
+					/* height: 60vmin; */
  				}
 			 @media (max-width: 650px) { 
 				/* object-position: unset; */
@@ -149,7 +148,8 @@ const Home = () => {
 	const { x, y } = useMousePosition()
 	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
 	const isTablet = useMediaQuery({ maxWidth: 992 })
-	const isMobile = useMediaQuery({ maxWidth: 768 })
+	// const isMobile = useMediaQuery({ maxWidth: 768 })
+	const isMobile = false
 	const [theme] = themeCtx
 	const ref = useRef(null)
 	const mouse = useMouse(ref, {

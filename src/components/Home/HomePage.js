@@ -1,6 +1,7 @@
 import React from 'react'
 import { Pane } from 'evergreen-ui'
 import Home from './Home'
+import Graphic from './Graphic'
 import LatestWork from './LatestWork'
 
 
@@ -8,7 +9,7 @@ import LatestWork from './LatestWork'
 const AboutPage = () => {
 	return (
 		<Pane>
-			<Home/>
+			<Graphic/>
 			<LatestWork/>
 		</Pane>
 	)
