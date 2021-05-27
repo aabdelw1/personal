@@ -30,7 +30,7 @@ const NavLinks = styled.ul`
 	align-items:center;
 	flex-direction: column;
 	position: fixed;
-	top: 65px;
+	top: 80px;
 	right: 0;
 	a{
 		text-decoration: none;
@@ -82,7 +82,7 @@ const _ = ({
 		<Container {...props} fixedToTop={fixed}>
 			<Navbar.Group align={Alignment.LEFT} className="pl-10">
 				<Pane paddingX=".5rem">
-					<Typography >GatsbyJS Template</Typography>
+					<Typography >Ammar Abdelwahed</Typography>
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">

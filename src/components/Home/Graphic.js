@@ -10,7 +10,6 @@ const AboutMeContainer = styled.div`
   height:40rem;
 	@media (max-width: 1140px) { 
 		height: 56vw;
-		/* height:20rem; */
  	}
 `
 const MiddleConsole = styled.div`
@@ -19,41 +18,52 @@ const MiddleConsole = styled.div`
   width:70rem;
 	display:flex;
 	justify-content:center;
-	position: relative;
+	/* position: relative; */
 	height:100%;
 	transition: align-items 0.8s ease-out;
-
-	@media (max-width: 1150px) { 
-			width:unset;
- 		}
+	@media (max-width: 1140px) { 
+		width:unset;
+ 	}
 `
 
 const GraphicContainer = styled.div`
 		display: flex;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
 		max-height: 40rem;
 		height:100%;
 		align-items: flex-end;
+		@media (max-width: 1140px) { 
+		/* height: 56; */
+ 	}
 	`
 
 const ImageColumn = styled.div`
-	:first-of-type,
-	:last-of-type {
+	height:100%;
+	:first-of-type{
 		width:50%;
 		display: flex;
-		/* position:fixed; */
 		img {
 			transition: object-position height 0.8s ease-out;
 			object-fit:cover;
-			/* object-position: -25rem; */
-			height: 40rem;
-			object-position: ${props => props.postion}; 
-			 @media (max-width: 1150px) {  
-					/* height: 60vmin; */
- 				}
-			 @media (max-width: 650px) { 
-				/* object-position: unset; */
+			/* height: 100%; */
+			object-position: -67%;
+			@media (max-width: 1140px) { 
+				object-position: -75%;
+ 			}
+
+		} 
+	}
+	:last-of-type {
+		width:50%;
+		display: flex;
+		img {
+			transition: object-position height 0.8s ease-out;
+			object-fit:cover;
+			/* height: 40rem; */
+			object-position: 171%;
+			@media (max-width: 1140px) { 
+				object-position:180%;
  			}
 		} 
 	}
