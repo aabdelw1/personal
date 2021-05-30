@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { useMediaQuery } from 'react-responsive'
 import { toaster, Heading, Pane, Text } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider, CardContext } from '../../Layout'
@@ -33,7 +34,10 @@ const MiddleConsole = styled(Typography)`
  	}
 	
   :first-of-type {
-    height: 18%;
+		@media (max-width: 992px) { 
+			margin-top:-2rem;
+ 	}
+    height: 4rem;
   }
   :last-of-type {
     height: 82%;
@@ -59,6 +63,8 @@ const Column = styled.div`
     /* width: 50rem; */
 		@media (max-width: 850px) { 
 			width:80rem;
+			font-size: 13px;
+			text-align: center;
   	} 
 	}
   :last-of-type{
@@ -71,6 +77,7 @@ const Column = styled.div`
 const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [activeCard, setActiveCard] = useContext(CardContext.Context)
+	const isTablet = useMediaQuery({ maxWidth: 992 })
 
 	const [theme] = themeCtx
 

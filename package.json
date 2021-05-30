@@ -16,6 +16,7 @@
         "babel-plugin-styled-components": "^1.10.6",
         "babel-preset-react-app": "^9.1.2",
         "countries-list": "^2.5.4",
+        "emailjs": "^3.4.0",
         "eslint": "^6.7.2",
         "evergreen-ui": "^4.26.0",
         "framer-motion": "^4.1.13",

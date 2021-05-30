@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect, useState} from 'react'
-import  useMouse  from '@react-hook/mouse-position'
+import useMouse from '@react-hook/mouse-position'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { Pane } from 'evergreen-ui'
@@ -16,7 +16,6 @@ const AboutMeContainer = styled.div`
   height:40rem;
 	@media (max-width: 1140px) { 
 		height: 56vw;
-		/* height:20rem; */
  	}
 `
 const MiddleConsole = styled.div`
@@ -27,9 +26,7 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	position: relative;
 	height:100%;
-	transition: align-items 0.8s ease-out;
-
-	@media (max-width: 1150px) { 
+	@media (max-width: 1140px) { 
 			width:unset;
  		}
 `
@@ -37,21 +34,16 @@ const MiddleConsole = styled.div`
 const Column = styled.div`
 	display:flex;
 	flex:1;
+	/* justify-content:center; */
 	align-items:center;
-	transition: opacity 0.5s;
-
+	transition: opacity 0.5s ease-in-out;
 	:nth-of-type(2){
 		opacity:${props => props.opacity};
-		margin-left:3rem;
 	}
 	:last-of-type{
-		opacity:${props => props.opacity};
-		justify-content:flex-end; 
-		@media (max-width: 1350px) { 
-			margin-right:2rem;
- 		}
+		opacity:${props => props.opacity};	
+		justify-content:flex-end;
 	}
-
 `
 
 const AboutBlock = styled(Typography)`
@@ -66,7 +58,6 @@ const AboutBlock = styled(Typography)`
     display: inline;
     font-weight: 400;
   }
-
 `
 
 const Description = styled(Typography)`
@@ -77,79 +68,25 @@ const Description = styled(Typography)`
 	margin-top:1rem;
 	@media (max-width: 992px) { 
 			font-size: 2vw !important; 
+			padding-left: ${props => props.padding};
+			padding-right: ${props => props.paddingR};
+			}
 	 }
 `
 
-const GraphicContainer = styled.div`
-		display: flex;
-    position: relative;
-    top: 0;
-		max-height: 40rem;
-		height:100%;
-		background-color:orange;
-		align-items: flex-end;
-`
-// const ImageColumn = styled.div`
-// 	display:flex; 
-// 	overflow: hidden;
 
-// 	:first-of-type{
-// 			transition: object-position 0.8s ease-out; 
-// 			max-height: 40rem;
-// 			img{
-// 			/* object-fit:cover;  */
-//  			object-position: 19.5rem; 
-// 			}
-// 	}
-// 	:last-of-type{
-// 	}
-// `
-
-const ImageColumn = styled.div`
-	/* display:flex; */
-	/* justify-content:center; */
-	:first-of-type,
-	/* width:50%;
-	img {
-			transition: object-position 0.8s ease-out;
-			height: 40rem;
-			object-fit:cover;
-			margin: 0 auto;
-			object-position: 19.5rem 0;
-		}
-	} */
-	:last-of-type {
-		width:50%;
-		display: flex;
-		position:fixed;
-		img {
-			transition: object-position height 0.8s ease-out;
-			object-fit:cover;
-			/* object-position: -25rem; */
-			height: 40rem;
-			object-position: ${props => props.postion}; 
-			 @media (max-width: 1150px) {  
-					/* height: 60vmin; */
- 				}
-			 @media (max-width: 650px) { 
-				/* object-position: unset; */
- 			}
-		} 
-	}
-`
-
-
-const Home = () => {
+const HomeText = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [imgWidths, setImgWidths] = useState([50, 50])
-	const [imgPostions, setImgPostions] = useState([10, -25])
+	const [imgPostions, setImgPostions] = useState([19.5, -25])
 	const [opacity, setOpacity] = useState([1,1])
 	const [positionSide, setPostionSide] = useState()
+	const isMobile = useMediaQuery({ maxWidth: 768 })
+	const isTablet = useMediaQuery({ maxWidth: 992 })
 	const { x, y } = useMousePosition()
 	const hasMovedCursor = typeof x === 'number' && typeof y === 'number'
-	const isTablet = useMediaQuery({ maxWidth: 992 })
-	// const isMobile = useMediaQuery({ maxWidth: 768 })
-	const isMobile = false
+	// console.log(x, y)
+
 	const [theme] = themeCtx
 	const ref = useRef(null)
 	const mouse = useMouse(ref, {
@@ -157,11 +94,15 @@ const Home = () => {
 		leaveDelay: 100,
 	})
 
+
+
 	const midpoint =  mouse.elementWidth/2
 	const width = mouse.elementWidth
 	const splits = [[0, width/2], [width/2, width]]
 
+
 	const animateWidth = () => {
+	
 		if( 0 < mouse.x && mouse.x < midpoint){
 			setPostionSide('Left')
 		} else if (midpoint < mouse.x && mouse.x < width){
@@ -196,48 +137,37 @@ const Home = () => {
 				const RightPostion = (-25 - ((midpoint - mouse.x) * postionAspectR) ).toFixed(1)
 				setImgPostions([+LeftPostion, +RightPostion])
 				setOpacity([2.5-opacity, 1])
+
 			} 
 		}
+		
 	}
 
 	useEffect(() => {
 		// if(mouse.elementWidth != null){
 		// 	animateWidth()
+		// 	// console.log(opacity)
 		// }
 		// else {
 		// 	setImgWidths([50, 50])
 		// 	setImgPostions([20, -25])
 		// 	setOpacity([1,1])
 		// }
-	}, [mouse.x])
+	}, [mouse.x, mouse.y])
 
 	return (
-		<AboutMeContainer ref={ref} onMouseEnter>
-			<MiddleConsole>
-				<GraphicContainer>
-					<ImageColumn width={imgWidths[0].toString() + '%'} postion={isMobile ? '12rem' : imgPostions[0].toString() + 'rem'} >
-						<img src={AmmarCreator}/>
-					</ImageColumn>
-					<ImageColumn width={imgWidths[1].toString() + '%'} postion={isMobile ? '-12.5rem' : imgPostions[1].toString() + 'rem'}>
-						<img src={AmmarCoder}/>
-					</ImageColumn>
-
-					{/* <br></br>
-					{hasMovedCursor
-						? `Your cursor is at ${x}, ${y}.`
-						: 'Move your mouse around.'}
-							<br></br> */}
-				</GraphicContainer>
+		<AboutMeContainer ref={ref}>
+			<MiddleConsole >
 				<Column opacity={opacity[0]}>
-					<Pane display="flex" flexDirection="column" marginRight="2rem" marginBottom="2rem">
+					<Pane display="flex" flexDirection="column" marginLeft="2rem" paddingRight={isTablet && '2rem'}  marginBottom="2rem">
 						<AboutBlock weight="bold">creator</AboutBlock>
-						{!isMobile && <Description weight="thin">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
+						{!isMobile && <Description weight="thin" paddingR="2rem">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
 					</Pane>
 				</Column>
 				<Column opacity={opacity[1]}>
-					<Pane display="flex" flexDirection="column"  marginBottom="2rem" alignItems={isTablet && 'flex-end'} textAlign={isTablet && 'right'}>
+					<Pane display="flex" flexDirection="column"  marginRight="2rem" marginBottom="2rem" alignItems={isTablet && 'flex-end'} textAlign={isTablet && 'right'}>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
-						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
+						{!isMobile &&<Description weight="thin" padding="2rem">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
 					</Pane>
 				</Column>
 			</MiddleConsole>
@@ -245,4 +175,4 @@ const Home = () => {
 	)
 }
 
-export default Home
+export default HomeText
