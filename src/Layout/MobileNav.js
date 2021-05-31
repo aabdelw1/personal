@@ -6,7 +6,9 @@ import { Navbar, Alignment, Menu } from '@blueprintjs/core'
 import { Pane, MenuIcon } from 'evergreen-ui'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
+
 import { MenuToggle } from './MenuToggle'
+
 
 const Container = styled(Navbar)`
 	&& {
@@ -21,17 +23,16 @@ const Container = styled(Navbar)`
 `
 
 const NavLinks = styled.ul`
-	margin: 0;
+	transition: top .3s 0s ease-out;
 	display: flex;
-	/* height: 100%; */
 	list-style: none;
 	background-color: ${({theme}) => theme.grey_6};
-	width: 100%;
-	align-items:center;
+	width: 111%;
 	flex-direction: column;
-	position: fixed;
-	top: 80px;
-	right: 0;
+	position: relative;
+	margin-left:-2rem;
+	top: ${props => props.pos};
+	/* right: 0; */
 	a{
 		text-decoration: none;
 	}
@@ -74,7 +75,6 @@ const _ = ({
 }) => {
 
 	const [isOpen, setOpen] = useState(false)
-
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const setTheme = themeCtx[1]
 	
@@ -86,28 +86,23 @@ const _ = ({
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				{/* <MenuToggle isOpen={isOpen} toggle={() => setOpen(!isOpen)}/> */}
 				<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
-				{ isOpen && 
-					<NavLinks>
-						{
-							NavbarLinks.map(({ name, link }, i) => (
-								<LinkRow key={i}>
-									<ThemedLink to={link}>
-										<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
-											{ name }
-										</Typography>
-									</ThemedLink>
-								</LinkRow>
-							))
-						}
-					</NavLinks>
-				}
-				{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
-					lastThemeType === 'light' ? 'dark' : 'light'
-				))} /> */}
 			</Navbar.Group>
-			
+			{ 
+				<NavLinks pos={isOpen ? '13px' : '-370px'}>
+					{
+						NavbarLinks.map(({ name, link }, i) => (
+							<LinkRow key={i}>
+								<ThemedLink to={link}>
+									<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
+										{ name }
+									</Typography>
+								</ThemedLink>
+							</LinkRow>
+						))
+					}
+				</NavLinks>
+			}
 		</Container>
 	)
 }

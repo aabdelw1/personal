@@ -71,9 +71,9 @@ export const Home = () => {
 	return (
 		<HomePageWrapper>
 			<StarterDescription weight="light">
-					An opinionated <p>gatsby starter</p> with <p>apollo graphql</p> integration. Happy coding! 
+					An opinionated <p>gatsby starter</p> with <p>apollo graphql</p> integration. Welcome! 
 				<div>
-					<Author>created by <Link href="https://topedaramola.com">Ammar </Link></Author>
+					<Author>created by Ammar</Author>
 				</div>
 			</StarterDescription>
 			<Icons>
