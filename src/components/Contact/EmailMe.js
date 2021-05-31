@@ -5,8 +5,7 @@ import {  Pane, toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
-
-
+import emailjs, { init }  from 'emailjs-com'
 
 const Container = styled.div`
   max-height: 38rem;
@@ -148,8 +147,6 @@ const Send = styled.button`
 			margin-bottom:5rem;
 			margin-top:1rem;
   	}
-
-
 `
 
 
@@ -163,10 +160,28 @@ const EmailMe = () => {
 	const isMobile = useMediaQuery({ maxWidth: 992 })
 	const [ref, inView] = useInView()
 	const [theme] = themeCtx
+	init('user_PAAWqM369hb6sMZg93DYp')
+
 
 	const sendEmail = () => {
 		if(name == '' || email == '' || message == ''){
 			toaster.warning('Missing Field')
+		} else{
+			emailjs.send(
+				'service_utp8oc6',
+				'template_wz8walk',
+				{
+					from_name: email,
+					to_name: 'ammar.s.nasr@gmail.com',
+					subject: '',
+					message_html: message,
+				},
+				'user_PAAWqM369hb6sMZg93DYp'
+			)			.then((result) => {
+				toaster.success('Email Sent!')
+			}, (error) => {
+				toaster.error('Something went wrong, email not sent🙁')
+			})
 		}
 	}
 
