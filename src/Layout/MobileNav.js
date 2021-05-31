@@ -27,10 +27,11 @@ const NavLinks = styled.ul`
 	display: flex;
 	list-style: none;
 	background-color: ${({theme}) => theme.grey_6};
-	width: 111%;
+	width: 100%;
 	flex-direction: column;
-	position: relative;
+	position: absolute;
 	margin-left:-2rem;
+	margin-right:-4rem;
 	top: ${props => props.pos};
 	/* right: 0; */
 	a{
@@ -81,7 +82,7 @@ const _ = ({
 	return (
 		<Container {...props} fixedToTop={fixed}>
 			<Navbar.Group align={Alignment.LEFT} className="pl-10">
-				<Pane paddingX=".5rem">
+				<Pane paddingX=".5rem" marginLeft='-3rem'>
 					<Typography >Ammar Abdelwahed</Typography>
 				</Pane>
 			</Navbar.Group>
@@ -89,7 +90,7 @@ const _ = ({
 				<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
 			</Navbar.Group>
 			{ 
-				<NavLinks pos={isOpen ? '13px' : '-370px'}>
+				<NavLinks pos={isOpen ? '80px' : '-300px'}>
 					{
 						NavbarLinks.map(({ name, link }, i) => (
 							<LinkRow key={i}>

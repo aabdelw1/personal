@@ -12,7 +12,7 @@ import { useInView } from 'react-intersection-observer'
 const Container = styled.div`
   max-height: 38rem;
   height:38rem;
-	box-shadow: 0 4px 6px #dddddd;
+	box-shadow: 0 ${props => props.shadow} 6px #dddddd;
 	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
@@ -141,7 +141,7 @@ const RandomFacts = () => {
 	// }
 
 	return (
-		<Container>
+		<Container shadow= {isMobile ? '1px' : '4px'}>
 			<MiddleConsole>
 				<Column pos={'-' + containerOffset} opac={opac} >
 					<ImgBox>

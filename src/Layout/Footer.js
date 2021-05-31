@@ -10,7 +10,7 @@ const Styled_ = styled.div`
 const _ = (props) => (
 	<Styled_ {...props} className="pb-8">
 		<div className="flex flex-row justify-center mt-3">
-      © 2020 GatsbyJS Template. All rights reserved.
+      Made with ❤️ and ☕️
 		</div>
 	</Styled_>
 )

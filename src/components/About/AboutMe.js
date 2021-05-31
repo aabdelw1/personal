@@ -94,7 +94,7 @@ const Column = styled.div`
 		img {
 			max-width:40rem;
 			@media (max-width: 992px) { 
-					max-width:60vh;
+					width:50vh;
 					margin-top:1rem;
 				}
 
