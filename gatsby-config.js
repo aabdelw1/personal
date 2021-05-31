@@ -18,6 +18,12 @@ module.exports = {
 				head: true
 			},
 		},
+		{
+			resolve: 'gatsby-plugin-styled-components',
+			options: {
+				// Add any options here
+			}
+		},
 		'gatsby-plugin-react-helmet',
 		{
 			resolve: 'gatsby-source-filesystem',
@@ -49,7 +55,7 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-offline',
-		'gatsby-plugin-styled-components',
+		// 'gatsby-plugin-styled-components',
 		'gatsby-plugin-postcss'
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline

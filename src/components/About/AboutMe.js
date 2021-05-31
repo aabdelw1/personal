@@ -49,7 +49,7 @@ const MiddleConsole = styled.div`
   :last-of-type {
     height: 25%;
     justify-content: center;
-
+		/* margin-left:1rem; */
   }
 `
 const Pictures = styled.div`
@@ -173,7 +173,8 @@ const AboutMe = () => {
 										width={150}
 										height={85}
 										border="default"
-										marginRight={index == 5 && !isMobile ? 0 : 28}
+										marginRight={index == 5 && !isMobile ? 0 : 10}
+										marginLeft={10}
 										display="flex"
 										justifyContent="center"
 										alignItems="center"
