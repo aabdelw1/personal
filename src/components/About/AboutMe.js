@@ -48,8 +48,6 @@ const MiddleConsole = styled.div`
   }
   :last-of-type {
     height: 25%;
-    justify-content: center;
-		/* margin-left:1rem; */
   }
 `
 const Pictures = styled.div`
@@ -60,7 +58,6 @@ const Pictures = styled.div`
 	transition-duration: 0.2s;
 	transition-delay: ${props => props.time};
 	transition-timing-function: ease-in-out; 
-	flex-wrap: wrap;
 `
 const Column = styled.div`
 	transition: margin-left, opacity, left;
@@ -100,6 +97,14 @@ const Column = styled.div`
 
 		}
   }
+`
+
+const Pic = styled.div`
+	display: flex;
+	height:100%;
+	img{
+		object-fit:cover;
+	}
 `
 
 const AboutBlock = styled(Typography)`
@@ -170,11 +175,11 @@ const AboutMe = () => {
 										float="left"
 										hoverElevation={2}
 										borderRadius=".2rem"
-										width={150}
-										height={85}
+										width={155}
+										height={106}
 										border="default"
 										marginRight={index == 5 && !isMobile ? 0 : 10}
-										marginLeft={10}
+										marginLeft={index == 0  && !isMobile ? 0 : 10}
 										display="flex"
 										justifyContent="center"
 										alignItems="center"
@@ -182,7 +187,9 @@ const AboutMe = () => {
 										padding = {5}
 										marginBottom="1rem"
 									>
-										<img src={require(`../../assets/img/about_slide/${name}.png`)}/>
+										<Pic>
+											<img src={require(`../../assets/img/about_slide/${name}.png`)}/>
+										</Pic>
 									</Pane>
 								</Pictures>
 							)
