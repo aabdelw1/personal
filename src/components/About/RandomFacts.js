@@ -158,19 +158,13 @@ const RandomFacts = () => {
 						{ !isMobile && <Description><span ref={ref}>I make the best cookies</span></Description>}
 						{ isMobile && <Description>I make the best cookies</Description>}
 						<Description>I&#39;m a neat freak</Description>
-						<Description>I love snowbording</Description>
+						<Description>I love snowboarding</Description>
 						<Description>I love sci fi movies</Description>
 						<Description>I&#39;m addicted to Chick-fil-A</Description>
 					</Pane>
 				</Column> 
-				{/* {
-					!isMobile ? renderImage() : renderFacts()
-				}
-				{
-					!isMobile ? renderFacts() : renderImage()
-				} */}
 			</MiddleConsole>
-		</Container> 
+		</Container>
 	)
 }
 

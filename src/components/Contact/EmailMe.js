@@ -154,7 +154,7 @@ const EmailMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
-	const [message, seMessage] = useState('')
+	const [message, setMessage] = useState('')
 	const [containerOffset, setContainerOffset] = useState('10rem')
 	const [opac, setOpac] = useState('0')
 	const isMobile = useMediaQuery({ maxWidth: 992 })
@@ -171,14 +171,15 @@ const EmailMe = () => {
 				'service_utp8oc6',
 				'template_wz8walk',
 				{
-					from_name: email,
-					to_name: 'ammar.s.nasr@gmail.com',
+					from_name: name + ' - ' + email,
+					to_name: 'Ammar',
 					subject: '',
-					message_html: message,
+					message: message,
 				},
 				'user_PAAWqM369hb6sMZg93DYp'
 			)			.then((result) => {
 				toaster.success('Email Sent!')
+				console.log(email, message, name)
 			}, (error) => {
 				toaster.error('Something went wrong, email not sent🙁')
 			})
@@ -213,7 +214,7 @@ const EmailMe = () => {
 					</Column>
 					<Column>
 						<Row2><Pane marginTop="-1rem"><Fields weight="thin">Your message:</Fields></Pane></Row2>
-						<Row2><MessageBox onChange={e => seMessage(e.target.value)}/></Row2>
+						<Row2><MessageBox onChange={e => setMessage(e.target.value)}/></Row2>
 						<Row2><Send onClick={() => sendEmail()}>Send Email</Send></Row2>
 					</Column>
 				</AnimationBox>
