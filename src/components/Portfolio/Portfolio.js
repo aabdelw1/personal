@@ -17,6 +17,7 @@ const MiddleConsole = styled.div`
 	display:flex;
   flex-wrap: wrap;
   align-content: flex-start;
+	/* margin-bottom: 1rem; */
 	@media (max-width: 992px) { 
 			justify-content: center;
  	}

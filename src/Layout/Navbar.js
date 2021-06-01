@@ -15,8 +15,14 @@ const Container = styled(Navbar)`
 		background:black;
 		padding: 1.2rem 2rem 4rem ;		
 		/* padding: 3rem; */
-
 	}
+`
+const MiddleConsole = styled.div`
+	margin-left: auto;
+	margin-right: auto;
+	justify-content: space-around;
+	/* width:85rem; */
+	display:flex;
 `
 
 const NavLinks = styled.div`
@@ -59,28 +65,31 @@ const _ = ({
 	
 	return (
 		<Container {...props} fixedToTop={fixed}>
-			<Navbar.Group align={Alignment.LEFT} className="pl-10">
-				<Pane paddingX=".5rem">
+			<MiddleConsole>
+			<Navbar.Group align={Alignment.LEFT} >
+				<Pane marginLeft="2rem">
 					<Typography >Ammar Abdelwahed</Typography>
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<NavLinks>
-					{
-						NavbarLinks.map(({ name, link }, i) => (
-							<ThemedLink key={i} to={link}>
-								<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
-									{ name }
-								</Typography>
-							</ThemedLink>
-						))
-					}
-				</NavLinks>
+				<Pane paddingX="1rem">
+					<NavLinks>
+						{
+							NavbarLinks.map(({ name, link }, i) => (
+								<ThemedLink key={i} to={link}>
+									<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
+										{ name }
+									</Typography>
+								</ThemedLink>
+							))
+						}
+					</NavLinks>
+				</Pane>
 				{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
 					lastThemeType === 'light' ? 'dark' : 'light'
 				))} /> */}
 			</Navbar.Group>
-			
+			</MiddleConsole>
 		</Container>
 	)
 }

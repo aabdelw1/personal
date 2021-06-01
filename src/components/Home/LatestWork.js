@@ -1,19 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import { toaster, Heading, Pane, Text } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider, CardContext } from '../../Layout'
+import { useInView } from 'react-intersection-observer'
 import Card from '../Portfolio/Card'
 
 
 const Container = styled.div`
   max-height: 30rem;
-  /* height:30rem; */
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
   border-top: 2px solid #dddddd;
-	
 	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
@@ -21,6 +20,13 @@ const Container = styled.div`
  	}
 `
 
+const AnimationBox = styled.div`
+	margin-top: ${props => props.pos};
+	opacity: ${props => props.opac};
+	transition: margin-top, opacity;
+	transition-duration: 0.6s;
+	transition-delay: ${props => props.mobile};
+`
 const MiddleConsole = styled(Typography)`
   margin-left: auto;
   margin-right: auto;
@@ -33,7 +39,6 @@ const MiddleConsole = styled(Typography)`
 			width:unset;
 			max-width: unset;
  	}
-	
   :first-of-type {
 		@media (max-width: 992px) { 
 			margin-top:-2rem;
@@ -44,19 +49,13 @@ const MiddleConsole = styled(Typography)`
     height: 82%;
     justify-content: center;
 		margin-bottom: 3rem;
-
-    
   }
 `
 
 const Column = styled.div`
   width:100%;
-	/* @media (max-width: 992px) { 
-			width:unset;
-  	} */
   :first-of-type{
     border-bottom:1px solid #dddddd;
-		/* margin-left:3rem; */
   }
   :nth-of-type(2){
 		
@@ -64,7 +63,6 @@ const Column = styled.div`
     justify-content: center;
     align-items: flex-end;
     margin-bottom:-0.5rem;
-    /* width: 50rem; */
 		@media (max-width: 850px) { 
 			width:80rem;
 			font-size: 13px;
@@ -75,7 +73,6 @@ const Column = styled.div`
 	}
   :last-of-type{
     border-bottom:1px solid #dddddd;
-		/* margin-right:3rem; */
   }
 `
 
@@ -83,8 +80,10 @@ const Column = styled.div`
 const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [activeCard, setActiveCard] = useContext(CardContext.Context)
-	const isTablet = useMediaQuery({ maxWidth: 992 })
-	const isPhone = useMediaQuery({ maxWidth: 500 })
+	const [containerOffset, setContainerOffset] = useState('10rem')
+	const [opac, setOpac] = useState('0')
+	const isMobile = useMediaQuery({ maxWidth: 992 })
+	const [ref, inView] = useInView()
 
 	const [theme] = themeCtx
 
@@ -107,23 +106,33 @@ const LatestWork = () => {
 		}
 	]
 
+	useEffect(() => {
+		if(inView){
+			setContainerOffset('0rem') 
+			setOpac('1')
+		}
+	}, [inView])
+  
+
 
 	return (
 		<Container>
-			<MiddleConsole weight="normal">
-				<Column/> 
-				<Column>SOME OF MY LATEST WORK</Column>
-				<Column/>
-			</MiddleConsole>
-			<MiddleConsole  onMouseLeave={() => setActiveCard(null)}>
-				<Pane marginTop="2rem" display="flex" flexWrap="wrap" justifyContent="center">
-					{
-						cardInfo.map((project, i) => {
-					 return(	<Card project={project} index={i} key={i} length={(cardInfo.length + 0.5) * 0.25}/>)
-						})
-					}
-				</Pane>
-			</MiddleConsole>
+			<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1.4 + 's'}>
+				<MiddleConsole weight="normal">
+					<Column/> 
+					<Column>SOME OF MY LATEST WORK</Column>
+					<Column/>
+				</MiddleConsole>
+				<MiddleConsole  onMouseLeave={() => setActiveCard(null)}>
+					<Pane marginTop="2rem" display="flex" flexWrap="wrap" justifyContent="center">
+						{
+							cardInfo.map((project, i) => {
+								return(	<Card project={project} index={i} key={i} length={(cardInfo.length + 0.5) * 0.25}/>)
+							})
+						}
+					</Pane>
+				</MiddleConsole>
+			</AnimationBox>
 		</Container> 
 	)
 }
