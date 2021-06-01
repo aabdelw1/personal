@@ -1,7 +1,9 @@
-import React, { useRef, useState} from 'react'
+import React, { useRef, useState, useEffect} from 'react'
 import styled from 'styled-components'
 import AmmarCoder from '../../assets/img/home/coder_ammar2.png'
 import AmmarCreator from '../../assets/img/home/creator_ammar2.png'
+import { useInView } from 'react-intersection-observer'
+
 
 const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
@@ -29,31 +31,26 @@ const GraphicContainer = styled.div`
 		max-height: 40rem;
 		height:100%;
 		align-items: flex-end;
+
+
+
 	`
 
 const ImageColumn = styled.div`
-	height:100%;
-	:first-of-type{
-		width:50%;
+		height:100%;
 		display: flex;
-		img {
-			transition: object-position height 0.8s ease-out;
-			object-fit:cover;
-			object-position: -67%;
-			@media (max-width: 1140px) { 
-				object-position: -75%;
- 			}
-		} 
-	}
+	:first-of-type,
 	:last-of-type {
-		width:50%;
-		display: flex;
 		img {
-			transition: object-position height 0.8s ease-out;
-			object-fit:cover;
-			object-position: 171%;
+			transition: object-position, opacity;
+			transition-duration: 1s;
+			/* transition-delay: 1; */
+			transition-timing-function: ease-in-out; 
+			object-fit: cover;
+			opacity: ${props => props.opac};
+			object-position: ${props => props.position};
 			@media (max-width: 1140px) { 
-				object-position:180%;
+				object-position: ${props => props.media};
  			}
 		} 
 	}
@@ -62,17 +59,27 @@ const ImageColumn = styled.div`
 
 const Graphic = () => {
 	const [imgWidths, setImgWidths] = useState([50, 50])
-	const [imgPostions, setImgPostions] = useState([10, -25])
-	const ref = useRef(null)
+	const [imgPostions, setImgPostions] = useState(450)
+	const [img2Postions, setImg2Postions] = useState(-450)
+	
+	const [ref, inView] = useInView()
+
+	useEffect(() => {
+		if(inView){
+			setImgPostions('-67') 
+			setImg2Postions('171')
+		}
+	}, [inView])
+	// const ref = useRef(null)
 
 	return (
 		<AboutMeContainer ref={ref} onMouseEnter>
 			<MiddleConsole>
 				<GraphicContainer>
-					<ImageColumn width={imgWidths[0].toString() + '%'} postion={imgPostions[0].toString() + 'rem'} >
+					<ImageColumn position={imgPostions.toString() + '%'} media={'-75%'}>
 						<img src={AmmarCreator}/>
 					</ImageColumn>
-					<ImageColumn width={imgWidths[1].toString() + '%'} postion={imgPostions[1].toString() + 'rem'}>
+					<ImageColumn  position={img2Postions.toString() + '%'} media={'180%'}>
 						<img src={AmmarCoder}/>
 					</ImageColumn>
 				</GraphicContainer>

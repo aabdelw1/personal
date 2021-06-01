@@ -9,10 +9,11 @@ import Card from '../Portfolio/Card'
 
 const Container = styled.div`
   max-height: 30rem;
-  height:30rem;
+  /* height:30rem; */
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
   border-top: 2px solid #dddddd;
+	
 	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
@@ -42,6 +43,8 @@ const MiddleConsole = styled(Typography)`
   :last-of-type {
     height: 82%;
     justify-content: center;
+		margin-bottom: 3rem;
+
     
   }
 `
@@ -53,9 +56,10 @@ const Column = styled.div`
   	} */
   :first-of-type{
     border-bottom:1px solid #dddddd;
-		margin-left:3rem;
+		/* margin-left:3rem; */
   }
   :nth-of-type(2){
+		
     display:flex;
     justify-content: center;
     align-items: flex-end;
@@ -65,11 +69,13 @@ const Column = styled.div`
 			width:80rem;
 			font-size: 13px;
 			text-align: center;
+			margin-left:1rem;
+			margin-right:1rem;
   	} 
 	}
   :last-of-type{
     border-bottom:1px solid #dddddd;
-		margin-right:3rem;
+		/* margin-right:3rem; */
   }
 `
 
@@ -78,6 +84,7 @@ const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [activeCard, setActiveCard] = useContext(CardContext.Context)
 	const isTablet = useMediaQuery({ maxWidth: 992 })
+	const isPhone = useMediaQuery({ maxWidth: 500 })
 
 	const [theme] = themeCtx
 
@@ -104,7 +111,7 @@ const LatestWork = () => {
 	return (
 		<Container>
 			<MiddleConsole weight="normal">
-				<Column/>
+				<Column/> 
 				<Column>SOME OF MY LATEST WORK</Column>
 				<Column/>
 			</MiddleConsole>
