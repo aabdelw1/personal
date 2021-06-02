@@ -50,8 +50,8 @@ const ThemedLink = styled(Link)`
 
 
 const NavbarLinks = [
-	{ name: 'Home', link: '/home' },
-	{ name: 'About', link: '/ammar' },
+	{ name: 'Home', link: '/' },
+	{ name: 'About', link: '/about' },
 	{ name: 'Portfolio', link: '/portfolio'},
 	{ name: 'Contact', link: '/contact'}
 ]
@@ -66,29 +66,29 @@ const _ = ({
 	return (
 		<Container {...props} fixedToTop={fixed}>
 			<MiddleConsole>
-			<Navbar.Group align={Alignment.LEFT} >
-				<Pane marginLeft="2rem">
-					<Typography >Ammar Abdelwahed</Typography>
-				</Pane>
-			</Navbar.Group>
-			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<Pane paddingX="1rem">
-					<NavLinks>
-						{
-							NavbarLinks.map(({ name, link }, i) => (
-								<ThemedLink key={i} to={link}>
-									<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
-										{ name }
-									</Typography>
-								</ThemedLink>
-							))
-						}
-					</NavLinks>
-				</Pane>
-				{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
+				<Navbar.Group align={Alignment.LEFT} >
+					<Pane marginLeft="2rem">
+						<Typography >Ammar Abdelwahed</Typography>
+					</Pane>
+				</Navbar.Group>
+				<Navbar.Group align={Alignment.RIGHT} className="pl-4">
+					<Pane paddingX="1rem">
+						<NavLinks>
+							{
+								NavbarLinks.map(({ name, link }, i) => (
+									<ThemedLink key={i} to={link}>
+										<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
+											{ name }
+										</Typography>
+									</ThemedLink>
+								))
+							}
+						</NavLinks>
+					</Pane>
+					{/* <ThemeToggle className="ml-4" onChange={() => setTheme(lastThemeType => (
 					lastThemeType === 'light' ? 'dark' : 'light'
 				))} /> */}
-			</Navbar.Group>
+				</Navbar.Group>
 			</MiddleConsole>
 		</Container>
 	)

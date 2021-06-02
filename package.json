@@ -1,5 +1,5 @@
 {
-    "name": "gatsby-apollo-starter",
+    "name": "ammar-website",
     "private": true,
     "description": "Starter repository for a Gatsby site communicating with a GraphQL backend. This project uses Apollo Client to request and cache your data, as well as update your UI.",
     "version": "0.1.0",

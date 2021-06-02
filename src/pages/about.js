@@ -6,7 +6,7 @@ const AmmarPage = () => {
 
 	return (
 		<Layout
-			title="Ammar"
+			title="About"
 			content={<AboutPage/>}
 
 		/>

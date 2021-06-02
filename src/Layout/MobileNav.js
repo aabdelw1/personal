@@ -64,8 +64,8 @@ const ThemedLink = styled(Link)`
 
 
 const NavbarLinks = [
-	{ name: 'Home', link: '/home' },
-	{ name: 'About', link: '/ammar' },
+	{ name: 'Home', link: '/' },
+	{ name: 'About', link: '/about' },
 	{ name: 'Portfolio', link: '/portfolio'},
 	{ name: 'Contact', link: '/contact'}
 ]
