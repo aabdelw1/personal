@@ -20,9 +20,11 @@ module.exports = {
 		},
 		{
 			resolve: 'gatsby-plugin-styled-components',
-			options: {
-				// Add any options here
-			}
+			plugins: [
+				['babel-plugin-styled-components', {
+					pure: true
+				}]
+			]
 		},
 		'gatsby-plugin-react-helmet',
 		{
