@@ -38,7 +38,6 @@ const StarterDescription = styled(Typography)`
 		color: rgba(239, 53, 171, .7) !important;
 		font-weight: bold;
 	}
-
 `
 const Icons = styled.div`
 	display: flex;

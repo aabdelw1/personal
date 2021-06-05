@@ -34,7 +34,6 @@ const MiddleConsole = styled.div`
 const Column = styled.div`
 	display:flex;
 	flex:1;
-	/* justify-content:center; */
 	align-items:center;
 	transition: opacity 0.5s 1.5s ease-in-out;
 	:nth-of-type(1){
@@ -67,8 +66,10 @@ const Description = styled(Typography)`
   font-size: 18px;
   line-height:30px;
   color:#000;
-  width:18rem;
+  width:19rem;
 	margin-top:1rem;
+	/* background-color: orange; */
+
 	@media (max-width: 992px) { 
 			font-size: 2vw !important; 
 			padding-left: ${props => props.padding};
@@ -103,9 +104,9 @@ const HomeText = () => {
 					</Pane>
 				</Column>
 				<Column opacity={opac[1]}>
-					<Pane display="flex" flexDirection="column"  marginRight="2rem" marginBottom="2rem" alignItems={isTablet && 'flex-end'} textAlign={isTablet && 'right'}>
+					<Pane display="flex" flexDirection="column"  marginRight="2rem" marginBottom="2rem"  textAlign={'right'}>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
-						{!isMobile &&<Description weight="thin" padding="2rem">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
+						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
 					</Pane>
 				</Column>
 			</MiddleConsole>

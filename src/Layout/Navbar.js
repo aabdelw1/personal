@@ -80,7 +80,7 @@ const _ = ({
 					</Pane>
 				</Navbar.Group>
 				<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-					<Pane paddingX="1rem" marginRight={isTablet ? '0rem' : '3rem'}>
+					<Pane paddingX="1rem" marginRight={isTablet ? '0rem' : '2rem'}>
 						<NavLinks>
 							{
 								NavbarLinks.map(({ name, link }, i) => (
