@@ -6,6 +6,8 @@ import { Navbar, Alignment } from '@blueprintjs/core'
 import { Pane } from 'evergreen-ui'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
+import { useMediaQuery } from 'react-responsive'
+
 
 const Container = styled(Navbar)`
 	&& {
@@ -20,9 +22,14 @@ const Container = styled(Navbar)`
 const MiddleConsole = styled.div`
 	margin-left: auto;
 	margin-right: auto;
-	justify-content: space-around;
-	/* width:85rem; */
+	width:70rem;
 	display:flex;
+	justify-content: space-between;
+	display:flex;
+	/* background-color: orange; */
+	@media (max-width: 1140px) { 
+			width:unset;
+ 		}
 `
 
 const NavLinks = styled.div`
@@ -62,7 +69,8 @@ const _ = ({
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const setTheme = themeCtx[1]
-	
+	const isTablet = useMediaQuery({ maxWidth: 992 })
+	console.log(page)
 	return (
 		<Container {...props} fixedToTop={fixed}>
 			<MiddleConsole>
@@ -72,7 +80,7 @@ const _ = ({
 					</Pane>
 				</Navbar.Group>
 				<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-					<Pane paddingX="1rem">
+					<Pane paddingX="1rem" marginRight={isTablet ? '0rem' : '3rem'}>
 						<NavLinks>
 							{
 								NavbarLinks.map(({ name, link }, i) => (

@@ -73,7 +73,7 @@ const Graphic = () => {
 	// const ref = useRef(null)
 
 	return (
-		<AboutMeContainer ref={ref} onMouseEnter>
+		<AboutMeContainer ref={ref}>
 			<MiddleConsole>
 				<GraphicContainer>
 					<ImageColumn position={imgPostions.toString() + '%'} media={'-75%'}>

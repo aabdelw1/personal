@@ -9,7 +9,7 @@
 	
 // }
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-	if (stage === 'build-html' || stage === 'develop-html') {
+	if (stage === 'build-html' || stage === 'develop-html' || stage === 'develop') {
 		actions.setWebpackConfig({
 			module: {
 				rules: [

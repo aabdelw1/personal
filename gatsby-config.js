@@ -6,7 +6,10 @@ module.exports = {
 	siteMetadata: {
 		title: 'ammar-website',
 		description: 'Starter repository for a Gatsby site communicating with a GraphQL backend. This project uses Apollo Client to request and cache your data, as well as update your UI.',
-		author: '@toped',
+		author: '@ammar',
+	},
+	flags: {
+		DEV_SSR: true
 	},
 	plugins: [
 		{

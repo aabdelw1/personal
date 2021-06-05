@@ -50,7 +50,7 @@
         "react-responsive": "^8.2.0",
         "react-typography": "^0.16.19",
         "sift": "^13.1.10",
-        "styled-components": "^4.4.1",
+        "styled-components": "^5.2.3",
         "typography": "^0.16.19"
     },
     "devDependencies": {
