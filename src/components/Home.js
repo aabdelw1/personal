@@ -18,7 +18,6 @@ const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:67rem;
-	/* max-width: 80rem; */
 	display:flex;
 	justify-content: center;
 	align-items: flex-start; 
@@ -27,8 +26,7 @@ const MiddleConsole = styled.div`
 		@media (max-width: 992px) { 
 			width:unset;
 			max-width: unset;
-			align-items:center;
- 	}
+] 	}
 
 `
 const StarterDescription = styled(Typography)`
