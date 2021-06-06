@@ -50,7 +50,7 @@ const AnimationBox = styled.div`
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.6s;
-	transition-delay: 0s;
+	transition-delay: ${props => props.delay};
 	transition-timing-function: ease-in-out; 
 `
 const Column = styled.div`
@@ -112,6 +112,8 @@ const CreatorCoder = () => {
 	const [containerOffset, setContainerOffset] = useState('10rem')
 	const [opac, setOpac] = useState('0')
 	const [ref, inView] = useInView()
+	const [ref2, inView2] = useInView()
+
 
 	useEffect(() => {
 		if(inView){
@@ -120,15 +122,14 @@ const CreatorCoder = () => {
 		}
 	}, [inView])
 
-
   
 	return (
 		<Container >
-			<MiddleConsole>
-				<AnimationBox pos={containerOffset} opac={opac}>
+			<MiddleConsole >
+				<AnimationBox pos={containerOffset} opac={opac} ref={ref} delay={inView && inView2 ? '0s' : 's'}>
 					<Column>
 						<Pane display="flex" flexDirection="column">
-							<Header weight="normal"><span ref={ref}>Part Creator</span></Header>
+							<Header weight="normal"><span ref={ref2}>Part Creator</span></Header>
 							<Description>UI/UX design</Description>
 							<Description>&quot;Borrowing&quot; ideas</Description>
 							<Description>Drawing attention </Description>

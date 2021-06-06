@@ -54,10 +54,18 @@ const ThemedLink = styled(Link)`
 		opacity: 0.5;
 	}
 `
+const ThemedName = styled(Link)`
+	transition: opacity 0.1s;
+	:hover{
+		opacity: 0.5;
+	}
+`
+
 
 
 const NavbarLinks = [
-	{ name: 'Home', link: '/' },
+	{ name: 'Gatsby', link: '/' },
+	{ name: 'Home', link: '/home' },
 	{ name: 'About', link: '/about' },
 	{ name: 'Portfolio', link: '/portfolio'},
 	{ name: 'Contact', link: '/contact'}
@@ -68,7 +76,7 @@ const _ = ({
 }) => {
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
-	const setTheme = themeCtx[1]
+	// const setTheme = themeCtx[1]
 	const isTablet = useMediaQuery({ maxWidth: 992 })
 	console.log(page)
 	return (
@@ -76,7 +84,9 @@ const _ = ({
 			<MiddleConsole>
 				<Navbar.Group align={Alignment.LEFT} >
 					<Pane marginLeft="2rem">
-						<Typography >Ammar Abdelwahed</Typography>
+						<ThemedName to='/home'>
+							<Typography>Ammar Abdelwahed</Typography>
+						</ThemedName>
 					</Pane>
 				</Navbar.Group>
 				<Navbar.Group align={Alignment.RIGHT} className="pl-4">

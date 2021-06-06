@@ -34,7 +34,6 @@ const _ = (props) => {
 		navbar, mobileNav, footer, isLoading, loadingMessage, hero, breadcrumbs, content, title, error
 	} = props
 	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile})
-	console.log(isMobile)
 	return (
 		<Container>
 			<SEO title={title} />

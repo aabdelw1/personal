@@ -179,7 +179,6 @@ const EmailMe = () => {
 				'user_PAAWqM369hb6sMZg93DYp'
 			)			.then((result) => {
 				toaster.success('Email Sent!')
-				console.log(email, message, name)
 			}, (error) => {
 				toaster.error('Something went wrong, email not sent🙁')
 			})

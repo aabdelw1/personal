@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Link } from 'evergreen-ui'
+import  Link from 'gatsby-link'
 import { Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
 import GatsbyIcon from '../assets/img/svgs/gatsby.svg'
@@ -11,15 +11,30 @@ import ApolloLightIcon from '../assets/img/svgs/apollo-light.svg'
 const HomePageWrapper = styled.div`
 	height: 100%;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
 	margin: 0 10%;
+`
+
+const MiddleConsole = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  width:67rem;
+	/* max-width: 80rem; */
+	display:flex;
+	justify-content: center;
+	align-items: flex-start; 
+	flex-direction: column;
+	height:100%;
+		@media (max-width: 992px) { 
+			width:unset;
+			max-width: unset;
+			align-items:center;
+ 	}
+
 `
 const StarterDescription = styled(Typography)`
 	display:block !important;
-	font-size:3rem !important;
-	line-height: inherit !important;
+	font-size:3rem;
+	/* line-height: inherit !important; */
 	width:100% !important;
 
 	/* Medium devices (tablets, 768px and up) */
@@ -63,25 +78,37 @@ const Plus = styled(Typography)`
 	}
 `
 
+const ThemedLink = styled(Link)`
+	display:block !important;
+	font-size:3rem;
+	font-weight: 300;
+	line-height: inherit !important;
+	width:100% !important;
+	color: #7599E3;
+	font-weight: bold;
+`
+
 export const Home = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [theme] = themeCtx
 
 	return (
 		<HomePageWrapper>
-			<StarterDescription weight="light">
-					An opinionated <p>gatsby starter</p> with <p>apollo graphql</p> integration. Welcome! 
-				<div>
-					<Author>created by Ammar</Author>
-				</div>
-			</StarterDescription>
-			<Icons>
-				<GatsbyIcon height={36} />
-				<Plus />
-				<GraphQLIcon height={36} />
-				<Plus />
-				{theme === 'light' ? <ApolloIcon height={36} /> : <ApolloLightIcon height={36}/>}
-			</Icons>
+			<MiddleConsole>
+				<StarterDescription weight="light">
+					An opinionated <p>gatsby starter</p> with <p>apollo graphql</p> integration. <ThemedLink to='/home'>Lets Go!! </ThemedLink>
+					<div>
+						<Author>created by Ammar</Author>
+					</div>
+				</StarterDescription>
+				<Icons>
+					<GatsbyIcon height={36} />
+					<Plus />
+					<GraphQLIcon height={36} />
+					<Plus />
+					{theme === 'dark' ? <ApolloIcon height={36} /> : <ApolloLightIcon height={36}/>}
+				</Icons>
+			</MiddleConsole>
 		</HomePageWrapper>
 	)
 }

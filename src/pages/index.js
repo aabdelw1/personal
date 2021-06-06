@@ -1,12 +1,12 @@
 import React from 'react'
 
-import HomePage from '../components/Home/HomePage'
+import Home from '../components/Home'
 import { Layout } from '../Layout'
 
 const IndexPage = () => (
 	<Layout
 		title="Home"
-		content={<HomePage/>}
+		content={<Home/>}
 	/>
 )
 

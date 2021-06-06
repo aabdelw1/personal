@@ -61,10 +61,16 @@ const ThemedLink = styled(Link)`
 		opacity: 0.5;
 	}
 `
-
+const ThemedName = styled(Link)`
+	transition: opacity 0.1s;
+	:hover{
+		opacity: 0.5;
+	}
+`
 
 const NavbarLinks = [
-	{ name: 'Home', link: '/' },
+	{ name: 'Gatsby', link: '/' },
+	{ name: 'Home', link: '/home' },
 	{ name: 'About', link: '/about' },
 	{ name: 'Portfolio', link: '/portfolio'},
 	{ name: 'Contact', link: '/contact'}
@@ -82,7 +88,9 @@ const _ = ({
 		<Container {...props} fixedToTop={fixed}>
 			<Navbar.Group align={Alignment.LEFT} className="pl-10">
 				<Pane paddingX=".5rem" marginLeft='-3rem'>
-					<Typography >Ammar Abdelwahed</Typography>
+					<ThemedName to='/home'>
+						<Typography>Ammar Abdelwahed</Typography>
+					</ThemedName>
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
