@@ -117,7 +117,7 @@ const LatestWork = () => {
 
 	return (
 		<Container>
-			<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1.4 + 's'}>
+			<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1 + 's'}>
 				<MiddleConsole weight="normal">
 					<Column/> 
 					<Column>SOME OF MY LATEST WORK</Column>

@@ -26,7 +26,7 @@ const MiddleConsole = styled.div`
 		@media (max-width: 992px) { 
 			width:unset;
 			max-width: unset;
-] 	}
+ 	}
 
 `
 const StarterDescription = styled(Typography)`
