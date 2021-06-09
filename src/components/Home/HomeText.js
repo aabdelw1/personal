@@ -2,7 +2,7 @@ import React, { useContext, useRef, useEffect, useState} from 'react'
 // import useMouse from '@react-hook/mouse-position'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
-import { Pane } from 'evergreen-ui'
+// import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
@@ -78,6 +78,25 @@ const Description = styled(Typography)`
 	 }
 `
 
+const Pane = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	margin-left:2rem;
+	text-align: left;
+	@media (max-width: 992px) { 
+		padding-right: 2rem;
+	}
+`
+const Pane2 = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 2rem;
+	:last-of-type{
+		margin-right:2rem;
+		text-align: right;
+	}
+`
 
 const HomeText = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
@@ -96,18 +115,18 @@ const HomeText = () => {
 
 	return (
 		<AboutMeContainer ref={ref}>
-			<MiddleConsole >
+			<MiddleConsole>
 				<Column opacity={opac[0]}>
-					<Pane display="flex" flexDirection="column" marginLeft="2rem" paddingRight={isTablet && '2rem'}  marginBottom="2rem">
+					<Pane>
 						<AboutBlock weight="bold">creator</AboutBlock>
 						{!isMobile && <Description weight="thin" paddingR="2rem">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
 					</Pane>
 				</Column>
 				<Column opacity={opac[1]}>
-					<Pane display="flex" flexDirection="column"  marginRight="2rem" marginBottom="2rem"  textAlign={'right'}>
+					<Pane2>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
 						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
-					</Pane>
+					</Pane2>
 				</Column>
 			</MiddleConsole>
 		</AboutMeContainer>

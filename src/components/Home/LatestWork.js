@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import { Pane } from 'evergreen-ui'
+// import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider, CardContext } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
@@ -76,6 +76,13 @@ const Column = styled.div`
   }
 `
 
+const Pane = styled.div`
+	margin-top:2rem; 
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+`
+
 
 const LatestWork = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
@@ -117,7 +124,7 @@ const LatestWork = () => {
 
 	return (
 		<Container>
-			<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1 + 's'}>
+			<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? '0.3s' : '1s'}>
 				<MiddleConsole weight="normal">
 					<Column/> 
 					<Column>SOME OF MY LATEST WORK</Column>
