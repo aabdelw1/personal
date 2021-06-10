@@ -31,12 +31,23 @@ const Item = styled.div`
 		width:17.5rem;
 		@media (max-width: 992px) { 
 			width:14rem;
- 	}
+ 		}
 	}
 	:hover{
 		cursor: pointer;
 	}
 `
+
+const Row = styled.div`
+	display:flex;
+	justify-content: center;
+`
+const CardText =  styled.div`
+	display:flex;
+	flex-direction: column;
+	margin-left: 1rem;
+`
+
 const SubText = styled(Typography)`
   font-size: 17px;
 	color:#000;
@@ -98,18 +109,18 @@ const Card = (props) => {
 			<Link href={link}>
 				<Pane hoverElevation={2}>
 					<Item>
-						<Pane display="flex" justifyContent="center">
+						<Row>
 							<img src={require(`../../assets/img/portfolio/${image}.png`)}/>
-						</Pane>
-						<Pane display="flex" justifyContent="space-between">
-							<Pane marginLeft={'1rem'}  display="flex" flexDirection="column">
+						</Row>
+						<Row>
+							<CardText>
 								<SubText weight="light">{name}</SubText>
 								<Description weight="thin">{category}</Description>
-							</Pane>
+							</CardText>
 							<Chevy marginR={marginR} opac={opac}>
 								<ChevronRightIcon color="disabled" size={30}/> 
 							</Chevy>
-						</Pane>
+						</Row>
 					</Item>
 				</Pane>
 			</Link>
