@@ -1,5 +1,4 @@
 import React from 'react'
-import { Pane } from 'evergreen-ui'
 import styled from 'styled-components'
 import HomeText from './HomeText'
 import Graphic from './Graphic'
@@ -22,12 +21,12 @@ const Overlay = styled.div`
 const AboutPage = () => {
 	return (
 		<>
-			<Pane>
+			<div>
 				<Container>
 					<Box><Graphic/></Box>
 					<Overlay><HomeText/></Overlay>
 				</Container>
-			</Pane>
+			</div>
 			<LatestWork/>
 		</>
 	)

@@ -11,12 +11,10 @@ import { useMediaQuery } from 'react-responsive'
 
 const Container = styled(Navbar)`
 	&& {
-		/* mpadding:14rem; */
 		box-shadow: ${({ boxshadow }) => boxshadow};
 		/* background: ${({theme}) => theme.grey_6}; */
 		background:black;
 		padding: 1.2rem 2rem 4rem ;		
-		/* padding: 3rem; */
 	}
 `
 const MiddleConsole = styled.div`
@@ -94,7 +92,7 @@ const _ = ({
 						<NavLinks>
 							{
 								NavbarLinks.map(({ name, link }, i) => (
-									<ThemedLink key={i} to={link}>
+									<ThemedLink key={i} to={link} target='_blank'>
 										<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
 											{ name }
 										</Typography>

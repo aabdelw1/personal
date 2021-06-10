@@ -96,20 +96,20 @@ const LatestWork = () => {
 
 	const cardInfo = [
 		{
-			name: 'Kalman Filter',
-			category: 'AI for Robotics',
-			image: 'rocket',
-			link: 'https://github.com/aabdelw1/asteroids'
+			name: 'Marta Simulator',
+			category: 'Java Program',
+			image: 'bus',
+			link: 'https://github.com/aabdelw1/MartaSimulation'
 		},{
 			name: 'Ingies Animal Shelter',
 			category: 'Full Stack Web App',
 			image: 'dog',
 			link: 'https://github.com/aabdelw1/Animal-Shelter-Dashboard'
 		},{
-			name: 'DSA Key Recovery',
+			name: 'Length Extenstion Attack',
 			category: 'Applied Cryptography',
-			image: 'lock',
-			link: 'https://github.com/aabdelw1/dsa-key-recovery'
+			image: 'hash',
+			link: 'https://github.com/aabdelw1/length-extension-attack'
 		}
 	]
 
