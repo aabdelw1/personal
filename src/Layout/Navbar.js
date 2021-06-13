@@ -76,7 +76,6 @@ const _ = ({
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	// const setTheme = themeCtx[1]
 	const isTablet = useMediaQuery({ maxWidth: 992 })
-	console.log(page)
 	return (
 		<Container {...props} fixedToTop={fixed}>
 			<MiddleConsole>

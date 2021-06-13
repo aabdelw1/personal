@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Pane, Spinner } from 'evergreen-ui'
 import { Typography } from '../components/primitives'
-import SEO from '../components/seo'
 import Navbar from './Navbar'
 import MobileNav from './MobileNav'
 import Footer from './Footer'
@@ -36,7 +35,6 @@ const _ = (props) => {
 	const isMobile = useMediaQuery({ maxWidth: DeviceSize.mobile})
 	return (
 		<Container>
-			<SEO title={title} />
 			<div className="flex flex-col w-full h-screen content-between">
 				{/* <MobileNav/> */}
 				{
