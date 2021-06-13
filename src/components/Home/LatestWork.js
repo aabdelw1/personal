@@ -131,7 +131,7 @@ const LatestWork = () => {
 					<Column/>
 				</MiddleConsole>
 				<MiddleConsole  onMouseLeave={() => setActiveCard(null)}>
-					<Pane marginTop="2rem" display="flex" flexWrap="wrap" justifyContent="center">
+					<Pane>
 						{
 							cardInfo.map((project, i) => {
 								return(	<Card project={project} index={i} key={i} length={(cardInfo.length + 0.5) * 0.25}/>)

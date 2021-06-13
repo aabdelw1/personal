@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import styled from 'styled-components'
-import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import Card from './Card'
@@ -73,6 +72,12 @@ const SubText = styled(Typography)`
   margin: 20px 0 29px;
 `
 
+const Pane = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content:  ${props => props.flex};;
+`
+
 const ContactMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [aboutPos, setAboutPos] = useState('30rem')
@@ -124,7 +129,7 @@ const ContactMe = () => {
 		<Container ref={ref}>
 			<MiddleConsole>
 				<Column pos={'-' + aboutPos} opac={opac}>
-					<Pane display="flex" flexDirection="column" justifyContent={isMobile && 'center'}>
+					<Pane flex={isMobile ? 'center' : 'flex-start'}>
 						<AboutBlock weight="bold">Contact me</AboutBlock>
 						<SubText>Let&#39;s talk about things</SubText>
 						{

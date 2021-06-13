@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
-import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import Ghidorah from '../../assets/img/ghidorah.png'
@@ -95,6 +94,10 @@ const Description = styled(Typography)`
 	}
 `
 
+const Pane = styled.div`
+	display: flex;
+	flex-direction: column;
+`
 
 const RandomFacts = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
@@ -113,33 +116,6 @@ const RandomFacts = () => {
 		}
 	}, [inView]) 
 
-	// function renderImage () {
-	// 	return (
-	// 		<Column pos={'-' + containerOffset} opac={opac} >
-	// 			<ImgBox>
-	// 				<img src={Ghidorah}/>
-	// 			</ImgBox>
-	// 		</Column>
-	// 	)
-	// }
-
-	// function renderFacts () {
-	// 	return (
-	// 		<Column pos={containerOffset}>
-	// 			<Pane display="flex" flexDirection="column">
-	// 				<Header weight="normal">Random Facts</Header>
-	// 				<Description>I play a lot of piano</Description>
-	// 				<Description>I like to draw</Description>
-	// 				<Description><span ref={ref}>I make the best cookies</span></Description>
-	// 				<Description>I&#39;m a neat freak</Description>
-	// 				<Description>I love snowbording</Description>
-	// 				<Description>I love sci fi movies</Description>
-	// 				<Description>I&#39;m addicted to Chick-fil-A</Description>
-	// 			</Pane>
-	// 		</Column> 
-	// 	)
-	// }
-
 	return (
 		<Container shadow= {isMobile ? '1px' : '4px'}>
 			<MiddleConsole>
@@ -150,7 +126,7 @@ const RandomFacts = () => {
 					</ImgBox>
 				</Column>
 				<Column pos={containerOffset}>
-					<Pane display="flex" flexDirection="column">
+					<Pane>
 						{isMobile && <Header weight="normal"><span ref={ref}>Random Facts </span></Header> }
 						{!isMobile && <Header weight="normal">Random Facts</Header> }
 						<Description>I play a lot of piano</Description>

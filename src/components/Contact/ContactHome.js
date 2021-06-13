@@ -1,17 +1,14 @@
 import React from 'react'
-import { Pane } from 'evergreen-ui'
 import ContactMe from './ContactMe'
 import EmailMe from './EmailMe'
 
 
-
-
 const ContactHome = () => {
 	return (
-		<Pane>
+		<div>
 			<ContactMe/>
 			<EmailMe/>
-		</Pane>
+		</div>
 	)
 }
 

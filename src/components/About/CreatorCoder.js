@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import CreatorCoderImg from '../../assets/img/creator_coder.png'
@@ -76,11 +75,9 @@ const Column = styled.div`
 	}
 
 `
-
-
-
-const ImgBox = styled.div`
-  /* max-width:35vh; */
+const Pane = styled.div`
+	display: flex;
+	flex-direction: column;
 `
 
 const Header = styled(Typography)`
@@ -122,13 +119,12 @@ const CreatorCoder = () => {
 		}
 	}, [inView])
 
-  
 	return (
 		<Container >
 			<MiddleConsole >
 				<AnimationBox pos={containerOffset} opac={opac} ref={ref} delay={inView && inView2 ? '0s' : 's'}>
 					<Column>
-						<Pane display="flex" flexDirection="column">
+						<Pane>
 							<Header weight="normal"><span ref={ref2}>Part Creator</span></Header>
 							<Description>UI/UX design</Description>
 							<Description>&quot;Borrowing&quot; ideas</Description>
@@ -138,12 +134,10 @@ const CreatorCoder = () => {
 						</Pane> 
 					</Column> 
 					<Column>
-						<ImgBox>
-							<img src={CreatorCoderImg}/>
-						</ImgBox>
+						<img src={CreatorCoderImg}/>
 					</Column>
 					<Column>
-						<Pane display="flex" flexDirection="column">
+						<Pane>
 							<Header weight="normal">Part Coder</Header>
 							<Description>Front-end development</Description>
 							<Description>HTML / CSS / JS</Description>

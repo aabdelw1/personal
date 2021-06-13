@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import {  Pane, toaster } from 'evergreen-ui'
+import { toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
@@ -149,6 +149,14 @@ const Send = styled.button`
   	}
 `
 
+const Pane = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	margin-top: 1.5rem;
+`
+
+
 
 const EmailMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
@@ -191,7 +199,6 @@ const EmailMe = () => {
 			setOpac('1')
 		}
 	}, [inView])
-  
 	return (
 		<Container>
 			<MiddleConsole>
@@ -199,15 +206,15 @@ const EmailMe = () => {
 					<Column>
 						<Row><Header weight="normal">Send me an email</Header></Row>
 						<Row>
-							<Pane display="flex" flexDirection="column" width="100%" marginTop="1.5rem">
-								<Pane>
+							<Pane>
+								<div>
 									<Fields weight="thin">Your name:</Fields>
 									<NameEmailInput onChange={e => setName(e.target.value)}/>
-								</Pane>
-								<Pane marginTop="0.5rem">
+								</div>
+								<div style={{'margin-top':'0.5rem'}}>
 									<Fields weight="thin">Your email:</Fields>
 									<NameEmailInput onChange={e => setEmail(e.target.value)}/>
-								</Pane>
+								</div>
 							</Pane>
 						</Row>
 					</Column>

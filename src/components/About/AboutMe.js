@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
-import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
-// import { ThemeProvider } from '../../Layout'
 import AmmarAbout from '../../assets/img/ammar_about.png'
 import { useInView } from 'react-intersection-observer'
-
 
 const aboutMeImgs = ['grays', 'art', 'board', 'desk', 'coffee', 'king']
 
@@ -56,6 +53,7 @@ const Pictures = styled.div`
 	transition-duration: 0.2s;
 	transition-delay: ${props => props.time};
 	transition-timing-function: ease-in-out; 
+
 `
 const Column = styled.div`
 	transition: margin-left, opacity, left;
@@ -129,6 +127,41 @@ const Description = styled(Typography)`
   color:#000;
 `
 
+const Pane2 = styled.div`
+	display: flex;
+	flex-direction: column;
+`
+
+const Pane = styled.div`
+	margin-top:2rem; 
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+`
+
+const PictureContainer = styled.div`
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	float: left;
+	border: 1px solid #dddddd;
+	border-radius: 0.2rem;
+	width: 160px;
+	height: 120px;
+	padding:.3rem;
+	margin-right: ${props => props.marginR};
+	margin-left: ${props => props.marginL};
+	margin-bottom: ${props => props.marginB};
+	-webkit-box-shadow: 1px 1px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    1px 1px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         0px 1px 2px #ccc;
+	transition: all .2s ease-in-out;
+	:hover{
+		transform: scale(1.1);
+	}
+`
+
 const AboutMe = () => {
 	const [aboutPos, setAboutPos] = useState('30rem')
 	const [picturePos, setPicturePos] = useState('4rem')
@@ -150,44 +183,32 @@ const AboutMe = () => {
 		<AboutMeContainer ref={ref}>
 			<MiddleConsole>
 				<Column pos={'-' + aboutPos} opac={opac}>
-					<Pane display="flex" flexDirection="column">
+					<Pane2>
 						<AboutBlock weight="bold">About Me </AboutBlock>
 						<SubText>I&#39;m a software engineer based in cowboy country Dallas, Texas.</SubText>
 						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&apos;m not coding, graming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
-					</Pane>
+					</Pane2>
 				</Column>
 				<Column pos={aboutPos} opac={opac}>
 					<img src={AmmarAbout}/>
 				</Column>
 			</MiddleConsole>
 			<MiddleConsole>
-				<Pane display="flex" marginTop="2rem" justifyContent="center" flexWrap="wrap" marginBottom={isMobile && '3rem'}>
+				<Pane margin={isMobile ? '3rem' : '3rem'}>
 					{
 						aboutMeImgs.map((name, index) => {
 							const time = ((index + 1.8) * 0.25).toString() + 's'
 							return (
 								<Pictures key={index} pos={picturePos} opac={opac} time={time}>
-									<Pane
-										elevation={1}
-										float="left"
-										hoverElevation={2}
-										borderRadius=".2rem"
-										width={155}
-										height={106}
-										border="default"
-										marginRight={index == 5 && !isMobile ? 0 : 10}
-										marginLeft={index == 0  && !isMobile ? 0 : 10}
-										display="flex"
-										justifyContent="center"
-										alignItems="center"
-										flexDirection="column"
-										padding = {5}
-										marginBottom="1rem"
+									<PictureContainer
+										marginR={index == 5 && !isMobile ? '0rem' : '0.5rem'} 
+										marginL={index == 0  && !isMobile ? '0rem' : '0.5rem'}
+										marginB={index == 5  && isMobile ? '3rem' : '1rem'}
 									>
 										<Pic>
 											<img src={require(`../../assets/img/about_slide/${name}.png`)}/>
 										</Pic>
-									</Pane>
+									</PictureContainer>
 								</Pictures>
 							)
 						})
