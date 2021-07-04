@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import  Link from 'gatsby-link'
 import { Navbar, Alignment } from '@blueprintjs/core'
-import { Pane } from 'evergreen-ui'
+// import { Pane } from 'evergreen-ui'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
 import { useMediaQuery } from 'react-responsive'
@@ -20,7 +20,7 @@ const Container = styled(Navbar)`
 const MiddleConsole = styled.div`
 	margin-left: auto;
 	margin-right: auto;
-	width:70rem;
+	width:65rem;
 	display:flex;
 	justify-content: space-between;
 	display:flex;
@@ -57,6 +57,12 @@ const ThemedName = styled(Link)`
 	:hover{
 		opacity: 0.5;
 	}
+`
+
+const Pane = styled.div`
+	/* padding: 1rem 0; */
+	margin-right: ${props => props.marginRight};
+
 `
 
 

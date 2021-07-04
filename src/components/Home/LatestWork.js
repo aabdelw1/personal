@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-// import { Pane } from 'evergreen-ui'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider, CardContext } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
