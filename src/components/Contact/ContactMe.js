@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
-
 import styled from 'styled-components'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'

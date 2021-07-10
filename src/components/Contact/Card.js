@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Avatar, Pane, Link } from 'evergreen-ui'
+import { Avatar, Link } from 'evergreen-ui'
 import { Typography } from '../primitives'
 
 const CardContainer = styled.div`
@@ -27,6 +27,10 @@ const Description = styled(Typography)`
   line-height:30px;
   color:${props => props.color};
 `
+const Pane = styled.div`
+	display: flex;
+	margin: 0.5rem 0 0.5rem;
+`
 
 const Card = (props) => {
 	const { method } = props
@@ -35,7 +39,7 @@ const Card = (props) => {
 	return (
 		<CardContainer>
 			<Link href={link}>
-				<Pane display="flex" marginY="0.5rem">
+				<Pane>
 					<Avatar src={require(`../../assets/img/contact/${platform}.png`)} name={platform} size={50} marginRight={'1rem'}/>
 					<div style={{'margin': 'auto 0'}}>
 						<Description color={color}>{text}</Description>
