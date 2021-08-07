@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
-import { toaster } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { ThemeProvider } from '../../Layout'
 import { useInView } from 'react-intersection-observer'
@@ -156,8 +156,6 @@ const Pane = styled.div`
 	margin-top: 1.5rem;
 `
 
-
-
 const EmailMe = () => {
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	const [name, setName] = useState('')
@@ -171,9 +169,19 @@ const EmailMe = () => {
 	init('user_PAAWqM369hb6sMZg93DYp')
 
 
+
+
+
 	const sendEmail = () => {
 		if(name == '' || email == '' || message == ''){
-			toaster.warning('Missing Field')
+			// toaster.warning('Missing Field')
+			toast('Missing Field!', {
+				style: {
+					border: '1px solid #713200',
+					color: '#713200',
+				},
+				icon: '🥑',
+			})
 		} else{
 			emailjs.send(
 				'service_utp8oc6',
@@ -186,9 +194,11 @@ const EmailMe = () => {
 				},
 				'user_PAAWqM369hb6sMZg93DYp'
 			)			.then((result) => {
-				toaster.success('Email Sent!')
+				// toaster.success('Email Sent!')
+				toast.success('Email sent!')
 			}, (error) => {
-				toaster.error('Something went wrong, email not sent🙁')
+				// toaster.error('Something went wrong, email not sent🙁')
+				toast.error('Something went wrong, email not sent🙁')
 			})
 		}
 	}
@@ -201,6 +211,7 @@ const EmailMe = () => {
 	}, [inView])
 	return (
 		<Container>
+			<Toaster />
 			<MiddleConsole>
 				<AnimationBox ref={ref} pos={containerOffset} opac={opac} mobile={isMobile ? 0.3 + 's': 1.0 + 's'}>
 					<Column>

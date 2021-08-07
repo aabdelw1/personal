@@ -161,8 +161,7 @@ const Skills = () => {
 			setOpac(['0.6', '1'])
 		}
 	}, [inView])
-  
-  
+   
 	return (
 		<Container>
 			<MiddleConsole weight="normal">

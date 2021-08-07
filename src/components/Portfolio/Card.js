@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link, ChevronRightIcon } from 'evergreen-ui'
 import PropTypes from 'prop-types'
-import { Pane } from 'evergreen-ui'
 import { Typography } from '../primitives'
 import { /*ThemeProvider,*/ CardContext } from '../../Layout'
 
@@ -73,6 +72,14 @@ const Chevy = styled.div`
 	margin-right: ${props => props.marginR};
 `
 
+const Pane2 = styled.div`
+	transition: all .2s ease-in-out; 
+	:hover{
+		transform: scale(1.03); 
+	}
+
+`
+
 const Card = (props) => {
 	const { project, index, length } = props
 	const { name, category, image, link } = project
@@ -107,7 +114,7 @@ const Card = (props) => {
 	return (
 		<CardContainer opac={activate ? '1.0' : '1'} onMouseEnter={() => counter == 0 && setActiveCard(index)} onMouseLeave={() => setActiveCard(null)}>
 			<Link href={link}>
-				<Pane hoverElevation={2}>
+				<Pane2 hoverElevation={2}>
 					<Item>
 						<Row>
 							<img src={require(`../../assets/img/portfolio/${image}.png`)}/>
@@ -122,7 +129,7 @@ const Card = (props) => {
 							</Chevy>
 						</Row>
 					</Item>
-				</Pane>
+				</Pane2>
 			</Link>
 		</CardContainer> 
 	)
