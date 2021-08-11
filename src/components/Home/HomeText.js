@@ -71,7 +71,7 @@ const Description = styled(Typography)`
 
 	@media (max-width: 992px) { 
 			font-size: 2vw !important; 
-			padding-left: ${props => props.padding};
+			padding-left: ${props => props.paddingL};
 			padding-right: ${props => props.paddingR};
 			}
 	 }
@@ -118,13 +118,13 @@ const HomeText = () => {
 				<Column opacity={opac[0]}>
 					<Pane>
 						<AboutBlock weight="bold">creator</AboutBlock>
-						{!isMobile && <Description weight="thin" paddingR="2rem">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
+						{!isMobile && <Description weight="thin" paddingR="3.1rem">Artistic designer with a drive to create simple yet stunning user expirences.</Description> }
 					</Pane>
 				</Column>
 				<Column opacity={opac[1]}>
 					<Pane2>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
-						{!isMobile &&<Description weight="thin">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
+						{!isMobile &&<Description weight="thin" paddingL="3.1rem">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
 					</Pane2>
 				</Column>
 			</MiddleConsole>

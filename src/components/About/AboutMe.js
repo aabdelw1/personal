@@ -65,7 +65,6 @@ const Column = styled.div`
 		margin-left:${props => props.pos};
 		opacity: ${props => props.opac};
     width: 40%;
-    justify-content: flex-end;
     align-items: center;
 			@media (max-width: 992px) { 
 			width:unset;
@@ -79,7 +78,7 @@ const Column = styled.div`
 		left: ${props => props.pos};
 		position: relative;
     max-width:90vh;
-    justify-content: flex-end;
+    /* justify-content: center; */
     align-items: flex-end;
 		@media (max-width: 992px) { 
 			justify-content: center;

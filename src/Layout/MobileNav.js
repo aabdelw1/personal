@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import  Link from 'gatsby-link'
-import { Navbar, Alignment, Menu } from '@blueprintjs/core'
+import { Navbar, Alignment, Menu, Icon, IconSize } from '@blueprintjs/core'
 import { Pane, MenuIcon } from 'evergreen-ui'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
@@ -92,6 +92,7 @@ const _ = ({
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
+				{/* <Icon icon='menu' /> */}
 				<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
 			</Navbar.Group>
 			{ 
