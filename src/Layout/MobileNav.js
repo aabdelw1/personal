@@ -28,15 +28,11 @@ const NavContainer = styled.div`
 `
 
 const NavItems = styled.div`
-		margin-top:0.5rem;
-	/* margin-top: auto; */
-	/* margin: auto; */
 	:first-of-type{
-		/* background-color: blue; */
+		margin-top: 1rem;
 	}
 	:last-of-type{
-
-		/* background-color: orange; */
+		margin-top: 0.5rem;
 	}
 `
 
@@ -52,7 +48,6 @@ const NavLinks = styled.ul`
 	margin-right:-4rem;
 	top: ${props => props.pos};
 	height: ${props => props.height};
-	/* right: 0; */
 	a{
 		text-decoration: none;
 	}
@@ -136,9 +131,8 @@ const _ = ({
 			</NavContainer>
 			{ 
 				
-				<NavLinks pos={'80px'} height={isOpen ? '290px' : '0px'}>	
+				<NavLinks pos={'80px'} height={isOpen ? '289px' : '0px'}>	
 					{
-						isOpen &&
 						NavbarLinks.map(({ name, link }, i) => (
 							<LinkRow key={i} opac={isOpen ? '1s': '0'}>
 								<ThemedLink to={link}>
