@@ -110,7 +110,7 @@ const _ = ({
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
+				<Icon icon='menu' color={isOpen ? '#878787': '#a690a4'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
 					{/* <MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/> */}
 			</Navbar.Group>
 			{ 
