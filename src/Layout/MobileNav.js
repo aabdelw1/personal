@@ -16,7 +16,27 @@ const Container = styled(Navbar)`
 		background: black;
 		padding: 1.2rem 2rem 4rem ;		
 		/* padding: 3rem; */
+	}
+`
 
+const NavContainer = styled.div`
+	display: flex;
+	
+	/* flex-direction: column; */
+	justify-content: space-between;
+	
+`
+
+const NavItems = styled.div`
+		margin-top:0.5rem;
+	/* margin-top: auto; */
+	/* margin: auto; */
+	:first-of-type{
+		/* background-color: blue; */
+	}
+	:last-of-type{
+
+		/* background-color: orange; */
 	}
 `
 
@@ -102,16 +122,18 @@ const _ = ({
 	
 	return (
 		<Container {...props} fixedToTop={fixed}>
-			<Navbar.Group align={Alignment.LEFT}>
-				<Pane >
-					<ThemedName to='/home'>
-						<Typography>Ammar Abdelwahed</Typography>
-					</ThemedName>
-				</Pane>
-			</Navbar.Group>
-			<Navbar.Group align={Alignment.RIGHT} >
-				<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
-			</Navbar.Group>
+			<NavContainer>
+				<NavItems>
+					<Pane>
+						<ThemedName to='/home'>
+							<Typography>Ammar Abdelwahed</Typography>
+						</ThemedName>
+					</Pane>
+				</NavItems>
+				<NavItems>
+					<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
+				</NavItems>
+			</NavContainer>
 			{ 
 				
 				<NavLinks pos={'80px'} height={isOpen ? '290px' : '0px'}>	
