@@ -24,6 +24,7 @@ const MiddleConsole = styled.div`
   margin-right: auto;
   width:65rem;
 	display:flex;
+	padding: 0 2rem;
 	justify-content:center;
 	height:100%;
 	flex-wrap: wrap;

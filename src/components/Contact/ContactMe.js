@@ -21,6 +21,7 @@ const MiddleConsole = styled.div`
 	display:flex;
 	justify-content:center;
 	height:100%;
+	padding: 0 2rem;
 	@media (max-width: 992px) { 
 			width:unset;
 			max-width: unset;

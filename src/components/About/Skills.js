@@ -10,6 +10,7 @@ const Container = styled.div`
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
   border-top: 2px solid #dddddd;
+	padding: 0 1rem;
 `
 
 const MiddleConsole = styled(Typography)`

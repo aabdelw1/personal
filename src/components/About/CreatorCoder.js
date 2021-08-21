@@ -13,6 +13,7 @@ const Container = styled.div`
   height:38rem;
 	box-shadow: 0 2px 3px #dddddd,  0 -2px 3px #dddddd;
 	background-color: #fafafa;
+	padding: 0 1rem;
 
 	@media (max-width: 992px) { 
 		max-height: unset;

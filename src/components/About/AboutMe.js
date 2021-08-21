@@ -12,6 +12,8 @@ const AboutMeContainer = styled.div`
   box-shadow: 0 2px 3px #dddddd;
   max-height: 44.9rem;
   height:44.9rem;
+	padding: 0 1rem;
+
 	-webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;
@@ -25,6 +27,7 @@ const MiddleConsole = styled.div`
   margin-left: auto;
   margin-right: auto;
   width:65rem;
+
   display:flex;
 	transition: margin-top 1s 3s ease-in-out;
 	@media (max-width: 992px) { 
@@ -37,8 +40,8 @@ const MiddleConsole = styled.div`
     border-bottom: 1px solid #dddddd;
 		@media (max-width: 992px) { 
 			align-items: center;
-			margin-right:2rem;
-			margin-left:2rem;
+			/* margin-right:2rem;
+			margin-left:2rem; */
  		}
   }
   :last-of-type {
@@ -146,9 +149,9 @@ const PictureContainer = styled.div`
 	float: left;
 	border: 1px solid #dddddd;
 	border-radius: 0.2rem;
-	width: 160px;
-	height: 120px;
-	padding:.3rem;
+	width: 10rem;
+	height: 7.5rem;
+	padding: .3rem;
 	margin-right: ${props => props.marginR};
 	margin-left: ${props => props.marginL};
 	margin-bottom: ${props => props.marginB};
@@ -193,7 +196,7 @@ const AboutMe = () => {
 				</Column>
 			</MiddleConsole>
 			<MiddleConsole>
-				<Pane margin={isMobile ? '3rem' : '3rem'}>
+				<Pane>
 					{
 						aboutMeImgs.map((name, index) => {
 							const time = ((index + 1.8) * 0.25).toString() + 's'
