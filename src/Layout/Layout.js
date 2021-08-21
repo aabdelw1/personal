@@ -2,7 +2,6 @@ import { useMediaQuery } from 'react-responsive'
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Pane, Spinner } from 'evergreen-ui'
 import { Typography } from '../components/primitives'
 import Navbar from './Navbar'
 import MobileNav from './MobileNav'
@@ -20,13 +19,13 @@ const Hero = styled.div`
   align-content: center;
 `
 
-const ThemedSpinner = styled(Spinner)`
-	&& {
-		svg > circle {
-			stroke: ${({theme}) => theme.white};
-		}
-	}
-`
+// const ThemedSpinner = styled(Spinner)`
+// 	&& {
+// 		svg > circle {
+// 			stroke: ${({theme}) => theme.white};
+// 		}
+// 	}
+// `
 
 const _ = (props) => {
 	const {
@@ -48,7 +47,7 @@ const _ = (props) => {
 					(breadcrumbs && !error) && <>{ breadcrumbs }</>
 				}
 				<div className={`flex flex-grow isLoading ${isLoading ? 'items-center justify-center' : ''}`}>
-					{
+					{/* {
 						(isLoading && !error)
 							&& <Pane display="flex" flexDirection="column" alignItems="center">
 								<ThemedSpinner/>
@@ -61,7 +60,7 @@ const _ = (props) => {
 									</Typography>
 								</Pane>
 							</Pane>
-					}
+					} */}
 					{
 						(content && !isLoading && !error)
 						&& <div className="flex grid grid-cols-1 w-full">
@@ -70,7 +69,7 @@ const _ = (props) => {
 							}
 						</div>
 					}
-					{ error
+					{/* { error
 						&& 
 						<Pane display="flex" flexDirection="column" alignItems="center" justifyContent="center" width="100%">
 							<Typography variant="h1" weight="black" className="m-0">{error.networkError.statusCode}</Typography>
@@ -78,7 +77,7 @@ const _ = (props) => {
 							<Typography variant="body" className="p-5 text-center">
 								Uh-oh, something just isn&apos;t right... 🤔</Typography>
 						</Pane>
-					}
+					} */}
 				</div>
 				{
 					footer

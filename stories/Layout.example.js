@@ -1,12 +1,11 @@
 import React from 'react'
-import { Heading, Button } from 'evergreen-ui'
 
 export const DefaultExampleContent = () => (
 	<div display="flex">
 		<div display="flex">
-			<Heading className="mb-5">DefaultExampleContent</Heading>
+			<h1 className="mb-5">DefaultExampleContent</h1>
 		</div>
-		<Heading className="mb-5">Welcome to My NextJS Template</Heading>
+		<h1 className="mb-5">Welcome to My NextJS Template</h1>
 	</div>
 )
 
@@ -22,6 +21,6 @@ export const SampleHero = () => (
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
             cupidatat commodo. Elit sunt amet fugiat veniam.
 		</p>
-		<Button className="mt-8 py-3 w-1/6">Get Started</Button>
+		<button className="mt-8 py-3 w-1/6">Get Started</button>
 	</div>
 )

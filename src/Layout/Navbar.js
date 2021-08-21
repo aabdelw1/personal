@@ -61,7 +61,6 @@ const ThemedName = styled(Link)`
 const Pane = styled.div`
 	/* padding: 1rem 0; */
 	margin-right: ${props => props.marginRight};
-
 `
 
 

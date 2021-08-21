@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link, ChevronRightIcon } from 'evergreen-ui'
+import { Icon } from '@blueprintjs/core'
 import PropTypes from 'prop-types'
 import { Typography } from '../primitives'
 import { /*ThemeProvider,*/ CardContext } from '../../Layout'
@@ -110,10 +110,11 @@ const Card = (props) => {
 		}
 	}, [chevronAnim]) 
 
-
+	// #C5CAD0
 	return (
 		<CardContainer opac={activate ? '1.0' : '1'} onMouseEnter={() => counter == 0 && setActiveCard(index)} onMouseLeave={() => setActiveCard(null)}>
-			<Link href={link}>
+			{/* <Link href={link}> */}
+			<a href={link} target="_blank" rel="noreferrer">
 				<Pane2 hoverElevation={2}>
 					<Item>
 						<Row>
@@ -125,12 +126,13 @@ const Card = (props) => {
 								<Description weight="thin">{category}</Description>
 							</CardText>
 							<Chevy marginR={marginR} opac={opac}>
-								<ChevronRightIcon color="disabled" size={30}/> 
+								<Icon icon='chevron-right' color={'#C5CAD0'} iconSize={30}/>
 							</Chevy>
 						</Row>
 					</Item>
 				</Pane2>
-			</Link>
+			</a>
+			{/* </Link> */}
 		</CardContainer> 
 	)
 }
