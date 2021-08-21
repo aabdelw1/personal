@@ -22,7 +22,6 @@
         "emailjs": "^3.4.0",
         "emailjs-com": "^2.6.4",
         "eslint": "^6.7.2",
-        "evergreen-ui": "^4.26.0",
         "framer-motion": "^4.1.13",
         "gatsby": "^2.31.1",
         "gatsby-cli": "^2.18.0",
