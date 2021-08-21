@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import  Link from 'gatsby-link'
+import MenuIcon from '../assets/img/svgs/menu.svg'
 import { Navbar, Alignment, Icon } from '@blueprintjs/core'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
@@ -109,8 +110,9 @@ const _ = ({
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)}/>
+				{/* <Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/> */}
 				{/* <MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/> */}
+					<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
 			</Navbar.Group>
 			{ 
 				
