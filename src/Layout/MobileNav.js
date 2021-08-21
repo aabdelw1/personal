@@ -102,16 +102,15 @@ const _ = ({
 	
 	return (
 		<Container {...props} fixedToTop={fixed}>
-			<Navbar.Group align={Alignment.LEFT} className="pl-10">
-				<Pane marginLeft='-3rem'>
+			<Navbar.Group align={Alignment.LEFT}>
+				<Pane >
 					<ThemedName to='/home'>
 						<Typography>Ammar Abdelwahed</Typography>
 					</ThemedName>
 				</Pane>
 			</Navbar.Group>
-			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				<Icon icon='menu' color={isOpen ? '#878787': '#a690a4'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
-					{/* <MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/> */}
+			<Navbar.Group align={Alignment.RIGHT} >
+				<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)} title='menu' htmlTitle='menu'/>
 			</Navbar.Group>
 			{ 
 				
