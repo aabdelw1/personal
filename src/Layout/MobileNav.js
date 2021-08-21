@@ -30,10 +30,19 @@ const NavLinks = styled.ul`
 	margin-left:-2rem;
 	margin-right:-4rem;
 	top: ${props => props.pos};
+	height: ${props => props.height};
 	/* right: 0; */
 	a{
 		text-decoration: none;
 	}
+	-webkit-transition:height, 0.5s ease-out;
+	-moz-transition: height, 0.5s ease-out;
+	-ms-transition: height, 0.5s ease-out;
+	-o-transition: height, 0.5s ease-out;
+	transition: height, opacity;
+	transition-duration: 0.3s;
+	transition-delay: 0s;
+	transition-timing-function: ease-out; 
 `
 const LinkRow = styled.li`
 	padding:1rem;
@@ -42,10 +51,12 @@ const LinkRow = styled.li`
 	display:flex;
 	align-items:center;
 	justify-content:center;
+	transition: opacity, 1s, ease-out;
+	opacity: ${props => props.opac};
 `
 
 const ThemedLink = styled(Link)`
-	transition: opacity 0.1s;
+	transition: opacity 0.2s;
 	&& {
 		* {
 			/* color: ${({theme}) => theme.grey}; */
@@ -102,10 +113,12 @@ const _ = ({
 				{/* <MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/> */}
 			</Navbar.Group>
 			{ 
-				<NavLinks pos={isOpen ? '80px' : '-300px'}>
+				
+				<NavLinks pos={'80px'} height={isOpen ? '290px' : '0px'}>	
 					{
+						isOpen &&
 						NavbarLinks.map(({ name, link }, i) => (
-							<LinkRow key={i}>
+							<LinkRow key={i} opac={isOpen ? '1s': '0'}>
 								<ThemedLink to={link}>
 									<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
 										{ name }
