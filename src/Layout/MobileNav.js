@@ -2,8 +2,7 @@ import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import  Link from 'gatsby-link'
-import { Navbar, Alignment, Menu, Icon, IconSize } from '@blueprintjs/core'
-import { Pane, MenuIcon } from 'evergreen-ui'
+import { Navbar, Alignment, Icon } from '@blueprintjs/core'
 import { ThemeToggle, Typography } from '../components/primitives'
 import { ThemeProvider } from '../Layout'
 
@@ -66,6 +65,13 @@ const ThemedName = styled(Link)`
 	}
 `
 
+const Pane = styled.div`
+	/* padding: 1rem 0; */
+	margin-right: ${props => props.marginRight};
+	margin-left: ${props => props.marginLeft};
+`
+
+
 const NavbarLinks = [
 	{ name: 'Home', link: '/' },
 	{ name: 'About', link: '/about' },
@@ -85,15 +91,15 @@ const _ = ({
 	return (
 		<Container {...props} fixedToTop={fixed}>
 			<Navbar.Group align={Alignment.LEFT} className="pl-10">
-				<Pane paddingX=".5rem" marginLeft='-3rem'>
+				<Pane marginLeft='-3rem'>
 					<ThemedName to='/home'>
 						<Typography>Ammar Abdelwahed</Typography>
 					</ThemedName>
 				</Pane>
 			</Navbar.Group>
 			<Navbar.Group align={Alignment.RIGHT} className="pl-4">
-				{/* <Icon icon='menu' /> */}
-				<MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/>
+				<Icon icon='menu' color={isOpen ? '#878787': 'white'} iconSize={30} onClick={() => setOpen(!isOpen)}/>
+				{/* <MenuIcon color={isOpen ? '#878787': 'white'} size={30} onClick={() => setOpen(!isOpen)}/> */}
 			</Navbar.Group>
 			{ 
 				<NavLinks pos={isOpen ? '80px' : '-300px'}>
