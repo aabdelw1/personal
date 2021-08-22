@@ -4,9 +4,7 @@ import styled from 'styled-components'
 import { Typography } from '../../components/primitives'
 import { ThemeProvider } from '../../Layout'
 import Ghidorah from '../../assets/img/ghidorah.png'
-// import useOnScreen from '../primitives/UseOnScreen'
 import { useInView } from 'react-intersection-observer'
-
 
 const Container = styled.div`
   max-height: 38rem;
@@ -27,7 +25,6 @@ const MiddleConsole = styled.div`
 	justify-content:center;
 	height:100%;
 	@media (max-width: 992px) { 
-		/* max-width: 992px; */
 			width:unset;
 			max-width: unset;
 			flex-direction: column;

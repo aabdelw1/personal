@@ -32,7 +32,6 @@ const MiddleConsole = styled(Typography)`
   :last-of-type {
     height: 75%;
     justify-content: center;
-    
   }
 `
 
@@ -79,7 +78,6 @@ const Bars = styled.div`
 	transition-duration: 0.6s;
 	transition-delay: ${props => props.time};
 	transition-timing-function: ease-out; 
-
   height: ${props => props.height};
   background: linear-gradient(white, 1%, ${props => props.color});
   width:100%;
@@ -126,7 +124,6 @@ const Skills = () => {
 	const [ref, inView] = useInView()
 
 	const skillLevel= ['Jedi','Apprentice','Padawan','Youngling']
-
 	const skills = [
 		{
 			skill: 'Coffee Drinking',
