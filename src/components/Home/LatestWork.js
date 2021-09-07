@@ -11,7 +11,7 @@ const Container = styled.div`
   max-height: 30rem;
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
-  border-top: 2px solid #dddddd;
+  /* border-top: 2px solid #dddddd; */
 	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;

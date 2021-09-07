@@ -62,12 +62,12 @@ const Portfolio = () => {
 			image: 'stocks',
 			link: ''
 		},
-		// {
-		// 	name: 'Solid Fee Calculator',
-		// 	category: 'Frontend Web app',
-		// 	image: 'items',
-		// 	link: 'https://github.com/aabdelw1/solid-fee-calculator'
-		// },
+		{
+			name: 'Solid Fee Calculator',
+			category: 'Frontend Web app',
+			image: 'items',
+			link: 'https://github.com/aabdelw1/solid-fee-calculator'
+		},
 		{
 			name: 'Delta Debug',
 			category: 'Software Analysis',
