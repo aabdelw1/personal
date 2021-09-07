@@ -5,12 +5,14 @@ const Styled_ = styled.div`
   && {
 		color: ${({theme}) => theme.grey};
 	}
+	margin: 0.5rem 0 1rem;
 `
 
 const _ = (props) => (
-	<Styled_ {...props} className="pb-8">
+	<Styled_ {...props} >
 		<div className="flex flex-row justify-center mt-3">
-      Made with ❤️ and ☕️
+			<div style={{'margin-right': '0.5rem'}}>Made with ❤️ </div> 
+			<div>and ☕️</div> 
 		</div>
 	</Styled_>
 )
