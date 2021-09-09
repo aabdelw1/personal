@@ -5,7 +5,9 @@ const Styled_ = styled.div`
   && {
 		color: ${({theme}) => theme.grey};
 	}
-	padding: 0.5rem 0 1.5rem;
+	/* padding: 0.5rem 0 1.5rem; */
+	/* padding: 0.3rem 1rem 0.3rem; */
+	padding-bottom: 1rem;
 `
 
 const _ = (props) => (
