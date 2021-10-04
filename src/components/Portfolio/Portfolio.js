@@ -47,6 +47,12 @@ const Portfolio = () => {
 
 	const cardInfo = [
 		{
+			name: 'This Website',
+			category: 'Frontend Web app',
+			image: 'ammar',
+			link: 'https://github.com/aabdelw1/personal'
+		},
+		{
 			name: 'Kalman Filter',
 			category: 'AI for Robotics',
 			image: 'rocket',
