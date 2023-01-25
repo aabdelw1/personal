@@ -6,7 +6,13 @@ import Badge from './Badge'
 
 const fontTypes = css`
   color: ${({theme}) => theme.grey};
-  
+
+  ${(props) => props.opacity === 'hover' && `
+    opacity: 0.5;
+  `}
+  ${(props) => props.opacity === 'normal' && `
+    opacity: 1;
+  `}
   ${(props) => props.italic && `
     font-style: italic;
   `}
@@ -151,6 +157,8 @@ _.propTypes = {
 	italic: PropTypes.bool,
 	/** Type of weight to use on font (thin, light, bold, extrabold, black) */
 	weight: PropTypes.string,
+  /** opacity level to use on font (hover, normal) */
+  opacity: PropTypes.string,
 	/** Decides if icon goes before or after text */
 	position: PropTypes.string,
 	/** Props defined in blueprintjs icon component. https://blueprintjs.com/docs/#core/components/icon */

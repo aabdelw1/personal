@@ -66,11 +66,11 @@ const Pane = styled.div`
 
 
 const NavbarLinks = [
-	{ name: 'Home', link: '/' },
-	{ name: 'About', link: '/about' },
-	{ name: 'Portfolio', link: '/portfolio'},
-	{ name: 'Resume', link: 'https://read.cv/aabdelw1'},
-	{ name: 'Contact', link: '/contact'}
+	// { name: 'home', link: '/' },
+	{ name: 'about', link: '/about' },
+	{ name: 'portfolio', link: '/portfolio'},
+	{ name: 'resume', link: 'https://read.cv/aabdelw1'},
+	{ name: 'contact', link: '/contact'}
 ]
 
 const _ = ({
@@ -79,6 +79,7 @@ const _ = ({
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	// const setTheme = themeCtx[1]
+	const pageName = window.location.pathname.replace(/[^0-9a-z]/gi, '')
 	const isTablet = useMediaQuery({ maxWidth: 992 })
 	return (
 		<Container {...props} fixedToTop={fixed}>
@@ -96,7 +97,7 @@ const _ = ({
 							{
 								NavbarLinks.map(({ name, link }, i) => (
 									<ThemedLink key={i} to={link} target='_blank'>
-										<Typography className="px-2" weight={page === name ? 'bold' : 'normal'}>
+										<Typography className="px-2" opacity={pageName === name ? 'hover' : 'normal'}>
 											{ name }
 										</Typography>
 									</ThemedLink>
