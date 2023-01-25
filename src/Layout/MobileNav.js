@@ -67,7 +67,7 @@ const LinkRow = styled.li`
 	display:flex;
 	align-items:center;
 	justify-content:center;
-	transition: opacity, 1s, ease-out;
+	transition: opacity, 4s, ease-out;
 	opacity: ${props => props.opac};
 `
 
