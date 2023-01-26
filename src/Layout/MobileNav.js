@@ -86,9 +86,19 @@ const ThemedLink = styled(Link)`
 	}
 `
 const ThemedName = styled(Link)`
-	transition: opacity 0.1s;
+		&& {
+		* {
+			/* color: ${({ theme }) => theme.grey}; */
+		color: white;
+		font-size: 18px;
+		/* margin-left:1rem; */
+		}
+	} 
+		transition: opacity 0.2s;
 	:hover{
 		opacity: 0.5;
+		text-decoration: none;
+
 	}
 `
 
@@ -121,7 +131,7 @@ const _ = ({
 				<NavItems>
 					<Pane>
 						<ThemedName to='/home'>
-							<Typography>Ammar Abdelwahed</Typography>
+							<Typography weight={'medium'}>Ammar</Typography>
 						</ThemedName>
 					</Pane>
 				</NavItems>

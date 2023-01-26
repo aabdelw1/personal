@@ -26,8 +26,8 @@ const AboutPage = () => {
 					<Box><Graphic/></Box>
 					<Overlay><HomeText/></Overlay>
 				</Container>
+				<LatestWork/>
 			</div>
-			<LatestWork/>
 		</>
 	)
 }

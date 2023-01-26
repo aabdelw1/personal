@@ -157,8 +157,8 @@ _.propTypes = {
 	italic: PropTypes.bool,
 	/** Type of weight to use on font (thin, light, bold, extrabold, black) */
 	weight: PropTypes.string,
-  /** opacity level to use on font (hover, normal) */
-  opacity: PropTypes.string,
+	/** opacity level to use on font (hover, normal) */
+	opacity: PropTypes.string,
 	/** Decides if icon goes before or after text */
 	position: PropTypes.string,
 	/** Props defined in blueprintjs icon component. https://blueprintjs.com/docs/#core/components/icon */

@@ -5,7 +5,7 @@ import Portfolio from '../components/Portfolio/Portfolio'
 const PortfolioPage = () => {
 	return (
 		<Layout
-			title="Ammar"
+			title="Portfolio"
 			content={<Portfolio/>}
 		/>
 	)

@@ -8,19 +8,21 @@ import Card from '../Portfolio/Card'
 
 
 const Container = styled.div`
-  max-height: 30rem;
+  max-height: 38rem;
+	height:28rem;
+
 	box-shadow: 0 2px 3px #dddddd;
   background-color: #fafafa;
   /* border-top: 2px solid #dddddd; */
+	padding: 0 1rem;
 	@media (max-width: 992px) { 
 		max-height: unset;
 		height:unset;
 		padding:3rem;
  	}
 `
-
 const AnimationBox = styled.div`
-	margin-top: ${props => props.pos};
+	/* margin-top: ${props => props.pos}; */
 	opacity: ${props => props.opac};
 	transition: margin-top, opacity;
 	transition-duration: 0.6s;

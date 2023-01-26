@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react","prettier"],
   rules: {
     indent: ["error", "tab"],
     "linebreak-style": ["error", "unix"],
