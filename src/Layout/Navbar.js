@@ -79,7 +79,8 @@ const _ = ({
 
 	const { theme: themeCtx } = useContext(ThemeProvider.Context)
 	// const setTheme = themeCtx[1]
-	const pageName = window.location.pathname.replace(/[^0-9a-z]/gi, '')
+	const isBrowser = typeof window !== "undefined"
+	const pageName = isBrowser && window.location.pathname.replace(/[^0-9a-z]/gi, '')
 	const isTablet = useMediaQuery({ maxWidth: 992 })
 	return (
 		<Container {...props} fixedToTop={fixed}>
