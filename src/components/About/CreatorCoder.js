@@ -5,9 +5,6 @@ import { ThemeProvider } from '../../Layout'
 import CreatorCoderImg from '../../assets/img/creator_coder.png'
 import { useInView } from 'react-intersection-observer'
 
-
-
-
 const Container = styled.div`
   max-height: 38rem;
   height:38rem;
@@ -121,15 +118,15 @@ const CreatorCoder = () => {
 	}, [inView])
 
 	return (
-		<Container >
-			<MiddleConsole >
+		<Container>
+			<MiddleConsole>
 				<AnimationBox pos={containerOffset} opac={opac} ref={ref} delay={inView && inView2 ? '0s' : 's'}>
 					<Column>
 						<Pane>
 							<Header weight="normal"><span ref={ref2}>Part Creator</span></Header>
 							<Description>UI/UX design</Description>
 							<Description>&quot;Borrowing&quot; ideas</Description>
-							<Description>Drawing attention </Description>
+							<Description>Graphic Design</Description>
 							<Description>Free hand sketching</Description>
 							<Description>Musician</Description>
 						</Pane> 

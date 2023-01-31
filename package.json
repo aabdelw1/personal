@@ -54,6 +54,7 @@
         "react-typography": "^0.16.19",
         "sift": "^13.1.10",
         "styled-components": "^5.2.3",
+        "twin.macro": "^3.1.0",
         "typography": "^0.16.19"
     },
     "devDependencies": {
