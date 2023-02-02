@@ -73,77 +73,77 @@ const BodyText = styled.div`
 `
 
 const Portfolio = () => {
-  // const { theme: themeCtx } = useContext(ThemeProvider.Context)
-  const [, setActiveCard] = useContext(CardContext.Context)
-  const [opac, setOpac] = useState('0')
-  const [ref, inView] = useInView()
+	// const { theme: themeCtx } = useContext(ThemeProvider.Context)
+	const [, setActiveCard] = useContext(CardContext.Context)
+	const [opac, setOpac] = useState('0')
+	const [ref, inView] = useInView()
 
-  useEffect(() => {
-    if (inView) {
-      setOpac('1')
-    }
-  }, [inView])
+	useEffect(() => {
+		if (inView) {
+			setOpac('1')
+		}
+	}, [inView])
 
-  const cardInfo = [
-    {
-      name: 'This Website',
-      category: 'Frontend Web app',
-      image: 'ammar',
-      link: 'https://github.com/aabdelw1/personal'
-    },
-    {
-      name: 'Kalman Filter',
-      category: 'AI for Robotics',
-      image: 'rocket',
-      link: 'https://github.com/aabdelw1/asteroids'
-    },
-    {
-      name: 'Ingies Animal Shelter',
-      category: 'Full Stack Web App',
-      image: 'dog',
-      link: 'https://github.com/aabdelw1/Animal-Shelter-Dashboard'
-    },
-    {
-      name: 'Indicator Evaluation',
-      category: 'Machine Learning',
-      image: 'stocks',
-      link: ''
-    },
-    {
-      name: 'Solid Fee Calculator',
-      category: 'Frontend Web app',
-      image: 'items',
-      link: 'https://github.com/aabdelw1/solid-fee-calculator'
-    },
-    {
-      name: 'Delta Debug',
-      category: 'Software Analysis',
-      image: 'delta',
-      link: ''
-    },
-    {
-      name: 'Marta Simulator',
-      category: 'Java Program',
-      image: 'bus',
-      link: 'https://github.com/aabdelw1/MartaSimulation'
-    },
-    {
-      name: 'DSA Key Recovery',
-      category: 'Applied Cryptography',
-      image: 'lock',
-      link: 'https://github.com/aabdelw1/dsa-key-recovery'
-    },
-    {
-      name: 'Length Extenstion Attack',
-      category: 'Applied Cryptography',
-      image: 'hash',
-      link: 'https://github.com/aabdelw1/length-extension-attack'
-    }
-  ]
+	const cardInfo = [
+		{
+			name: 'This Website',
+			category: 'Frontend Web app',
+			image: 'ammar',
+			link: 'https://github.com/aabdelw1/personal'
+		},
+		{
+			name: 'Kalman Filter',
+			category: 'AI for Robotics',
+			image: 'rocket',
+			link: 'https://github.com/aabdelw1/asteroids'
+		},
+		{
+			name: 'Ingies Animal Shelter',
+			category: 'Full Stack Web App',
+			image: 'dog',
+			link: 'https://github.com/aabdelw1/Animal-Shelter-Dashboard'
+		},
+		{
+			name: 'Indicator Evaluation',
+			category: 'Machine Learning',
+			image: 'stocks',
+			link: ''
+		},
+		{
+			name: 'Solid Fee Calculator',
+			category: 'Frontend Web app',
+			image: 'items',
+			link: 'https://github.com/aabdelw1/solid-fee-calculator'
+		},
+		{
+			name: 'Delta Debug',
+			category: 'Software Analysis',
+			image: 'delta',
+			link: ''
+		},
+		{
+			name: 'Marta Simulator',
+			category: 'Java Program',
+			image: 'bus',
+			link: 'https://github.com/aabdelw1/MartaSimulation'
+		},
+		{
+			name: 'DSA Key Recovery',
+			category: 'Applied Cryptography',
+			image: 'lock',
+			link: 'https://github.com/aabdelw1/dsa-key-recovery'
+		},
+		{
+			name: 'Length Extenstion Attack',
+			category: 'Applied Cryptography',
+			image: 'hash',
+			link: 'https://github.com/aabdelw1/length-extension-attack'
+		}
+	]
 
-  return (
-    <Container ref={ref}>
-      {/* <MiddleConsole onMouseLeave={() => setActiveCard(null)}>
+	return (
+		<Container ref={ref}>
+			{/* <MiddleConsole onMouseLeave={() => setActiveCard(null)}>
 				{
 					cardInfo.map((project, i) => {
 						const time = ((i + 0.5) * 0.25).toString() + 's'
@@ -152,19 +152,19 @@ const Portfolio = () => {
 				}
 			</MiddleConsole> */}
 
-      <UnderContruction>
-        <Row>
-          <img src={AmmarMinimal} />
-        </Row>
-        <Row>
-          <Heading>Oh hello there!</Heading>
-          <BodyText>
-            This page is currently going through a mid-life crisis. Come back soon!
-          </BodyText>
-        </Row>
-      </UnderContruction>
-    </Container>
-  )
+			<UnderContruction>
+				<Row>
+					<img src={AmmarMinimal} />
+				</Row>
+				<Row>
+					<Heading>Oh hello there!</Heading>
+					<BodyText>
+            This page is currently going through a phase. Come back soon!
+					</BodyText>
+				</Row>
+			</UnderContruction>
+		</Container>
+	)
 }
 
 export default Portfolio

@@ -32,7 +32,6 @@ const MiddleConsole = styled.div`
 			max-width: unset;
 			justify-content:center;
  	}
-
 `
 const AnimationBox = styled.div`
 	@media (max-width: 992px) { 
