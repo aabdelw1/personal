@@ -13,7 +13,6 @@ const AboutMeContainer = styled.div`
   max-height: 44.9rem;
   height:44.9rem;
 	padding: 0 1rem;
-
 	-webkit-transition: none !important;
   -moz-transition: none !important;
   -ms-transition: none !important;
@@ -55,8 +54,7 @@ const Pictures = styled.div`
 	transition: margin-top, opacity;
 	transition-duration: 0.2s;
 	transition-delay: ${props => props.time};
-	transition-timing-function: ease-in-out; 
-
+	transition-timing-function: ease-in-out;
 `
 const Column = styled.div`
 	transition: margin-left, opacity, left;
@@ -81,7 +79,6 @@ const Column = styled.div`
 		left: ${props => props.pos};
 		position: relative;
     max-width:90vh;
-    /* justify-content: center; */
     align-items: flex-end;
 		@media (max-width: 992px) { 
 			justify-content: center;

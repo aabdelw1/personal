@@ -124,7 +124,7 @@ const HomeText = () => {
 				<Column opacity={opac[1]}>
 					<Pane2>
 						<AboutBlock weight="bold"><p>&#60;</p>coder<p>&#62;</p></AboutBlock>
-						{!isMobile &&<Description weight="thin" paddingL="3.1rem">Full Stack Web Developr who focuses on writing elegant and effienct code. </Description> }
+						{!isMobile &&<Description weight="thin" paddingL="3.1rem">Full Stack Web Developr who focuses on writing elegant and efficient code.</Description> }
 					</Pane2>
 				</Column>
 			</MiddleConsole>
