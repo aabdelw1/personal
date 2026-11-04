@@ -111,7 +111,7 @@ const ContactMe = () => {
 			platform: 'linkedinO',
 			color: '#2F75AF',
 			text: 'Connect on LinkedIn',
-			link: 'https://www.linkedin.com/in/ammar-abdelwahed-b7148998/',
+			link: 'https://www.linkedin.com/in/ammar-abdelwahed/',
 		},
 	]
 
