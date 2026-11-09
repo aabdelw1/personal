@@ -142,7 +142,7 @@ const Skills = () => {
 			color: '#5e4b56',
 			height: '75%'
 		},{
-			skill: 'Yoga',
+			skill: 'Lego Building',
 			color: '#afd2e9',
 			height: '40%'
 		}
