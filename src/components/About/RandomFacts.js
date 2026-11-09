@@ -130,10 +130,10 @@ const RandomFacts = () => {
 						<Description>I like to draw</Description>
 						{ !isMobile && <Description><span ref={ref}>I make the best cookies</span></Description>}
 						{ isMobile && <Description>I make the best cookies</Description>}
-						<Description>I&#39;m a neat freak</Description>
+						<Description>I&#39;m a big Lego nerd</Description>
+						<Description>I love snowboarding</Description>
+						<Description>I&#39;m a big fan of cinema</Description>
 						<Description>I love volleyball</Description>
-						<Description>I love sci fi movies</Description>
-						<Description>I&#39;m addicted to Chick-fil-A</Description>
 					</Pane>
 				</Column> 
 			</MiddleConsole>
