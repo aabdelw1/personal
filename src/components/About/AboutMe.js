@@ -184,8 +184,8 @@ const AboutMe = () => {
 				<Column pos={'-' + aboutPos} opac={opac}>
 					<Pane2>
 						<AboutBlock weight="bold">About Me </AboutBlock>
-						<SubText>I&#39;m a software engineer based in cowboy country Dallas, Texas.</SubText>
-						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&apos;m not coding, gramming, or swearing at my computer, you&apos;ll find me cooking, yoga-ing, or shopping at Costco.</Description>
+						<SubText>I&#39;m a software engineer at Google, based in Mountain View, California.</SubText>
+						<Description weight="thin">I take pride in finding the best intuitive designs and making it better. When I&apos;m not coding, sketching, or swearing at my computer, you&apos;ll find me cooking, volleyball-ing, or shopping at Costco.</Description>
 					</Pane2>
 				</Column>
 				<Column pos={aboutPos} opac={opac}>
