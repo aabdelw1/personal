@@ -78,7 +78,7 @@ const NavbarLinks = [
 	// { name: 'home', link: '/' },
 	{ name: 'about', link: '/about' },
 	{ name: 'portfolio', link: '/portfolio' },
-	{ name: 'resume', link: 'https://read.cv/aabdelw1' },
+	{ name: 'resume', link: '/cv' },
 	{ name: 'contact', link: '/contact' },
 ]
 
