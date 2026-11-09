@@ -19,7 +19,7 @@ export const experience = [
 		location: 'Mountain View, CA',
 		dates: 'Apr 2025 – Present',
 		bullets: [
-			'Engineered the Value-Based Bidding (VBB) recommendations workflow in the Goals Hub using the BLoC pattern, enabling advertisers to seamlessly adopt Target ROAS and Max Value Bidding strategies',
+			'Engineered the Value-Based Bidding (VBB) recommendations workflow in the Goals Hub using the BLoC pattern, enabling advertisers to seamlessly adopt [Target ROAS](https://support.google.com/google-ads/answer/6268637) and Max Value Bidding strategies',
 			'Part of the new Conversational AI Sales team, focused on scaling AI-driven intelligence for GCS and LCS sales forces. Built an integrated Marketing Advisor chat histories page into the main details console and co-designed a robust segment-matching transcript highlighter',
 		],
 	},
@@ -30,7 +30,7 @@ export const experience = [
 		location: 'Nashville, TN',
 		dates: 'Jun 2023 – Feb 2025',
 		bullets: [
-			'Integral to ClassPass\'s Corporate Squad, enhancing the platform for corporate clients to manage employee wellness benefits. Improved both frontend and backend processes, including designing new APIs and updating existing ones',
+			'Integral to ClassPass\'s Corporate Squad, enhancing the [corporate wellness platform](https://classpass.com/corporate-wellness) that companies use to manage employee wellness benefits. Improved both frontend and backend processes, including designing new APIs and updating existing ones',
 			'Led the Corporate Invoicing Project, creating a dashboard that recovered $7 million in revenue by clarifying invoice statuses for corporate clients',
 		],
 		tech: 'React, TypeScript, Kotlin, gRPC, AWS S3',
@@ -42,7 +42,7 @@ export const experience = [
 		location: 'Nashville, TN',
 		dates: 'Jan 2023 – Jun 2023',
 		bullets: [
-			'Developed features for the Walmart+ platform, such as the benefits splash modal and the sign-up flow testing suite',
+			'Developed features for the [Walmart+](https://www.walmart.com/plus) platform, such as the benefits splash modal and the sign-up flow testing suite',
 			'Built an advertiser page featuring a keywords search dashboard, using React within a micro-frontend architecture to improve modularity and scalability',
 		],
 		tech: 'React, TypeScript, Java',

@@ -215,6 +215,25 @@ const Footer = styled.div`
 	}
 `
 
+const InlineLink = styled.a`
+	text-decoration: underline;
+	text-decoration-color: #b9b4ab;
+	text-underline-offset: 2px;
+
+	&:hover {
+		text-decoration-color: ${ink};
+	}
+`
+
+// Renders text with [label](url) markers as sparse inline links.
+const withLinks = (text) =>
+	text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, i) => {
+		const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+		return match
+			? <InlineLink key={i} href={match[2]} target="_blank" rel="noopener noreferrer">{match[1]}</InlineLink>
+			: part
+	})
+
 const CVPage = () => (
 	<Page>
 		<PageStyle/>
@@ -227,7 +246,7 @@ const CVPage = () => (
 
 				<section>
 					<SectionTitle>About</SectionTitle>
-					<Plain>{profile.about}</Plain>
+					<Plain>{withLinks(profile.about)}</Plain>
 				</section>
 
 				<section>
@@ -242,7 +261,7 @@ const CVPage = () => (
 							</RoleHeader>
 							<Location>{location}</Location>
 							<Bullets>
-								{bullets.map((b) => <li key={b}>{b}</li>)}
+								{bullets.map((b) => <li key={b}>{withLinks(b)}</li>)}
 							</Bullets>
 							{tech && <Tech>{tech}</Tech>}
 						</Role>
