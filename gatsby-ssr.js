@@ -4,7 +4,9 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-// You can delete this file if you're not using it
+import React from 'react'
+import { goatcounterEndpoint } from './src/analytics/goatcounter'
+
 export { wrapRootElement } from './src/apollo/wrap-root-element'
 /* eslint-disable react/no-danger */
 // import React from 'react'
@@ -24,3 +26,18 @@ export { wrapRootElement } from './src/apollo/wrap-root-element'
 // 		</React.Fragment>,
 // 	])
 // }
+
+// Load the GoatCounter script on every page. Page views are sent from
+// gatsby-browser.js on each route change, so automatic counting is turned off here.
+export const onRenderBody = ({ setPostBodyComponents }) => {
+	if (process.env.NODE_ENV !== 'production' || !goatcounterEndpoint) return
+	setPostBodyComponents([
+		<script
+			key="goatcounter"
+			async
+			src="https://gc.zgo.at/count.js"
+			data-goatcounter={goatcounterEndpoint}
+			data-goatcounter-settings='{"no_onload": true}'
+		/>,
+	])
+}
