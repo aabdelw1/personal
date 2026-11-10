@@ -16,6 +16,9 @@ const _ = (props) => (
 			<div style={{'margin-right': '0.5rem'}}>Made with ❤️ </div> 
 			<div>and ☕️</div> 
 		</div>
+		<div className="flex flex-row justify-center mt-1" style={{fontSize: '0.85em', opacity: 0.8}}>
+			Made pre-AI 🙂
+		</div>
 	</Styled_>
 )
 _.propTypes = {
